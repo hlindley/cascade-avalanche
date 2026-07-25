@@ -60,58 +60,36 @@ export class CascadeSimulation {
         const nz = z / (s - 1);
         const upperPower = Math.pow(nz, 1.25);
         const baseSlope = 36 * Math.pow(nz, 1.42);
-
-        // Broad alpine landforms.
         const centralBowl = -8.8 * Math.exp(-Math.pow((nx - mainShift) * 2.35, 2)) * Math.pow(nz, 1.72);
         const eastGully = -6.5 * Math.exp(-Math.pow((nx - (0.43 + secondaryShift * 0.35)) * 5.4, 2)) * Math.pow(nz, 1.42);
         const westGully = -4.9 * Math.exp(-Math.pow((nx + 0.5 - secondaryShift * 0.25) * 6.2, 2)) * Math.pow(nz, 1.55);
         const shoulder = 4.8 * Math.exp(-Math.pow((nx + 0.6 - ribShift) * 3.8, 2)) * Math.pow(nz, 1.75);
-
-        // Curving ravines whose centerlines wander down the face.
         const curveA = mainShift + Math.sin(nz * 8.1 + phaseA) * 0.1 + drainageLean * (nz - 0.5);
         const curveB = -0.42 + secondaryShift * 0.3 + Math.sin(nz * 10.5 + phaseB) * 0.075;
         const curveC = 0.48 + mainShift * 0.22 + Math.cos(nz * 9.2 + phaseA * 0.7) * 0.065;
         const ravineA = -5.4 * Math.exp(-Math.pow((nx - curveA) * 10.5, 2)) * smoothstep(0.18, 0.95, nz);
         const ravineB = -3.8 * Math.exp(-Math.pow((nx - curveB) * 13.5, 2)) * smoothstep(0.12, 0.82, nz);
         const ravineC = -3.3 * Math.exp(-Math.pow((nx - curveC) * 14.5, 2)) * smoothstep(0.25, 0.95, nz);
-
-        // Raised ribs between drainages make the slope readable in raking light.
         const ribA = 2.9 * Math.exp(-Math.pow((nx - (curveA - 0.19)) * 9.5, 2)) * upperPower;
         const ribB = 2.5 * Math.exp(-Math.pow((nx - (curveA + 0.22)) * 10.5, 2)) * upperPower;
         const ribC = 2.0 * Math.exp(-Math.pow((nx - (curveB + 0.17)) * 12, 2)) * smoothstep(0.2, 0.88, nz);
-
-        // Convex rolls and benches break up the otherwise continuous ramp.
         const roll1 = 2.2 * Math.exp(-Math.pow((nz - 0.72) * 11, 2)) * (0.45 + 0.55 * Math.cos((nx + phaseA) * 5.2));
         const roll2 = -1.8 * Math.exp(-Math.pow((nz - 0.5) * 14, 2)) * (0.5 + 0.5 * Math.cos((nx - phaseB) * 7.1));
         const roll3 = 1.35 * Math.exp(-Math.pow((nz - 0.3) * 18, 2)) * Math.sin((nx + phaseB) * 8.5);
-
-        // Multi-frequency sculpting: broad undulation plus fine clay-tool marks.
-        const broadNoise = (
-          Math.sin(x * 0.22 + phaseA) +
-          Math.cos(z * 0.19 + phaseB) +
-          Math.sin((x + z) * 0.13 + phaseA * 0.65)
-        ) * 0.48;
-        const fineNoise = (
-          Math.sin(x * 0.66 + z * 0.17 + phaseB) +
-          Math.cos(z * 0.73 - x * 0.11 + phaseA) +
-          (this.hashNoise(x, z, 3) - 0.5) * 1.5
-        ) * 0.28;
-
+        const broadNoise = (Math.sin(x * 0.22 + phaseA) + Math.cos(z * 0.19 + phaseB) + Math.sin((x + z) * 0.13 + phaseA * 0.65)) * 0.48;
+        const fineNoise = (Math.sin(x * 0.66 + z * 0.17 + phaseB) + Math.cos(z * 0.73 - x * 0.11 + phaseA) + (this.hashNoise(x, z, 3) - 0.5) * 1.5) * 0.28;
         const i = this.index(x, z);
         this.height[i] = baseSlope + centralBowl + eastGully + westGully + shoulder + ravineA + ravineB + ravineC + ribA + ribB + ribC + roll1 + roll2 + roll3 + broadNoise + fineNoise;
-
         const upper = smoothstep(0.25, 0.91, nz);
         const leeLoading = Math.exp(-Math.pow((nx - curveA * 0.7) * 1.55, 2));
         const windTexture = 0.12 * Math.sin(nx * 10 + nz * 4 + phaseA);
         this.snow[i] = clamp(0.12 + upper * (1.35 + 1.55 * leeLoading) + windTexture + (this.hashNoise(x, z, 4) - 0.5) * 0.18, 0.05, 3.3);
-
         const bandCenter = 0.71 + (this.hashNoise(12, 7, 5) - 0.5) * 0.09;
         const band = Math.exp(-Math.pow((nz - bandCenter) * 12, 2));
         const pocketX = mainShift + (this.hashNoise(2, 13, 6) - 0.5) * 0.22;
         const pocket = Math.exp(-Math.pow((nx - pocketX) * 5.5, 2)) * Math.exp(-Math.pow((nz - 0.68) * 7.5, 2));
         const convexWeakness = Math.max(0, roll1) * 0.055;
         this.stability[i] = clamp(0.86 - band * 0.42 - pocket * 0.35 - convexWeakness + (this.hashNoise(x, z, 7) - 0.5) * 0.1, 0.08, 0.96);
-
         const treeLine = 1 - smoothstep(0.58, 0.78, nz);
         const standA = Math.exp(-Math.pow((nx + 0.48) * 3.8, 2)) * Math.exp(-Math.pow((nz - 0.42) * 5.2, 2));
         const standB = Math.exp(-Math.pow((nx - 0.28) * 4.5, 2)) * Math.exp(-Math.pow((nz - 0.34) * 6.2, 2));
@@ -126,35 +104,53 @@ export class CascadeSimulation {
     const gx = Math.round(worldX / this.cellSize + this.size / 2);
     const gz = Math.round(worldZ / this.cellSize + this.size / 2);
     if (!this.inBounds(gx, gz)) return false;
-    const radius = 2 + Math.floor(power * 2);
+
+    const impactRadius = 2 + Math.floor(power * 1.5);
+    const maxFractureRadius = 9 + Math.floor(power * 4);
     let released = 0;
 
-    for (let dz = -radius; dz <= radius; dz++) {
-      for (let dx = -radius; dx <= radius; dx++) {
+    for (let dz = -impactRadius; dz <= impactRadius; dz++) {
+      for (let dx = -impactRadius; dx <= impactRadius; dx++) {
         const x = gx + dx, z = gz + dz;
         if (!this.inBounds(x, z)) continue;
         const d = Math.hypot(dx, dz);
-        if (d > radius) continue;
-        this.stability[this.index(x, z)] -= (1 - d / (radius + 0.01)) * 0.85 * power;
+        if (d > impactRadius) continue;
+        this.stability[this.index(x, z)] -= (1 - d / (impactRadius + 0.01)) * 0.78 * power;
       }
     }
 
-    const queue = [[gx, gz]];
+    const queue = [[gx, gz, 0]];
     const visited = new Uint8Array(this.size * this.size);
     while (queue.length) {
-      const [x, z] = queue.shift();
-      if (!this.inBounds(x, z)) continue;
+      const [x, z, distance] = queue.shift();
+      if (!this.inBounds(x, z) || distance > maxFractureRadius) continue;
       const i = this.index(x, z);
       if (visited[i]) continue;
       visited[i] = 1;
-      const stress = this.neighborFractureRatio(x, z) * 0.28;
-      if (this.stability[i] - stress > 0.38 || this.snow[i] < 0.35) continue;
+
+      const radialFade = 1 - distance / (maxFractureRadius + 0.01);
+      const neighborStress = this.neighborFractureRatio(x, z);
+      const propagationStress = neighborStress * (0.24 + radialFade * 0.12);
+      const distancePenalty = (1 - radialFade) * 0.18;
+      const localThreshold = 0.34 + distancePenalty;
+      const weakEnough = this.stability[i] - propagationStress <= localThreshold;
+      if (!weakEnough || this.snow[i] < 0.35) continue;
+
       this.fractured[i] = 1;
-      const mass = this.snow[i] * 0.72;
+      const releaseFraction = 0.48 + radialFade * 0.22;
+      const mass = this.snow[i] * releaseFraction;
       this.snow[i] -= mass;
       this.moving[i] += mass;
       released += mass;
-      for (const [nx, nz] of neighbors8(x, z)) if (this.inBounds(nx, nz)) queue.push([nx, nz]);
+
+      for (const [nx, nz] of neighbors8(x, z)) {
+        if (!this.inBounds(nx, nz)) continue;
+        const ni = this.index(nx, nz);
+        const stabilityJump = this.stability[ni] - this.stability[i];
+        const terrainJump = Math.abs(this.height[ni] - this.height[i]);
+        if (stabilityJump > 0.16 || terrainJump > 2.6) continue;
+        queue.push([nx, nz, distance + Math.hypot(nx - x, nz - z)]);
+      }
     }
 
     this.totalReleased += released;
@@ -177,27 +173,20 @@ export class CascadeSimulation {
     this.elapsed += dt;
     this.nextMoving.fill(0);
     let activeMass = 0;
-
     for (let z = 1; z < this.size - 1; z++) {
       for (let x = 1; x < this.size - 1; x++) {
         const i = this.index(x, z);
         const mass = this.moving[i];
         if (mass < 0.003) continue;
-
         const forestDrag = this.forest[i];
         const current = this.height[i] + this.snow[i] + mass * 0.12;
         const candidates = [];
         let totalDrop = 0;
-
         for (const [nx, nz] of neighbors8(x, z)) {
           const ni = this.index(nx, nz);
           const drop = current - (this.height[ni] + this.snow[ni] + this.moving[ni] * 0.08);
-          if (drop > 0.02) {
-            candidates.push([ni, drop]);
-            totalDrop += drop;
-          }
+          if (drop > 0.02) { candidates.push([ni, drop]); totalDrop += drop; }
         }
-
         const energy = Math.min(1, totalDrop / 6);
         const braking = 0.075 * this.frictionScale + forestDrag * 0.34;
         const speed = clamp(this.velocity[i] + energy * 0.34 * this.flowScale - braking, 0, 2.6 * this.flowScale);
@@ -205,12 +194,10 @@ export class CascadeSimulation {
         const fraction = clamp((0.18 + speed * 0.22) * movementPenalty, 0.025, 0.78);
         const outgoing = candidates.length ? mass * fraction : 0;
         let retained = mass - outgoing;
-
         const intercepted = Math.min(retained, mass * forestDrag * 0.075);
         retained -= intercepted;
         this.snow[i] += intercepted;
         this.nextMoving[i] += retained;
-
         if (candidates.length) {
           for (const [ni, drop] of candidates) {
             const destinationForest = this.forest[ni];
@@ -225,12 +212,10 @@ export class CascadeSimulation {
           this.snow[i] += retained * 0.28;
           this.nextMoving[i] -= retained * 0.28;
         }
-
         this.velocity[i] *= 0.82 * (1 - forestDrag * 0.55);
         activeMass += this.nextMoving[i];
       }
     }
-
     [this.moving, this.nextMoving] = [this.nextMoving, this.moving];
     if (activeMass < 0.45) this.settledFrames++;
     else this.settledFrames = 0;
@@ -245,11 +230,7 @@ export class CascadeSimulation {
 
   worldPosition(x, z) {
     const i = this.index(x, z);
-    return {
-      x: (x - this.size / 2) * this.cellSize,
-      y: this.height[i] + this.snow[i] + 0.18,
-      z: (z - this.size / 2) * this.cellSize,
-    };
+    return { x: (x - this.size / 2) * this.cellSize, y: this.height[i] + this.snow[i] + 0.18, z: (z - this.size / 2) * this.cellSize };
   }
 }
 
