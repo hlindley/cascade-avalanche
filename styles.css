@@ -1,25 +1,31 @@
 :root { color-scheme: dark; font-family: Inter, ui-rounded, "SF Pro Rounded", system-ui, sans-serif; }
 * { box-sizing: border-box; }
-html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #171b28; }
-body::after { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 72% 22%,rgba(255,187,115,.13),transparent 32%),linear-gradient(180deg,transparent 58%,rgba(22,18,29,.2)); mix-blend-mode:screen; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #7776a3; }
+body::after { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(circle at 76% 25%,rgba(255,215,163,.18),transparent 36%),linear-gradient(180deg,rgba(255,255,255,.04),transparent 54%,rgba(74,49,67,.08)); mix-blend-mode:screen; }
 #renderCanvas { width: 100%; height: 100%; display: block; touch-action: none; outline: none; }
 #hud { position: fixed; inset: 0; pointer-events: none; padding: clamp(18px, 3vw, 38px); display: flex; flex-direction: column; }
-header { max-width: 440px; text-shadow: 0 3px 20px rgba(38,24,31,.45); }
+header { max-width: 440px; text-shadow: 0 3px 20px rgba(38,24,31,.28); }
 .eyebrow { font-size: 10px; letter-spacing: .24em; font-weight: 900; opacity: .72; }
 h1 { margin: 3px 0 -5px; font-size: clamp(43px, 8vw, 92px); line-height: .93; letter-spacing: -.06em; }
-.subtitle { font-size: clamp(15px, 2vw, 20px); opacity: .82; }
-#readout { margin-top: 22px; display: grid; gap: 7px; width: min(315px, 72vw); }
-#readout div, #buildHud div { display:flex; justify-content:space-between; gap:18px; font-size:11px; letter-spacing:.1em; background:rgba(44,35,47,.48); border:1px solid rgba(255,239,220,.17); backdrop-filter:blur(14px); padding:9px 11px; box-shadow:0 10px 26px rgba(48,26,32,.12); }
-#readout span, #buildHud span { opacity:.58; } #readout strong, #buildHud strong { font-variant-numeric:tabular-nums; text-align:right; }
-#buildHud { position:fixed; right:clamp(18px,3vw,38px); top:clamp(18px,3vw,38px); display:grid; width:148px; gap:5px; }
-#hint { margin-top:auto; margin-bottom:72px; align-self:center; font-size:12px; opacity:.68; text-align:center; text-shadow:0 2px 10px #32252e; }
+.subtitle { font-size: clamp(15px, 2vw, 20px); opacity: .86; }
+#statusToggle { pointer-events:auto; margin-top:16px; align-self:flex-start; padding:11px 15px; display:flex; align-items:center; gap:14px; background:rgba(55,44,62,.58); box-shadow:0 10px 28px rgba(50,30,43,.14); }
+#statusToggle b { font-size:16px; line-height:.7; opacity:.72; }
+#statusPanel { pointer-events:auto; margin-top:8px; width:min(315px,78vw); padding:8px; border-radius:17px; background:rgba(52,41,58,.54); border:1px solid rgba(255,244,231,.18); backdrop-filter:blur(18px); box-shadow:0 18px 45px rgba(48,28,40,.18); }
+#statusPanel[hidden] { display:none; }
+#readout { display: grid; gap: 6px; width:100%; }
+#readout div, #buildHud div { display:flex; justify-content:space-between; gap:18px; font-size:11px; letter-spacing:.1em; background:rgba(47,37,54,.42); border:1px solid rgba(255,244,231,.13); padding:8px 10px; box-shadow:none; }
+#readout span, #buildHud span { opacity:.62; } #readout strong, #buildHud strong { font-variant-numeric:tabular-nums; text-align:right; }
+#buildHud { position:static; display:grid; grid-template-columns:1fr 1fr 1fr; width:100%; gap:5px; margin-top:6px; }
+#buildHud div { display:grid; gap:4px; justify-content:initial; font-size:9px; letter-spacing:.08em; }
+#buildHud strong { text-align:left; }
+#hint { margin-top:auto; margin-bottom:72px; align-self:center; font-size:12px; opacity:.74; text-align:center; text-shadow:0 2px 10px rgba(50,37,47,.55); }
 #controls { position:fixed; bottom:max(18px,env(safe-area-inset-bottom)); left:50%; transform:translateX(-50%); display:flex; gap:12px; }
-button { border:0; color:white; font:900 12px/1 system-ui; letter-spacing:.15em; border-radius:999px; padding:16px 25px; background:rgba(49,39,50,.82); border:1px solid rgba(255,239,220,.25); backdrop-filter:blur(14px); box-shadow:0 10px 30px rgba(42,25,34,.25); }
+button { border:0; color:white; font:900 12px/1 system-ui; letter-spacing:.15em; border-radius:999px; padding:16px 25px; background:rgba(49,39,50,.72); border:1px solid rgba(255,245,232,.28); backdrop-filter:blur(14px); box-shadow:0 10px 30px rgba(42,25,34,.18); }
 button:active { transform:translateY(1px); }
-#fireButton { background:#fff0df; color:#342532; min-width:118px; }
+#fireButton { background:#fff1e1; color:#342532; min-width:118px; }
 #fireButton:disabled { opacity:.45; }
 #tuneToggle { position:fixed; right:clamp(18px,3vw,38px); bottom:max(20px,env(safe-area-inset-bottom)); padding:13px 17px; z-index:5; }
-#tuningPanel { position:fixed; z-index:6; right:clamp(16px,3vw,34px); bottom:76px; width:min(320px,calc(100vw - 32px)); max-height:min(76vh,720px); overflow:auto; padding:18px; border-radius:22px; background:rgba(45,34,48,.9); border:1px solid rgba(255,239,220,.22); backdrop-filter:blur(22px); box-shadow:0 24px 65px rgba(40,20,32,.36); }
+#tuningPanel { position:fixed; z-index:6; right:clamp(16px,3vw,34px); bottom:76px; width:min(320px,calc(100vw - 32px)); max-height:min(76vh,720px); overflow:auto; padding:18px; border-radius:22px; background:rgba(56,43,61,.86); border:1px solid rgba(255,244,231,.24); backdrop-filter:blur(22px); box-shadow:0 24px 65px rgba(40,20,32,.28); }
 .panelTitle { display:flex; align-items:center; justify-content:space-between; font-weight:900; font-size:11px; letter-spacing:.15em; margin-bottom:10px; }
 .panelTitle button { padding:4px 8px; background:transparent; box-shadow:none; font-size:24px; }
 .labSection { margin:14px 0 6px; padding-top:10px; border-top:1px solid rgba(255,239,220,.14); font-size:9px; letter-spacing:.2em; font-weight:900; opacity:.58; }
@@ -31,6 +37,6 @@ button:active { transform:translateY(1px); }
 #reticle::before,#reticle::after { content:""; position:absolute; background:#fff7ed; opacity:.9; }
 #reticle::before { width:46px; height:1px; left:-7px; top:16px; } #reticle::after { height:46px; width:1px; top:-7px; left:16px; }
 #reticle i { position:absolute; width:4px; height:4px; background:white; border-radius:50%; left:14px; top:14px; }
-#resultPanel { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); width:min(420px,calc(100vw - 40px)); padding:28px; text-align:center; background:rgba(50,37,51,.86); border:1px solid rgba(255,239,220,.22); backdrop-filter:blur(20px); border-radius:24px; box-shadow:0 24px 80px rgba(43,23,34,.42); }
+#resultPanel { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); width:min(420px,calc(100vw - 40px)); padding:28px; text-align:center; background:rgba(58,43,60,.82); border:1px solid rgba(255,239,220,.24); backdrop-filter:blur(20px); border-radius:24px; box-shadow:0 24px 80px rgba(43,23,34,.32); }
 #resultTitle { margin:10px 0 22px; font-weight:950; font-size:clamp(25px,6vw,42px); letter-spacing:-.035em; }
-@media(max-width:600px){ #readout{margin-top:14px;width:min(290px,76vw)} #buildHud{top:auto;right:16px;bottom:76px;width:118px} #buildHud div{padding:7px 9px;font-size:9px} #hint{margin-bottom:82px} button{padding:15px 20px} #tuneToggle{right:auto;left:16px;bottom:78px} #tuningPanel{right:16px;bottom:74px;max-height:72vh} }
+@media(max-width:600px){ #statusToggle{margin-top:12px;padding:10px 13px} #statusPanel{width:min(290px,82vw)} #buildHud{grid-template-columns:repeat(3,1fr)} #hint{margin-bottom:82px} button{padding:15px 20px} #tuneToggle{right:auto;left:16px;bottom:78px} #tuningPanel{right:16px;bottom:74px;max-height:72vh} }
