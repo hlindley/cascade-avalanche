@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>CASCADE: Avalanche Prototype</title>
+  <meta name="theme-color" content="#171b28" />
+  <title>CASCADE: Clay Mountain</title>
   <link rel="stylesheet" href="./styles.css" />
   <script src="https://cdn.babylonjs.com/babylon.js"></script>
 </head>
@@ -11,7 +12,7 @@
   <canvas id="renderCanvas" aria-label="CASCADE avalanche simulation"></canvas>
   <div id="hud">
     <header>
-      <div class="eyebrow">PHYSICS PROTOTYPE 0.1</div>
+      <div class="eyebrow">HANDCRAFTED PHYSICS PROTOTYPE</div>
       <h1>CASCADE</h1>
       <div class="subtitle">Find the weak point.</div>
     </header>
@@ -20,8 +21,24 @@
       <div><span>RELEASED</span><strong id="releasedMass">0 t</strong></div>
       <div><span>DAMAGE</span><strong id="damageScore">0</strong></div>
     </section>
+    <section id="buildHud" aria-label="Build information">
+      <div><span>BUILD</span><strong id="buildVersion">v0.2</strong></div>
+      <div><span>SEED</span><strong id="seedValue">48152</strong></div>
+      <div><span>FPS</span><strong id="fpsValue">--</strong></div>
+    </section>
     <div id="hint">Drag to orbit · tap the mountain to aim · FIRE to release</div>
   </div>
+
+  <button id="tuneToggle" type="button" aria-expanded="false" aria-controls="tuningPanel">TUNE</button>
+  <aside id="tuningPanel" hidden>
+    <div class="panelTitle"><span>THE MOUNTAIN LAB</span><button id="closeTune" type="button" aria-label="Close tuning panel">×</button></div>
+    <label>Snow cohesion <output id="cohesionOut">1.00</output><input id="cohesion" type="range" min="0.65" max="1.35" value="1" step="0.05"></label>
+    <label>Flow speed <output id="speedOut">1.00</output><input id="speed" type="range" min="0.65" max="1.45" value="1" step="0.05"></label>
+    <label>Surface friction <output id="frictionOut">1.00</output><input id="friction" type="range" min="0.65" max="1.35" value="1" step="0.05"></label>
+    <label>Alpenglow <output id="lightOut">0.82</output><input id="light" type="range" min="0.25" max="1" value="0.82" step="0.01"></label>
+    <button id="reseedButton" class="wide" type="button">NEW MOUNTAIN</button>
+  </aside>
+
   <div id="reticle" aria-hidden="true"><i></i></div>
   <div id="controls">
     <button id="resetButton" type="button">RESET</button>
