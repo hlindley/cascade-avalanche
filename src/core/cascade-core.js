@@ -49,42 +49,75 @@ export class CascadeSimulation {
     const s = this.size;
     const phaseA = (this.seed % 997) * 0.013;
     const phaseB = (this.seed % 577) * 0.021;
+    const mainShift = (this.hashNoise(4, 9, 1) - 0.5) * 0.34;
+    const secondaryShift = (this.hashNoise(8, 3, 2) - 0.5) * 0.42;
+    const ribShift = (this.hashNoise(5, 12, 9) - 0.5) * 0.3;
+    const drainageLean = (this.hashNoise(19, 2, 10) - 0.5) * 0.42;
 
     for (let z = 0; z < s; z++) {
       for (let x = 0; x < s; x++) {
         const nx = (x / (s - 1)) * 2 - 1;
         const nz = z / (s - 1);
-        const ridgeShift = (this.hashNoise(4, 9, 1) - 0.5) * 0.28;
-        const bowlShift = (this.hashNoise(8, 3, 2) - 0.5) * 0.35;
-        const ridge = 32 * Math.pow(nz, 1.35);
-        const bowl = -7.5 * Math.exp(-Math.pow((nx - bowlShift) * 2.15, 2)) * Math.pow(nz, 1.7);
-        const east = -4.8 * Math.exp(-Math.pow((nx - (0.42 + ridgeShift)) * 5, 2)) * Math.pow(nz, 1.35);
-        const west = 3.2 * Math.exp(-Math.pow((nx + 0.55 - ridgeShift * 0.5) * 4, 2)) * Math.pow(nz, 1.8);
-        const seededRough = (
-          Math.sin(x * 0.43 + phaseA) +
-          Math.cos(z * 0.36 + phaseB) +
-          Math.sin((x + z) * 0.19 + phaseA * 0.7) +
-          (this.hashNoise(x, z, 3) - 0.5) * 1.2
-        ) * 0.34;
+        const upperPower = Math.pow(nz, 1.25);
+        const baseSlope = 36 * Math.pow(nz, 1.42);
+
+        // Broad alpine landforms.
+        const centralBowl = -8.8 * Math.exp(-Math.pow((nx - mainShift) * 2.35, 2)) * Math.pow(nz, 1.72);
+        const eastGully = -6.5 * Math.exp(-Math.pow((nx - (0.43 + secondaryShift * 0.35)) * 5.4, 2)) * Math.pow(nz, 1.42);
+        const westGully = -4.9 * Math.exp(-Math.pow((nx + 0.5 - secondaryShift * 0.25) * 6.2, 2)) * Math.pow(nz, 1.55);
+        const shoulder = 4.8 * Math.exp(-Math.pow((nx + 0.6 - ribShift) * 3.8, 2)) * Math.pow(nz, 1.75);
+
+        // Curving ravines whose centerlines wander down the face.
+        const curveA = mainShift + Math.sin(nz * 8.1 + phaseA) * 0.1 + drainageLean * (nz - 0.5);
+        const curveB = -0.42 + secondaryShift * 0.3 + Math.sin(nz * 10.5 + phaseB) * 0.075;
+        const curveC = 0.48 + mainShift * 0.22 + Math.cos(nz * 9.2 + phaseA * 0.7) * 0.065;
+        const ravineA = -5.4 * Math.exp(-Math.pow((nx - curveA) * 10.5, 2)) * smoothstep(0.18, 0.95, nz);
+        const ravineB = -3.8 * Math.exp(-Math.pow((nx - curveB) * 13.5, 2)) * smoothstep(0.12, 0.82, nz);
+        const ravineC = -3.3 * Math.exp(-Math.pow((nx - curveC) * 14.5, 2)) * smoothstep(0.25, 0.95, nz);
+
+        // Raised ribs between drainages make the slope readable in raking light.
+        const ribA = 2.9 * Math.exp(-Math.pow((nx - (curveA - 0.19)) * 9.5, 2)) * upperPower;
+        const ribB = 2.5 * Math.exp(-Math.pow((nx - (curveA + 0.22)) * 10.5, 2)) * upperPower;
+        const ribC = 2.0 * Math.exp(-Math.pow((nx - (curveB + 0.17)) * 12, 2)) * smoothstep(0.2, 0.88, nz);
+
+        // Convex rolls and benches break up the otherwise continuous ramp.
+        const roll1 = 2.2 * Math.exp(-Math.pow((nz - 0.72) * 11, 2)) * (0.45 + 0.55 * Math.cos((nx + phaseA) * 5.2));
+        const roll2 = -1.8 * Math.exp(-Math.pow((nz - 0.5) * 14, 2)) * (0.5 + 0.5 * Math.cos((nx - phaseB) * 7.1));
+        const roll3 = 1.35 * Math.exp(-Math.pow((nz - 0.3) * 18, 2)) * Math.sin((nx + phaseB) * 8.5);
+
+        // Multi-frequency sculpting: broad undulation plus fine clay-tool marks.
+        const broadNoise = (
+          Math.sin(x * 0.22 + phaseA) +
+          Math.cos(z * 0.19 + phaseB) +
+          Math.sin((x + z) * 0.13 + phaseA * 0.65)
+        ) * 0.48;
+        const fineNoise = (
+          Math.sin(x * 0.66 + z * 0.17 + phaseB) +
+          Math.cos(z * 0.73 - x * 0.11 + phaseA) +
+          (this.hashNoise(x, z, 3) - 0.5) * 1.5
+        ) * 0.28;
 
         const i = this.index(x, z);
-        this.height[i] = ridge + bowl + east + west + seededRough;
+        this.height[i] = baseSlope + centralBowl + eastGully + westGully + shoulder + ravineA + ravineB + ravineC + ribA + ribB + ribC + roll1 + roll2 + roll3 + broadNoise + fineNoise;
 
-        const upper = smoothstep(0.28, 0.9, nz);
-        const center = Math.exp(-Math.pow((nx - bowlShift * 0.45) * 1.35, 2));
-        this.snow[i] = 0.15 + upper * (1.5 + 1.35 * center) + (this.hashNoise(x, z, 4) - 0.5) * 0.16;
+        const upper = smoothstep(0.25, 0.91, nz);
+        const leeLoading = Math.exp(-Math.pow((nx - curveA * 0.7) * 1.55, 2));
+        const windTexture = 0.12 * Math.sin(nx * 10 + nz * 4 + phaseA);
+        this.snow[i] = clamp(0.12 + upper * (1.35 + 1.55 * leeLoading) + windTexture + (this.hashNoise(x, z, 4) - 0.5) * 0.18, 0.05, 3.3);
 
-        const bandCenter = 0.72 + (this.hashNoise(12, 7, 5) - 0.5) * 0.08;
+        const bandCenter = 0.71 + (this.hashNoise(12, 7, 5) - 0.5) * 0.09;
         const band = Math.exp(-Math.pow((nz - bandCenter) * 12, 2));
-        const pocketX = -0.12 + (this.hashNoise(2, 13, 6) - 0.5) * 0.36;
-        const pocket = Math.exp(-Math.pow((nx - pocketX) * 5, 2)) * Math.exp(-Math.pow((nz - 0.68) * 7, 2));
-        this.stability[i] = clamp(0.86 - band * 0.42 - pocket * 0.35 + (this.hashNoise(x, z, 7) - 0.5) * 0.1, 0.08, 0.96);
+        const pocketX = mainShift + (this.hashNoise(2, 13, 6) - 0.5) * 0.22;
+        const pocket = Math.exp(-Math.pow((nx - pocketX) * 5.5, 2)) * Math.exp(-Math.pow((nz - 0.68) * 7.5, 2));
+        const convexWeakness = Math.max(0, roll1) * 0.055;
+        this.stability[i] = clamp(0.86 - band * 0.42 - pocket * 0.35 - convexWeakness + (this.hashNoise(x, z, 7) - 0.5) * 0.1, 0.08, 0.96);
 
         const treeLine = 1 - smoothstep(0.58, 0.78, nz);
         const standA = Math.exp(-Math.pow((nx + 0.48) * 3.8, 2)) * Math.exp(-Math.pow((nz - 0.42) * 5.2, 2));
         const standB = Math.exp(-Math.pow((nx - 0.28) * 4.5, 2)) * Math.exp(-Math.pow((nz - 0.34) * 6.2, 2));
+        const ravineExclusion = clamp(1 - Math.max(Math.exp(-Math.pow((nx - curveA) * 13, 2)), Math.exp(-Math.pow((nx - curveB) * 15, 2))) * 0.72, 0.15, 1);
         const forestNoise = this.hashNoise(x, z, 8);
-        this.forest[i] = clamp(treeLine * (standA * 0.95 + standB * 0.8 + forestNoise * 0.18 - 0.08), 0, 1);
+        this.forest[i] = clamp(treeLine * (standA * 0.95 + standB * 0.8 + forestNoise * 0.18 - 0.08) * ravineExclusion, 0, 1);
       }
     }
   }
