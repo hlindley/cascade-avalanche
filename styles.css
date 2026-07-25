@@ -8,9 +8,9 @@ header { max-width: 440px; text-shadow: 0 3px 20px rgba(38,24,31,.45); }
 .eyebrow { font-size: 10px; letter-spacing: .24em; font-weight: 900; opacity: .72; }
 h1 { margin: 3px 0 -5px; font-size: clamp(43px, 8vw, 92px); line-height: .93; letter-spacing: -.06em; }
 .subtitle { font-size: clamp(15px, 2vw, 20px); opacity: .82; }
-#readout { margin-top: 22px; display: grid; gap: 7px; width: min(280px, 67vw); }
+#readout { margin-top: 22px; display: grid; gap: 7px; width: min(315px, 72vw); }
 #readout div, #buildHud div { display:flex; justify-content:space-between; gap:18px; font-size:11px; letter-spacing:.1em; background:rgba(44,35,47,.48); border:1px solid rgba(255,239,220,.17); backdrop-filter:blur(14px); padding:9px 11px; box-shadow:0 10px 26px rgba(48,26,32,.12); }
-#readout span, #buildHud span { opacity:.58; } #readout strong, #buildHud strong { font-variant-numeric:tabular-nums; }
+#readout span, #buildHud span { opacity:.58; } #readout strong, #buildHud strong { font-variant-numeric:tabular-nums; text-align:right; }
 #buildHud { position:fixed; right:clamp(18px,3vw,38px); top:clamp(18px,3vw,38px); display:grid; width:148px; gap:5px; }
 #hint { margin-top:auto; margin-bottom:72px; align-self:center; font-size:12px; opacity:.68; text-align:center; text-shadow:0 2px 10px #32252e; }
 #controls { position:fixed; bottom:max(18px,env(safe-area-inset-bottom)); left:50%; transform:translateX(-50%); display:flex; gap:12px; }
@@ -19,10 +19,11 @@ button:active { transform:translateY(1px); }
 #fireButton { background:#fff0df; color:#342532; min-width:118px; }
 #fireButton:disabled { opacity:.45; }
 #tuneToggle { position:fixed; right:clamp(18px,3vw,38px); bottom:max(20px,env(safe-area-inset-bottom)); padding:13px 17px; z-index:5; }
-#tuningPanel { position:fixed; z-index:6; right:clamp(16px,3vw,34px); bottom:76px; width:min(300px,calc(100vw - 32px)); padding:18px; border-radius:22px; background:rgba(45,34,48,.88); border:1px solid rgba(255,239,220,.22); backdrop-filter:blur(22px); box-shadow:0 24px 65px rgba(40,20,32,.36); }
-.panelTitle { display:flex; align-items:center; justify-content:space-between; font-weight:900; font-size:11px; letter-spacing:.15em; margin-bottom:14px; }
+#tuningPanel { position:fixed; z-index:6; right:clamp(16px,3vw,34px); bottom:76px; width:min(320px,calc(100vw - 32px)); max-height:min(76vh,720px); overflow:auto; padding:18px; border-radius:22px; background:rgba(45,34,48,.9); border:1px solid rgba(255,239,220,.22); backdrop-filter:blur(22px); box-shadow:0 24px 65px rgba(40,20,32,.36); }
+.panelTitle { display:flex; align-items:center; justify-content:space-between; font-weight:900; font-size:11px; letter-spacing:.15em; margin-bottom:10px; }
 .panelTitle button { padding:4px 8px; background:transparent; box-shadow:none; font-size:24px; }
-#tuningPanel label { display:grid; grid-template-columns:1fr auto; gap:6px 12px; margin:12px 0; font-size:12px; font-weight:700; }
+.labSection { margin:14px 0 6px; padding-top:10px; border-top:1px solid rgba(255,239,220,.14); font-size:9px; letter-spacing:.2em; font-weight:900; opacity:.58; }
+#tuningPanel label { display:grid; grid-template-columns:1fr auto; gap:6px 12px; margin:11px 0; font-size:12px; font-weight:700; }
 #tuningPanel output { opacity:.7; font-variant-numeric:tabular-nums; }
 #tuningPanel input { grid-column:1/-1; width:100%; accent-color:#ffd1a4; }
 #tuningPanel .wide { width:100%; margin-top:8px; background:#fff0df; color:#342532; }
@@ -32,4 +33,4 @@ button:active { transform:translateY(1px); }
 #reticle i { position:absolute; width:4px; height:4px; background:white; border-radius:50%; left:14px; top:14px; }
 #resultPanel { position:fixed; left:50%; top:50%; transform:translate(-50%,-50%); width:min(420px,calc(100vw - 40px)); padding:28px; text-align:center; background:rgba(50,37,51,.86); border:1px solid rgba(255,239,220,.22); backdrop-filter:blur(20px); border-radius:24px; box-shadow:0 24px 80px rgba(43,23,34,.42); }
 #resultTitle { margin:10px 0 22px; font-weight:950; font-size:clamp(25px,6vw,42px); letter-spacing:-.035em; }
-@media(max-width:600px){ #readout{margin-top:14px} #buildHud{top:auto;right:16px;bottom:76px;width:118px} #buildHud div{padding:7px 9px;font-size:9px} #hint{margin-bottom:82px} button{padding:15px 20px} #tuneToggle{right:auto;left:16px;bottom:78px} }
+@media(max-width:600px){ #readout{margin-top:14px;width:min(290px,76vw)} #buildHud{top:auto;right:16px;bottom:76px;width:118px} #buildHud div{padding:7px 9px;font-size:9px} #hint{margin-bottom:82px} button{padding:15px 20px} #tuneToggle{right:auto;left:16px;bottom:78px} #tuningPanel{right:16px;bottom:74px;max-height:72vh} }
