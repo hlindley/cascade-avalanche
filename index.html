@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>CASCADE: Avalanche Prototype</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+</head>
+<body>
+  <canvas id="renderCanvas" aria-label="CASCADE avalanche simulation"></canvas>
+  <div id="hud">
+    <header>
+      <div class="eyebrow">PHYSICS PROTOTYPE 0.1</div>
+      <h1>CASCADE</h1>
+      <div class="subtitle">Find the weak point.</div>
+    </header>
+    <section id="readout">
+      <div><span>SHOT</span><strong id="shotState">READY</strong></div>
+      <div><span>RELEASED</span><strong id="releasedMass">0 t</strong></div>
+      <div><span>DAMAGE</span><strong id="damageScore">0</strong></div>
+    </section>
+    <div id="hint">Drag to orbit · tap the mountain to aim · FIRE to release</div>
+  </div>
+  <div id="reticle" aria-hidden="true"><i></i></div>
+  <div id="controls">
+    <button id="resetButton" type="button">RESET</button>
+    <button id="fireButton" type="button">FIRE</button>
+  </div>
+  <div id="resultPanel" hidden>
+    <div class="eyebrow">CASCADE COMPLETE</div>
+    <div id="resultTitle">THE MOUNTAIN HELD</div>
+    <button id="retryButton" type="button">TRY ANOTHER SHOT</button>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
