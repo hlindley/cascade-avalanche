@@ -7,33 +7,30 @@ const TEMPLATE_SCALE = 1000;
 
 CascadeScene.prototype.buildScene = function buildSceneWithContourEdgeMist() {
   previousBuildScene.call(this);
-
-  // Retire the pre-contour emitter. Its particles were generated from raw cells
-  // and were frequently hidden behind the new contour surface.
   if (this.leadingMistMesh) this.leadingMistMesh.setEnabled(false);
 
   this.contourMist = {
     particles: [],
-    maxParticles: 2200,
+    maxParticles: 3200,
     lastTime: performance.now() * 0.001,
     frame: 0
   };
 
-  const mesh = BABYLON.MeshBuilder.CreateIcoSphere('contourEdgeMist0712', {
+  const mesh = BABYLON.MeshBuilder.CreateIcoSphere('contourEdgeMist0713', {
     radius: 0.001,
-    subdivisions: 0
+    subdivisions: 1
   }, this.scene);
-  const material = new BABYLON.StandardMaterial('contourEdgeMistMat0712', this.scene);
+  const material = new BABYLON.StandardMaterial('contourEdgeMistMat0713', this.scene);
   material.diffuseColor = new BABYLON.Color3(1.0, 1.0, 1.0);
-  material.emissiveColor = new BABYLON.Color3(0.28, 0.30, 0.36);
-  material.alpha = 0.40;
+  material.emissiveColor = new BABYLON.Color3(0.52, 0.54, 0.62);
+  material.alpha = 0.56;
   material.transparencyMode = BABYLON.Material.MATERIAL_ALPHABLEND;
   material.disableDepthWrite = true;
   material.backFaceCulling = false;
   mesh.material = material;
   mesh.isPickable = false;
   mesh.alwaysSelectAsActiveMesh = true;
-  mesh.renderingGroupId = 2;
+  mesh.renderingGroupId = 3;
   this.contourMistMesh = mesh;
 };
 
@@ -58,26 +55,27 @@ CascadeScene.prototype.updateFlow = function updateFlowWithContourEdgeMist() {
     p.age += dt;
     if (p.age >= p.life) continue;
 
-    p.vy -= 3.3 * dt;
-    p.vx *= 0.991;
-    p.vz *= 0.991;
+    p.vy -= 2.5 * dt;
+    p.vx *= 0.988;
+    p.vz *= 0.988;
     p.x += p.vx * dt;
     p.y += p.vy * dt;
     p.z += p.vz * dt;
 
-    const ground = this.sim.sampleWorldHeight(p.x, p.z) + 0.035;
+    const ground = this.sim.sampleWorldHeight(p.x, p.z) + 0.055;
     if (p.y < ground) {
       p.y = ground;
-      p.vy = Math.abs(p.vy) * 0.07;
+      p.vy = Math.abs(p.vy) * 0.10;
     }
 
-    const fade = Math.max(0, 1 - p.age / p.life);
+    const lifeT = p.age / p.life;
+    const fade = Math.sin(Math.PI * Math.min(1, lifeT));
     const speed = Math.hypot(p.vx, p.vz);
     const angle = Math.atan2(p.vx, p.vz);
     const scale = new BABYLON.Vector3(
-      p.size * (0.7 + fade * 0.35) * TEMPLATE_SCALE,
-      p.size * 0.42 * TEMPLATE_SCALE,
-      p.size * (1.55 + speed * 0.07) * Math.max(0.06, fade) * TEMPLATE_SCALE
+      p.size * (0.9 + fade * 0.45) * TEMPLATE_SCALE,
+      p.size * (0.75 + fade * 0.25) * TEMPLATE_SCALE,
+      p.size * (1.35 + speed * 0.045) * (0.5 + fade * 0.5) * TEMPLATE_SCALE
     );
     const rotation = BABYLON.Quaternion.RotationAxis(BABYLON.Axis.Y, angle);
     const matrix = BABYLON.Matrix.Compose(scale, rotation, new BABYLON.Vector3(p.x, p.y, p.z));
@@ -110,7 +108,7 @@ function emitFromContour(state, field) {
       if (min >= THRESHOLD || max < THRESHOLD) continue;
 
       const speed = averageSpeed.call(this, [i00, i10, i11, i01]);
-      if (speed < 0.12) continue;
+      if (speed < 0.06) continue;
 
       const crossings = [];
       addCrossing(crossings, x, z, values[0], x + 1, z, values[1]);
@@ -123,10 +121,10 @@ function emitFromContour(state, field) {
       const gz = crossings.reduce((sum, p) => sum + p.z, 0) / crossings.length;
       const dir = downhillAt.call(this, gx, gz);
       const slope = localSlopeAt.call(this, gx, gz);
-      const chance = Math.min(0.82, 0.18 + speed * 0.12 + slope * 0.24);
+      const chance = Math.min(0.92, 0.34 + speed * 0.16 + slope * 0.30);
       if (noise(x, z, state.frame) > chance) continue;
 
-      const count = 2 + Math.floor(Math.min(4, speed * 0.8 + slope * 2.4));
+      const count = 4 + Math.floor(Math.min(5, speed * 0.9 + slope * 3.0));
       const wx = (gx - s / 2) * cs;
       const wz = (gz - s / 2) * cs;
       const ground = this.sim.sampleWorldHeight(wx, wz);
@@ -136,17 +134,17 @@ function emitFromContour(state, field) {
       for (let n = 0; n < count && state.particles.length < state.maxParticles; n++) {
         const a = noise(x + n * 7, z, state.frame + 19) - 0.5;
         const b = noise(z + n * 11, x, state.frame + 47);
-        const inherited = 4.4 + speed * 2.8;
+        const inherited = 2.7 + speed * 1.8;
         state.particles.push({
-          x: wx + sideX * a * cs * 0.42 + dir.x * cs * 0.08,
-          y: ground + 0.10 + b * (0.13 + slope * 0.10),
-          z: wz + sideZ * a * cs * 0.42 + dir.z * cs * 0.08,
-          vx: dir.x * inherited + sideX * a * (0.8 + speed * 0.45),
-          vy: 0.32 + b * (0.72 + slope * 0.65),
-          vz: dir.z * inherited + sideZ * a * (0.8 + speed * 0.45),
+          x: wx + sideX * a * cs * 0.55 + dir.x * cs * 0.16,
+          y: ground + 0.15 + b * (0.18 + slope * 0.14),
+          z: wz + sideZ * a * cs * 0.55 + dir.z * cs * 0.16,
+          vx: dir.x * inherited + sideX * a * (0.7 + speed * 0.35),
+          vy: 0.45 + b * (0.9 + slope * 0.75),
+          vz: dir.z * inherited + sideZ * a * (0.7 + speed * 0.35),
           age: 0,
-          life: 0.22 + b * 0.28,
-          size: 0.017 + b * 0.015
+          life: 0.36 + b * 0.34,
+          size: 0.036 + b * 0.030
         });
       }
     }
