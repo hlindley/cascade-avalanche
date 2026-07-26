@@ -11,7 +11,7 @@ CascadeScene.prototype.buildScene = function buildSceneWithContourEdgeMist() {
 
   this.contourMist = {
     particles: [],
-    maxParticles: 3200,
+    maxParticles: 2400,
     lastTime: performance.now() * 0.001,
     frame: 0
   };
@@ -47,7 +47,8 @@ CascadeScene.prototype.updateFlow = function updateFlowWithContourEdgeMist() {
   state.lastTime = now;
   state.frame++;
 
-  emitFromContour.call(this, state, contour.field);
+  // Emit in discrete impact-like pulses rather than continuously every frame.
+  if (state.frame % 3 === 0) emitFromContour.call(this, state, contour.field);
 
   const next = [];
   const matrices = [];
@@ -121,10 +122,10 @@ function emitFromContour(state, field) {
       const gz = crossings.reduce((sum, p) => sum + p.z, 0) / crossings.length;
       const dir = downhillAt.call(this, gx, gz);
       const slope = localSlopeAt.call(this, gx, gz);
-      const chance = Math.min(0.92, 0.34 + speed * 0.16 + slope * 0.30);
+      const chance = Math.min(0.76, 0.20 + speed * 0.12 + slope * 0.22);
       if (noise(x, z, state.frame) > chance) continue;
 
-      const count = 4 + Math.floor(Math.min(5, speed * 0.9 + slope * 3.0));
+      const count = 2 + Math.floor(Math.min(3, speed * 0.55 + slope * 1.8));
       const wx = (gx - s / 2) * cs;
       const wz = (gz - s / 2) * cs;
       const ground = this.sim.sampleWorldHeight(wx, wz);
