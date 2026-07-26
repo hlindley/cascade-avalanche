@@ -8,7 +8,7 @@ CascadeScene.prototype.buildScene = function buildSceneWithFlowEdgeFeather() {
 
   if (this.leadingMist?.particles) this.leadingMist.maxParticles = 3200;
   if (this.leadingMistMesh?.material) {
-    this.leadingMistMesh.material.alpha = 0.62;
+    this.leadingMistMesh.material.alpha = 0.31;
     this.leadingMistMesh.material.emissiveColor = new BABYLON.Color3(0.34, 0.36, 0.42);
   }
 
@@ -129,6 +129,15 @@ CascadeScene.prototype.updateFlow = function updateFlowWithFlowEdgeFeather() {
       const avg = (a + b + c + d) * 0.25;
       const max = Math.max(a, b, c, d);
       if (avg < 0.006 || max < 0.014) continue;
+
+      // Avoid long, nearly vertical feather triangles where adjacent samples
+      // straddle an abrupt terrain-height change.
+      const y0 = feather.positions[i * 3 + 1];
+      const y1 = feather.positions[(i + 1) * 3 + 1];
+      const y2 = feather.positions[(i + r) * 3 + 1];
+      const y3 = feather.positions[(i + r + 1) * 3 + 1];
+      if (Math.max(y0, y1, y2, y3) - Math.min(y0, y1, y2, y3) > 0.55) continue;
+
       indices.push(i, i + r, i + 1, i + 1, i + r, i + r + 1);
     }
   }
