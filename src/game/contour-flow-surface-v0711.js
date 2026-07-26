@@ -29,6 +29,7 @@ CascadeScene.prototype.buildScene = function buildSceneWithContourFlow() {
     raw: new Float32Array(count),
     history: new Float32Array(count),
     visibleCenter: null,
+    finalized: false,
     lastTime: performance.now() * 0.001
   };
 };
@@ -38,7 +39,7 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
   if (this.continuousFlowMesh) this.continuousFlowMesh.setEnabled(false);
 
   const state = this.contourFlow;
-  if (!state) return;
+  if (!state || state.finalized) return;
 
   const now = performance.now() * 0.001;
   const dt = Math.min(0.05, Math.max(0.006, now - state.lastTime));
@@ -46,6 +47,8 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
   const s = this.sim.size;
   const response = 1 - Math.exp(-dt * 10);
   const historyDecay = Math.exp(-dt * 2.8);
+  const settled = Boolean(this.avalancheTrailFrozen && !this.sim.active);
+  const trail = this.avalancheTrailMemory;
 
   // Build the smoothed instantaneous field first.
   for (let z = 0; z < s; z++) {
@@ -80,26 +83,28 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
 
   // Fast snow can cross several visual cells between simulation frames. Fill the
   // short path behind each moving cell so the contour remains one continuous mass.
-  for (let z = 1; z < s - 1; z++) {
-    for (let x = 1; x < s - 1; x++) {
-      const i = this.sim.index(x, z);
-      const source = state.raw[i];
-      const moving = this.sim.moving[i];
-      const vx = this.sim.velX[i];
-      const vz = this.sim.velZ[i];
-      const speed = Math.hypot(vx, vz);
-      if (source < 0.012 || moving < 0.006 || speed < 0.18) continue;
+  if (!settled) {
+    for (let z = 1; z < s - 1; z++) {
+      for (let x = 1; x < s - 1; x++) {
+        const i = this.sim.index(x, z);
+        const source = state.raw[i];
+        const moving = this.sim.moving[i];
+        const vx = this.sim.velX[i];
+        const vz = this.sim.velZ[i];
+        const speed = Math.hypot(vx, vz);
+        if (source < 0.012 || moving < 0.006 || speed < 0.18) continue;
 
-      const dx = vx / speed;
-      const dz = vz / speed;
-      const steps = Math.min(6, Math.max(2, Math.ceil(speed * 1.35)));
-      for (let step = 1; step <= steps; step++) {
-        const bx = Math.round(x - dx * step * 0.72);
-        const bz = Math.round(z - dz * step * 0.72);
-        if (!this.sim.inBounds(bx, bz)) continue;
-        const j = this.sim.index(bx, bz);
-        const strength = source * (1 - step / (steps + 1)) * 0.88;
-        state.target[j] = Math.max(state.target[j], strength);
+        const dx = vx / speed;
+        const dz = vz / speed;
+        const steps = Math.min(6, Math.max(2, Math.ceil(speed * 1.35)));
+        for (let step = 1; step <= steps; step++) {
+          const bx = Math.round(x - dx * step * 0.72);
+          const bz = Math.round(z - dz * step * 0.72);
+          if (!this.sim.inBounds(bx, bz)) continue;
+          const j = this.sim.index(bx, bz);
+          const strength = source * (1 - step / (steps + 1)) * 0.88;
+          state.target[j] = Math.max(state.target[j], strength);
+        }
       }
     }
   }
@@ -111,9 +116,18 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
   for (let z = 0; z < s; z++) {
     for (let x = 0; x < s; x++) {
       const i = this.sim.index(x, z);
-      state.history[i] = Math.max(state.target[i], state.history[i] * historyDecay);
-      const continuityValue = Math.max(state.target[i], state.history[i] * 0.78);
-      state.field[i] += (continuityValue - state.field[i]) * response;
+      const trailValue = trail?.[i] ?? 0;
+
+      if (settled) {
+        // Final end-state contains only stable route memory plus actual deposits.
+        // Assign directly instead of easing across the clipping threshold.
+        state.field[i] = Math.max(trailValue, this.sim.deposit[i] * 0.24);
+        state.history[i] = state.field[i];
+      } else {
+        state.history[i] = Math.max(state.target[i], state.history[i] * historyDecay);
+        const continuityValue = Math.max(state.target[i], state.history[i] * 0.78, trailValue);
+        state.field[i] += (continuityValue - state.field[i]) * response;
+      }
 
       const visibleWeight = Math.max(0, state.field[i] - THRESHOLD * 0.72);
       if (visibleWeight > 0) {
@@ -155,6 +169,10 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
   vd.colors = colors;
   vd.applyToMesh(state.mesh, true);
   state.mesh.refreshBoundingInfo();
+
+  // The final trail/deposit mesh is immutable. Avoid needless rebuilds and any
+  // possibility of post-settlement clipping shimmer.
+  if (settled) state.finalized = true;
 };
 
 function makeVertex(state, x, z, cs) {
