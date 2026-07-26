@@ -25,6 +25,7 @@ CascadeScene.prototype.buildScene = function buildSceneWithContourFlow() {
     mesh,
     field: new Float32Array(this.sim.size * this.sim.size),
     target: new Float32Array(this.sim.size * this.sim.size),
+    visibleCenter: null,
     lastTime: performance.now() * 0.001
   };
 };
@@ -42,10 +43,16 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
   const s = this.sim.size;
   const response = 1 - Math.exp(-dt * 10);
 
+  let centerX = 0;
+  let centerZ = 0;
+  let centerWeight = 0;
+
   for (let z = 0; z < s; z++) {
     for (let x = 0; x < s; x++) {
       let total = 0;
       let weight = 0;
+      let speedTotal = 0;
+      let movingTotal = 0;
       for (let dz = -1; dz <= 1; dz++) {
         for (let dx = -1; dx <= 1; dx++) {
           const nx = x + dx;
@@ -53,15 +60,33 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
           if (!this.sim.inBounds(nx, nz)) continue;
           const w = dx === 0 && dz === 0 ? 4 : (dx === 0 || dz === 0 ? 2 : 1);
           const i = this.sim.index(nx, nz);
-          total += (this.sim.moving[i] + this.sim.core[i] * 0.55 + this.sim.deposit[i] * 0.24) * w;
+          const moving = this.sim.moving[i];
+          const speed = Math.hypot(this.sim.velX[i], this.sim.velZ[i]);
+          total += (moving + this.sim.core[i] * 0.55 + this.sim.deposit[i] * 0.24) * w;
+          speedTotal += speed * moving * w;
+          movingTotal += moving * w;
           weight += w;
         }
       }
       const i = this.sim.index(x, z);
-      state.target[i] = weight ? total / weight : 0;
+      const baseMass = weight ? total / weight : 0;
+      const weightedSpeed = movingTotal > 0.0001 ? speedTotal / movingTotal : 0;
+      const fastThinSupport = Math.min(0.052, weightedSpeed * 0.0105) * smoothstep(0.002, 0.035, baseMass);
+      state.target[i] = baseMass + fastThinSupport;
       state.field[i] += (state.target[i] - state.field[i]) * response;
+
+      const visibleWeight = Math.max(0, state.field[i] - THRESHOLD * 0.72);
+      if (visibleWeight > 0) {
+        centerX += (x - s / 2) * this.sim.cellSize * visibleWeight;
+        centerZ += (z - s / 2) * this.sim.cellSize * visibleWeight;
+        centerWeight += visibleWeight;
+      }
     }
   }
+
+  state.visibleCenter = centerWeight > 0
+    ? { x: centerX / centerWeight, z: centerZ / centerWeight, weight: centerWeight }
+    : null;
 
   const positions = [];
   const colors = [];
