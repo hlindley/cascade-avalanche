@@ -14,6 +14,8 @@ CascadeScene.prototype.buildScene = function buildSceneWithContourFlow() {
   material.metallic = 0;
   material.backFaceCulling = false;
   material.useVertexColors = true;
+  material.useVertexAlpha = true;
+  material.transparencyMode = BABYLON.Material.MATERIAL_ALPHABLEND;
   mesh.material = material;
   mesh.isPickable = false;
   mesh.alwaysSelectAsActiveMesh = true;
@@ -29,7 +31,6 @@ CascadeScene.prototype.buildScene = function buildSceneWithContourFlow() {
 
 CascadeScene.prototype.updateFlow = function updateContourFlow() {
   previousUpdateFlow.call(this);
-
   if (this.continuousFlowMesh) this.continuousFlowMesh.setEnabled(false);
 
   const state = this.contourFlow;
@@ -99,21 +100,27 @@ function makeVertex(state, x, z, cs) {
   const ground = this.sim.sampleWorldHeight(wx, wz);
   const edge = smoothstep(THRESHOLD, THRESHOLD * 3.2, value);
   const thickness = Math.min(1.5, Math.sqrt(Math.max(0, value)) * 0.82) * edge;
-  return { x: wx, y: ground + 0.022 + thickness, z: wz, value, alpha: smoothstep(THRESHOLD, THRESHOLD * 2.4, value) };
+  return {
+    x: wx,
+    y: ground + 0.022 + thickness,
+    ground,
+    z: wz,
+    value,
+    alpha: smoothstep(THRESHOLD, THRESHOLD * 2.4, value)
+  };
 }
 
 function emitClippedTriangle(a, b, c, positions, colors, indices) {
-  let polygon = [a, b, c];
-  const output = [];
-  for (let i = 0; i < polygon.length; i++) {
-    const current = polygon[i];
-    const next = polygon[(i + 1) % polygon.length];
+  const polygon = [];
+  const input = [a, b, c];
+  for (let i = 0; i < input.length; i++) {
+    const current = input[i];
+    const next = input[(i + 1) % input.length];
     const currentInside = current.value >= THRESHOLD;
     const nextInside = next.value >= THRESHOLD;
-    if (currentInside) output.push(current);
-    if (currentInside !== nextInside) output.push(interpolate(current, next));
+    if (currentInside) polygon.push(current);
+    if (currentInside !== nextInside) polygon.push(interpolate(current, next));
   }
-  polygon = output;
   if (polygon.length < 3) return;
 
   const base = positions.length / 3;
@@ -127,10 +134,15 @@ function emitClippedTriangle(a, b, c, positions, colors, indices) {
 function interpolate(a, b) {
   const denom = b.value - a.value;
   const t = Math.abs(denom) < 1e-6 ? 0.5 : (THRESHOLD - a.value) / denom;
-  const x = lerp(a.x, b.x, t);
-  const z = lerp(a.z, b.z, t);
-  const groundY = lerp(a.y, b.y, t);
-  return { x, y: groundY - Math.max(0, lerp(a.y, b.y, t) - groundY), z, value: THRESHOLD, alpha: 0 };
+  const ground = lerp(a.ground, b.ground, t);
+  return {
+    x: lerp(a.x, b.x, t),
+    y: ground + 0.022,
+    ground,
+    z: lerp(a.z, b.z, t),
+    value: THRESHOLD,
+    alpha: 0
+  };
 }
 
 function lerp(a, b, t) { return a + (b - a) * t; }
