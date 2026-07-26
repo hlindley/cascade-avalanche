@@ -21,10 +21,13 @@ CascadeScene.prototype.buildScene = function buildSceneWithContourFlow() {
   mesh.alwaysSelectAsActiveMesh = true;
   mesh.renderingGroupId = 1;
 
+  const count = this.sim.size * this.sim.size;
   this.contourFlow = {
     mesh,
-    field: new Float32Array(this.sim.size * this.sim.size),
-    target: new Float32Array(this.sim.size * this.sim.size),
+    field: new Float32Array(count),
+    target: new Float32Array(count),
+    raw: new Float32Array(count),
+    history: new Float32Array(count),
     visibleCenter: null,
     lastTime: performance.now() * 0.001
   };
@@ -42,11 +45,9 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
   state.lastTime = now;
   const s = this.sim.size;
   const response = 1 - Math.exp(-dt * 10);
+  const historyDecay = Math.exp(-dt * 2.8);
 
-  let centerX = 0;
-  let centerZ = 0;
-  let centerWeight = 0;
-
+  // Build the smoothed instantaneous field first.
   for (let z = 0; z < s; z++) {
     for (let x = 0; x < s; x++) {
       let total = 0;
@@ -72,8 +73,47 @@ CascadeScene.prototype.updateFlow = function updateContourFlow() {
       const baseMass = weight ? total / weight : 0;
       const weightedSpeed = movingTotal > 0.0001 ? speedTotal / movingTotal : 0;
       const fastThinSupport = Math.min(0.052, weightedSpeed * 0.0105) * smoothstep(0.002, 0.035, baseMass);
-      state.target[i] = baseMass + fastThinSupport;
-      state.field[i] += (state.target[i] - state.field[i]) * response;
+      state.raw[i] = baseMass + fastThinSupport;
+      state.target[i] = state.raw[i];
+    }
+  }
+
+  // Fast snow can cross several visual cells between simulation frames. Fill the
+  // short path behind each moving cell so the contour remains one continuous mass.
+  for (let z = 1; z < s - 1; z++) {
+    for (let x = 1; x < s - 1; x++) {
+      const i = this.sim.index(x, z);
+      const source = state.raw[i];
+      const moving = this.sim.moving[i];
+      const vx = this.sim.velX[i];
+      const vz = this.sim.velZ[i];
+      const speed = Math.hypot(vx, vz);
+      if (source < 0.012 || moving < 0.006 || speed < 0.18) continue;
+
+      const dx = vx / speed;
+      const dz = vz / speed;
+      const steps = Math.min(6, Math.max(2, Math.ceil(speed * 1.35)));
+      for (let step = 1; step <= steps; step++) {
+        const bx = Math.round(x - dx * step * 0.72);
+        const bz = Math.round(z - dz * step * 0.72);
+        if (!this.sim.inBounds(bx, bz)) continue;
+        const j = this.sim.index(bx, bz);
+        const strength = source * (1 - step / (steps + 1)) * 0.88;
+        state.target[j] = Math.max(state.target[j], strength);
+      }
+    }
+  }
+
+  let centerX = 0;
+  let centerZ = 0;
+  let centerWeight = 0;
+
+  for (let z = 0; z < s; z++) {
+    for (let x = 0; x < s; x++) {
+      const i = this.sim.index(x, z);
+      state.history[i] = Math.max(state.target[i], state.history[i] * historyDecay);
+      const continuityValue = Math.max(state.target[i], state.history[i] * 0.78);
+      state.field[i] += (continuityValue - state.field[i]) * response;
 
       const visibleWeight = Math.max(0, state.field[i] - THRESHOLD * 0.72);
       if (visibleWeight > 0) {
