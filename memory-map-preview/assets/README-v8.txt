@@ -1,0 +1,1 @@
+v8 photo assets are stored separately from the HTML/JS so iOS does not decode large inline data URIs inside the WebGL application.
