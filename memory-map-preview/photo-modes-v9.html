@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Memory Map · Photo Modes v9</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.css">
+<style>
+*{box-sizing:border-box}html,body,#map{margin:0;width:100%;height:100%;overflow:hidden;background:#081019}body{font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#fff}#map{position:absolute;inset:0}.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(#03060944,transparent 28%,transparent 66%,#03060999);z-index:2}.photoLayer{position:absolute;inset:0;z-index:3;opacity:0;pointer-events:none!important;touch-action:none;user-select:none;-webkit-user-select:none;background-position:center;background-size:cover;background-repeat:no-repeat;transition:opacity .22s ease;will-change:opacity}.top{position:absolute;z-index:10;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}.glass{background:#070b10c9;border:1px solid #ffffff24;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}.chip{padding:9px 11px;border-radius:15px;pointer-events:auto;max-width:72vw}.chip b{display:block;font-size:12px}.chip span{display:block;color:#aab4c0;font-size:10px;margin-top:2px}.status{position:absolute;z-index:12;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:999px;padding:8px 12px;color:#aab4c0;font-size:11px}.status.ready{display:none}.moments{position:absolute;z-index:10;left:10px;right:10px;bottom:calc(max(10px,env(safe-area-inset-bottom)) + 92px);border-radius:15px;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:6px}.tray{position:absolute;z-index:10;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));border-radius:17px;padding:8px}.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}button{border:1px solid #ffffff24;background:#ffffff0e;color:#fff;border-radius:11px;padding:11px 7px;font-weight:700;touch-action:manipulation}button.active{background:#aa94ff3a;border-color:#bea9ff85}.moment{text-align:left}.moment b{display:block}.moment small{color:#aab4c0}.note{margin-top:7px;color:#aeb8c4;font-size:9px;line-height:1.35}.captureDot{width:18px;height:18px;border-radius:50%;background:#69e3cd;border:3px solid #f2ffff;box-shadow:0 0 0 7px #69e3cd40,0 6px 18px #0009}.photoPlane{width:24px;height:32px;border-radius:3px;background:#ffb66a;border:4px solid #fff4e8;box-shadow:0 0 0 6px #ffb66a40,0 8px 20px #000a}.photoPlane:after{content:"";position:absolute;inset:4px;border:1px solid #9b5420aa}.maplibregl-ctrl-attrib{font-size:8px!important;opacity:.5}@media(min-width:700px){.moments,.tray{left:50%;right:auto;transform:translateX(-50%);width:520px}.moments{bottom:116px}}
+</style>
+</head>
+<body>
+<div id="map"></div><div class="shade"></div><div id="photoLayer" class="photoLayer"></div><div id="status" class="status glass">Starting map…</div>
+<div class="top"><div class="chip glass" id="info"><b>NYC Saturday</b><span>Loading world first…</span></div><div class="chip glass" id="pose">WORLD</div></div>
+<div class="moments glass"><button id="noho" class="moment active"><b>NoHo</b><small>5:36 PM</small></button><button id="flatiron" class="moment"><b>Flatiron</b><small>1:14 PM</small></button></div>
+<div class="tray glass"><div class="modes"><button id="world" class="active">World</button><button id="scene">Scene</button><button id="pov">POV</button><button id="photoBtn">Photo</button></div><div class="note" id="note">Scene restores the blue camera dot + orange photo plane, with foreground buildings ghosted. Photo sits under the UI and cannot intercept taps.</div></div>
+<script type="module">
+import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.mjs';
+const $=id=>document.getElementById(id);
+const M={
+ noho:{name:'NoHo façades',time:'5:36 PM',photo:'./assets/noho-v9.jpg',capture:[-73.9940,40.7265],subject:[-73.99378,40.72668],world:{center:[-73.985,40.748],zoom:12.65,pitch:62,bearing:-27},scene:{center:[-73.9940,40.7265],zoom:18.2,pitch:78,bearing:58},pov:{center:[-73.99378,40.72668],zoom:20,pitch:96,bearing:58,elevation:18}},
+ flatiron:{name:'Flatiron aperitivo',time:'1:14 PM',photo:'./assets/flatiron-v9.jpg',capture:[-73.9893,40.7422],subject:[-73.98965,40.74111],world:{center:[-73.985,40.748],zoom:12.65,pitch:62,bearing:-27},scene:{center:[-73.9893,40.7422],zoom:18,pitch:67,bearing:194},pov:{center:[-73.98965,40.74111],zoom:19.5,pitch:90,bearing:194,elevation:12}}
+};
+const style={version:8,sources:{osm:{type:'vector',url:'https://tiles.openfreemap.org/planet'}},layers:[
+{id:'bg',type:'background',paint:{'background-color':'#081019'}},
+{id:'roads',type:'line',source:'osm','source-layer':'transportation',paint:{'line-color':'#303641','line-opacity':.52,'line-width':['interpolate',['linear'],['zoom'],10,.3,16,1.8]}},
+{id:'buildings',type:'fill-extrusion',source:'osm','source-layer':'building',minzoom:12.4,paint:{'fill-extrusion-color':'#283540','fill-extrusion-height':['interpolate',['linear'],['zoom'],12.4,0,14,['*',['coalesce',['get','render_height'],8],.83]],'fill-extrusion-base':['coalesce',['get','render_min_height'],0],'fill-extrusion-opacity':.82}}
+]};
+let key='noho',mode='world',map,ready=false,captureMarker,photoPlaneMarker,photoRequest=0;
+const layer=$('photoLayer'),buttons={world:$('world'),scene:$('scene'),pov:$('pov'),photo:$('photoBtn')},mom={noho:$('noho'),flatiron:$('flatiron')};
+const cache={};
+function preload(k){if(cache[k])return cache[k];cache[k]=new Promise((resolve,reject)=>{const im=new Image();im.decoding='async';im.onload=()=>resolve(im);im.onerror=()=>reject(new Error('image failed'));im.src=M[k].photo});return cache[k]}
+preload('noho');preload('flatiron');
+function active(g,k){Object.entries(g).forEach(([n,b])=>b.classList.toggle('active',n===k))}
+function update(){const m=M[key];$('info').innerHTML='<b>'+m.time+' · '+m.name+'</b><span>'+(mode==='scene'?'Third-person cutaway with capture + photo-plane markers.':mode==='pov'?'Lower camera aimed toward the photographed view.':mode==='photo'?'Actual photograph; controls remain live.':'Trip context.')+'</span>';$('pose').textContent=mode.toUpperCase()}
+function cut(on){if(ready)map.setPaintProperty('buildings','fill-extrusion-opacity',on?.20:.82)}
+function sceneMarkers(on){if(!captureMarker||!photoPlaneMarker)return;captureMarker.getElement().style.display=on?'block':'none';photoPlaneMarker.getElement().style.display=on?'block':'none'}
+function hidePhoto(){photoRequest++;layer.style.opacity=0;setTimeout(()=>{if(mode!=='photo'){layer.style.backgroundImage='none'}},250)}
+async function showPhoto(){const req=++photoRequest;mode='photo';active(buttons,'photo');cut(false);sceneMarkers(false);$('note').textContent='Loading photo…';try{await Promise.race([preload(key),new Promise((_,reject)=>setTimeout(()=>reject(new Error('photo timeout')),2500))]);if(req!==photoRequest||mode!=='photo')return;layer.style.backgroundImage=`url("${M[key].photo}")`;requestAnimationFrame(()=>layer.style.opacity=1);$('note').textContent='Photo loaded. World / Scene / POV controls stay active above it.'}catch(e){if(req!==photoRequest)return;layer.style.opacity=0;layer.style.backgroundImage='none';mode='pov';active(buttons,'pov');$('note').textContent='Photo failed to load, but the app stayed alive: '+e.message;if(ready)map.easeTo({...M[key].pov,duration:500,essential:true})}update()}
+function go(next){if(next==='photo'){showPhoto();return}photoRequest++;mode=next;active(buttons,next);hidePhoto();cut(next==='scene');sceneMarkers(next==='scene');if(ready)map.easeTo({...M[key][next],duration:900,essential:true});update()}
+function sw(k){key=k;active(mom,k);preload(k);if(captureMarker){captureMarker.setLngLat(M[k].capture);photoPlaneMarker.setLngLat(M[k].subject)}if(mode==='photo'){showPhoto()}else{go(mode)}}
+map=new maplibregl.Map({container:'map',style,...M.noho.world,maxPitch:105,centerClampedToGround:false,fadeDuration:0,canvasContextAttributes:{antialias:true}});
+const d=document.createElement('div');d.className='captureDot';captureMarker=new maplibregl.Marker({element:d,anchor:'center'}).setLngLat(M.noho.capture).addTo(map);
+const p=document.createElement('div');p.className='photoPlane';photoPlaneMarker=new maplibregl.Marker({element:p,anchor:'center'}).setLngLat(M.noho.subject).addTo(map);
+sceneMarkers(false);
+map.on('style.load',()=>{ready=true;$('status').classList.add('ready');sw('noho')});
+map.on('error',e=>{if(!ready)$('status').textContent='Map error: '+(e.error?.message||'unknown')});
+mom.noho.onclick=()=>sw('noho');mom.flatiron.onclick=()=>sw('flatiron');buttons.world.onclick=()=>go('world');buttons.scene.onclick=()=>go('scene');buttons.pov.onclick=()=>go('pov');buttons.photo.onclick=()=>go('photo');
+</script></body></html>
