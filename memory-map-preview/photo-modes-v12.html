@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Memory Map · Photo Modes v12</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.css">
+<style>
+*{box-sizing:border-box}html,body,#map{margin:0;width:100%;height:100%;overflow:hidden;background:#081019}body{font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#fff}#map{position:absolute;inset:0}.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(#03060944,transparent 28%,transparent 66%,#03060999);z-index:2}.top{position:absolute;z-index:20;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}.glass{background:#070b10c9;border:1px solid #ffffff24;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}.chip{padding:9px 11px;border-radius:15px;pointer-events:auto;max-width:72vw}.chip b{display:block;font-size:12px}.chip span{display:block;color:#aab4c0;font-size:10px;margin-top:2px}.status{position:absolute;z-index:30;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:999px;padding:8px 12px;color:#aab4c0;font-size:11px}.status.ready{display:none}.moments{position:absolute;z-index:20;left:10px;right:10px;bottom:calc(max(10px,env(safe-area-inset-bottom)) + 92px);border-radius:15px;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:6px}.tray{position:absolute;z-index:20;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));border-radius:17px;padding:8px}.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}button{border:1px solid #ffffff24;background:#ffffff0e;color:#fff;border-radius:11px;padding:11px 7px;font-weight:700;touch-action:manipulation;-webkit-tap-highlight-color:transparent}button.active{background:#aa94ff3a;border-color:#bea9ff85}button:disabled{opacity:.38;filter:saturate(.35);cursor:not-allowed}.moment{text-align:left}.moment b{display:block}.moment small{color:#aab4c0}.note{margin-top:7px;color:#aeb8c4;font-size:9px;line-height:1.35}.captureDot{width:18px;height:18px;border-radius:50%;background:#69e3cd;border:3px solid #f2ffff;box-shadow:0 0 0 7px #69e3cd40,0 6px 18px #0009}.photoPlane{position:relative;width:24px;height:32px;border-radius:3px;background:#ffb66a;border:4px solid #fff4e8;box-shadow:0 0 0 6px #ffb66a40,0 8px 20px #000a}.photoPlane:after{content:"";position:absolute;inset:4px;border:1px solid #9b5420aa}.maplibregl-ctrl-attrib{font-size:8px!important;opacity:.45}.journeying .moments,.journeying .tray{opacity:.88}@media(min-width:700px){.moments,.tray{left:50%;right:auto;transform:translateX(-50%);width:520px}.moments{bottom:116px}}
+</style>
+</head>
+<body>
+<div id="map"></div><div class="shade"></div><div id="status" class="status glass">Starting map…</div>
+<div class="top"><div class="chip glass" id="info"><b>NYC Saturday</b><span>Loading world first…</span></div><div class="chip glass" id="pose">WORLD</div></div>
+<div class="moments glass"><button id="noho" class="moment active"><b>NoHo</b><small>5:36 PM</small></button><button id="flatiron" class="moment"><b>Flatiron</b><small>1:14 PM</small></button></div>
+<div class="tray glass"><div class="modes"><button id="world" class="active">World</button><button id="scene">Scene</button><button id="pov">POV</button><button id="photoBtn" disabled aria-disabled="true">Photo</button></div><div class="note" id="note">Photo is temporarily parked. Camera travel is now 4× slower and tuned for both Scene and POV starts.</div></div>
+<script type="module">
+import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.mjs';
+const $=id=>document.getElementById(id);
+const M={
+ noho:{name:'NoHo façades',time:'5:36 PM',capture:[-73.9940,40.7265],subject:[-73.99378,40.72668],world:{center:[-73.985,40.748],zoom:12.65,pitch:62,bearing:-27},scene:{center:[-73.9940,40.7265],zoom:18.2,pitch:78,bearing:58},pov:{center:[-73.99378,40.72668],zoom:20,pitch:96,bearing:58,elevation:18}},
+ flatiron:{name:'Flatiron aperitivo',time:'1:14 PM',capture:[-73.9893,40.7422],subject:[-73.98965,40.74111],world:{center:[-73.985,40.748],zoom:12.65,pitch:62,bearing:-27},scene:{center:[-73.9893,40.7422],zoom:18,pitch:67,bearing:194},pov:{center:[-73.98965,40.74111],zoom:19.5,pitch:90,bearing:194,elevation:12}}
+};
+const params=new URLSearchParams(location.search);
+const initialKey=Object.hasOwn(M,params.get('moment'))?params.get('moment'):'noho';
+const requestedMode=['world','scene','pov'].includes(params.get('mode'))?params.get('mode'):'world';
+const NTA_URL="https://services5.arcgis.com/GfwWNkhOj9bNBqoJ/arcgis/rest/services/NYC_Neighborhood_Tabulation_Areas_2020/FeatureServer/0/query?where=BoroName%3D%27Manhattan%27&outFields=NTA2020%2CNTAName%2CNTAAbbrev&returnGeometry=true&outSR=4326&f=geojson";
+const style={version:8,light:{anchor:'viewport',color:'#eef6ff',intensity:.88,position:[1.35,215,34]},sources:{osm:{type:'vector',url:'https://tiles.openfreemap.org/planet'}},glyphs:'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',layers:[
+{id:'bg',type:'background',paint:{'background-color':'#04080d'}},
+{id:'roads',type:'line',source:'osm','source-layer':'transportation',paint:{'line-color':'#4b5968','line-opacity':.66,'line-width':['interpolate',['linear'],['zoom'],10,.35,16,2.05]}},
+{id:'buildings',type:'fill-extrusion',source:'osm','source-layer':'building',minzoom:12.4,paint:{'fill-extrusion-color':['interpolate',['linear'],['coalesce',['get','render_height'],8],0,'#121a22',18,'#202b36',55,'#394858',120,'#657383',260,'#a5b0ba'],'fill-extrusion-height':['interpolate',['linear'],['zoom'],12.4,0,14,['*',['coalesce',['get','render_height'],8],.83]],'fill-extrusion-base':['coalesce',['get','render_min_height'],0],'fill-extrusion-opacity':.90,'fill-extrusion-vertical-gradient':true}}
+]};
+let key=initialKey,mode='world',map,ready=false,captureMarker,photoPlaneMarker,journeyToken=0,journeying=false,currentArea='';
+const buttons={world:$('world'),scene:$('scene'),pov:$('pov'),photo:$('photoBtn')},mom={noho:$('noho'),flatiron:$('flatiron')};
+function active(g,k){Object.entries(g).forEach(([n,b])=>b.classList.toggle('active',n===k))}
+function update(extra=''){const m=M[key];const desc=mode==='scene'?'Third-person cutaway with capture + photo-plane markers.':mode==='pov'?'Approximate camera viewpoint.':mode==='journey'?'High transit between memories.':'Trip context.';$('info').innerHTML='<b>'+m.time+' · '+m.name+'</b><span>'+(extra||desc)+'</span>';$('pose').textContent=mode==='journey'?(currentArea?('AREA · '+currentArea):'TRANSIT'):mode.toUpperCase()}
+function cut(on){if(ready&&map.getLayer('buildings'))map.setPaintProperty('buildings','fill-extrusion-opacity',on?.20:.90)}
+function sceneMarkers(on){if(!captureMarker||!photoPlaneMarker)return;captureMarker.getElement().style.display=on?'block':'none';photoPlaneMarker.getElement().style.display=on?'block':'none'}
+function neighborhoodOpacity(a){if(!ready||!map.getLayer('nta-lines'))return;map.setPaintProperty('nta-fill','fill-opacity',.055*a);map.setPaintProperty('nta-lines','line-opacity',.65*a);map.setPaintProperty('nta-labels','text-opacity',.9*a);map.setPaintProperty('nta-active-line','line-opacity',a)}
+function updateAreaUnderCenter(){if(!journeying||!map.getLayer('nta-fill'))return;const canvas=map.getCanvas();const features=map.queryRenderedFeatures([canvas.clientWidth/2,canvas.clientHeight/2],{layers:['nta-fill']});const name=features[0]?.properties?.NTAName||'';if(name!==currentArea){currentArea=name;map.setFilter('nta-active-line',name?['==',['get','NTAName'],name]:['==',['get','NTAName'],'__none__']);update()}}
+function go(next,animate=true){journeyToken++;map?.stop();journeying=false;document.body.classList.remove('journeying');currentArea='';neighborhoodOpacity(0);mode=next;active(buttons,next);cut(next==='scene');sceneMarkers(next==='scene');if(ready){const method=animate?'easeTo':'jumpTo';map[method]({...M[key][next],duration:animate?900:0,essential:true})}update()}
+function openPhoto(){document.getElementById('note').textContent='Photo mode is temporarily disabled while we finish the camera and map experience.'}
+function deg2rad(d){return d*Math.PI/180}
+function bearingBetween(a,b){const l1=deg2rad(a[0]),l2=deg2rad(b[0]),p1=deg2rad(a[1]),p2=deg2rad(b[1]);const y=Math.sin(l2-l1)*Math.cos(p2);const x=Math.cos(p1)*Math.sin(p2)-Math.sin(p1)*Math.cos(p2)*Math.cos(l2-l1);return( Math.atan2(y,x)*180/Math.PI+360)%360}
+const easeInOut=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const JOURNEY_SCALE=4;
+const JOURNEY_DURATION={lift:850*JOURNEY_SCALE,cruise:1250*JOURNEY_SCALE,arrival:650*JOURNEY_SCALE,settle:850*JOURNEY_SCALE};
+function animateNeighborhoodOpacity(from,to,duration,token){
+ const started=performance.now();
+ function tick(now){
+  if(token!==journeyToken)return;
+  const t=Math.min(1,(now-started)/duration);
+  neighborhoodOpacity(from+(to-from)*easeInOut(t));
+  if(t<1)requestAnimationFrame(tick);
+ }
+ requestAnimationFrame(tick);
+}
+async function stage(options,duration,token,opacityFrom=null,opacityTo=null){
+ if(token!==journeyToken)return false;
+ if(opacityFrom!==null&&opacityTo!==null)animateNeighborhoodOpacity(opacityFrom,opacityTo,duration,token);
+ map.easeTo({...options,duration,easing:easeInOut,essential:true,freezeElevation:true});
+ await sleep(duration+40);
+ return token===journeyToken;
+}
+async function cameraJourney(destKey){
+ if(!ready||destKey===key)return;
+ const sourceMode=mode==='scene'?'scene':'pov';
+ const token=++journeyToken;
+ map.stop();cut(false);sceneMarkers(false);journeying=true;document.body.classList.add('journeying');mode='journey';active(buttons,'pov');active(mom,destKey);
+ const from=M[key],dest=M[destKey];
+ const liftCenter=map.getCenter().toArray();
+ const travelBearing=bearingBetween(from.capture,dest.capture);
+ currentArea='';
+ update('Lifting straight up from '+sourceMode.toUpperCase()+' · turning toward '+dest.name+'…');
+ if(!await stage({center:liftCenter,zoom:16.4,pitch:58,bearing:travelBearing},JOURNEY_DURATION.lift,token,0,.95))return;
+ update('High transit · neighborhood boundaries revealed');
+ if(!await stage({center:dest.capture,zoom:16.4,pitch:58,bearing:travelBearing},JOURNEY_DURATION.cruise,token,.95,1))return;
+ update('Arriving over '+dest.name+' · beginning descent…');
+ if(!await stage({center:dest.capture,zoom:17.7,pitch:68,bearing:dest.pov.bearing},JOURNEY_DURATION.arrival,token,1,.45))return;
+ if(!await stage(dest.pov,JOURNEY_DURATION.settle,token,.45,0))return;
+ neighborhoodOpacity(0);currentArea='';key=destKey;mode='pov';journeying=false;document.body.classList.remove('journeying');active(mom,key);active(buttons,'pov');captureMarker.setLngLat(M[key].capture);photoPlaneMarker.setLngLat(M[key].subject);update();
+}
+function selectMoment(k){if(k===key)return;if(mode==='world'){journeyToken++;key=k;active(mom,k);mode='scene';active(buttons,'scene');cut(true);sceneMarkers(true);captureMarker.setLngLat(M[k].capture);photoPlaneMarker.setLngLat(M[k].subject);map.easeTo({...M[k].scene,duration:1100,essential:true});update();return}cameraJourney(k)}
+map=new maplibregl.Map({container:'map',style,...M[initialKey].world,maxPitch:105,centerClampedToGround:false,fadeDuration:0,canvasContextAttributes:{antialias:true}});
+const d=document.createElement('div');d.className='captureDot';captureMarker=new maplibregl.Marker({element:d,anchor:'center'}).setLngLat(M[initialKey].capture).addTo(map);
+const p=document.createElement('div');p.className='photoPlane';photoPlaneMarker=new maplibregl.Marker({element:p,anchor:'center'}).setLngLat(M[initialKey].subject).addTo(map);
+sceneMarkers(false);
+map.on('style.load',()=>{ready=true;$('status').classList.add('ready');active(mom,key);captureMarker.setLngLat(M[key].capture);photoPlaneMarker.setLngLat(M[key].subject);try{map.addSource('nta',{type:'geojson',data:NTA_URL});map.addLayer({id:'nta-fill',type:'fill',source:'nta',paint:{'fill-color':'#7adfcf','fill-opacity':0}});map.addLayer({id:'nta-lines',type:'line',source:'nta',paint:{'line-color':'#9fe7dd','line-width':['interpolate',['linear'],['zoom'],12,.7,17,2.2],'line-opacity':0}});map.addLayer({id:'nta-active-line',type:'line',source:'nta',filter:['==',['get','NTAName'],'__none__'],paint:{'line-color':'#fff2ba','line-width':['interpolate',['linear'],['zoom'],12,1.5,17,4],'line-opacity':0}});map.addLayer({id:'nta-labels',type:'symbol',source:'nta',layout:{'text-field':['get','NTAName'],'text-font':['Noto Sans Regular'],'text-size':['interpolate',['linear'],['zoom'],12,10,16,15],'text-letter-spacing':.08,'text-transform':'uppercase','text-allow-overlap':false},paint:{'text-color':'#e6fbf7','text-halo-color':'rgba(5,10,15,.82)','text-halo-width':1.4,'text-opacity':0}})}catch(e){console.warn('Neighborhood layer unavailable',e)}go(requestedMode,false)});
+map.on('move',updateAreaUnderCenter);
+map.on('error',e=>{if(!ready)$('status').textContent='Map error: '+(e.error?.message||'unknown')});
+mom.noho.onclick=()=>selectMoment('noho');mom.flatiron.onclick=()=>selectMoment('flatiron');buttons.world.onclick=()=>go('world');buttons.scene.onclick=()=>go('scene');buttons.pov.onclick=()=>go('pov');buttons.photo.onclick=openPhoto;
+</script>
+</body>
+</html>
