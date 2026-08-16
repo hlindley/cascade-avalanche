@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Memory Map · Photo Modes v6</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.css">
+<style>
+*{box-sizing:border-box}html,body,#map{margin:0;width:100%;height:100%;overflow:hidden;background:#081019}body{font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#fff}#map{position:absolute;inset:0}.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(#03060944,transparent 28%,transparent 66%,#03060999)}#photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;pointer-events:none;z-index:3;transition:opacity .25s}.top{position:absolute;z-index:6;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}.glass{background:#070b10c9;border:1px solid #ffffff24;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}.chip{padding:9px 11px;border-radius:15px;pointer-events:auto;max-width:72vw}.chip b{display:block;font-size:12px}.chip span{display:block;color:#aab4c0;font-size:10px;margin-top:2px}.status{position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:999px;padding:8px 12px;color:#aab4c0;font-size:11px}.status.ready{display:none}.moments{position:absolute;z-index:6;left:10px;right:10px;bottom:calc(max(10px,env(safe-area-inset-bottom)) + 92px);border-radius:15px;padding:6px;display:grid;grid-template-columns:1fr 1fr;gap:6px}.tray{position:absolute;z-index:6;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));border-radius:17px;padding:8px}.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}button{border:1px solid #ffffff24;background:#ffffff0e;color:#fff;border-radius:11px;padding:11px 7px;font-weight:700}button.active{background:#aa94ff3a;border-color:#bea9ff85}.moment{text-align:left}.moment b{display:block}.moment small{color:#aab4c0}.note{margin-top:7px;color:#aeb8c4;font-size:9px;line-height:1.35}.capture{width:12px;height:12px;border-radius:50%;background:#70e4c8;border:2px solid #fff;box-shadow:0 0 0 5px #70e4c833}.target{width:14px;height:14px;background:#ffb56a;border:2px solid #fff;transform:rotate(45deg);box-shadow:0 0 0 5px #ffb56a33}.maplibregl-ctrl-attrib{font-size:8px!important;opacity:.5}@media(min-width:700px){.moments,.tray{left:50%;right:auto;transform:translateX(-50%);width:520px}.moments{bottom:116px}}</style>
+</head>
+<body>
+<div id="map"></div><div class="shade"></div><img id="photo" alt="Trip photo"><div id="status" class="status glass">Starting map…</div>
+<div class="top"><div class="chip glass" id="info"><b>NYC Saturday</b><span>Loading world first…</span></div><div class="chip glass" id="pose">WORLD</div></div>
+<div class="moments glass"><button id="noho" class="moment active"><b>NoHo</b><small>5:36 PM</small></button><button id="flatiron" class="moment"><b>Flatiron</b><small>1:14 PM</small></button></div>
+<div class="tray glass"><div class="modes"><button id="world" class="active">World</button><button id="scene">Scene</button><button id="pov">POV</button><button id="photoBtn">Photo</button></div><div class="note" id="note">World boots first for reliability. Scene = third-person witness. POV = view aimed out from the capture point.</div></div>
+<script type="module">
+import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.mjs';
+const $=id=>document.getElementById(id);
+const M={
+ noho:{name:'NoHo façades',time:'5:36 PM',photo:'./noho-pose.jpg',capture:[-73.9940,40.7265],subject:[-73.99378,40.72668],world:{center:[-73.985,40.748],zoom:12.65,pitch:62,bearing:-27},scene:{center:[-73.9940,40.7265],zoom:18.2,pitch:78,bearing:58},pov:{center:[-73.99378,40.72668],zoom:19.0,pitch:84,bearing:58}},
+ flatiron:{name:'Flatiron aperitivo',time:'1:14 PM',photo:'',capture:[-73.9893,40.7422],subject:[-73.98965,40.74111],world:{center:[-73.985,40.748],zoom:12.65,pitch:62,bearing:-27},scene:{center:[-73.9893,40.7422],zoom:18.0,pitch:67,bearing:194},pov:{center:[-73.98965,40.74111],zoom:18.75,pitch:69,bearing:194}}
+};
+const style={version:8,sources:{osm:{type:'vector',url:'https://tiles.openfreemap.org/planet'}},glyphs:'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',layers:[
+{id:'bg',type:'background',paint:{'background-color':'#081019'}},
+{id:'water',type:'fill',source:'osm','source-layer':'water',paint:{'fill-color':'#07151e'}},
+{id:'land',type:'fill',source:'osm','source-layer':'landcover',paint:{'fill-color':['match',['get','class'],'wood','#13231e','grass','#132019','#0d141b'],'fill-opacity':.76}},
+{id:'roads',type:'line',source:'osm','source-layer':'transportation',minzoom:10,paint:{'line-color':'#303641','line-opacity':.42,'line-width':['interpolate',['linear'],['zoom'],10,.3,16,1.6]}},
+{id:'buildings',type:'fill-extrusion',source:'osm','source-layer':'building',minzoom:12.4,paint:{'fill-extrusion-color':['interpolate',['linear'],['coalesce',['get','render_height'],8],0,'#17212c',80,'#222d39',250,'#343a43'],'fill-extrusion-height':['interpolate',['linear'],['zoom'],12.4,0,14,['*',['coalesce',['get','render_height'],8],.83]],'fill-extrusion-base':['coalesce',['get','render_min_height'],0],'fill-extrusion-opacity':.8}}
+]};
+let key='noho',mode='world',map,cap,tgt,ready=false;
+const buttons={world:$('world'),scene:$('scene'),pov:$('pov'),photo:$('photoBtn')},mom={noho:$('noho'),flatiron:$('flatiron')};
+function active(g,k){Object.entries(g).forEach(([n,b])=>b.classList.toggle('active',n===k))}
+function update(){const m=M[key];$('info').innerHTML='<b>'+m.time+' · '+m.name+'</b><span>'+ (mode==='scene'?'Third-person witness of the capture moment.':mode==='pov'?'Approximate view looking out from the camera.':mode==='photo'?'Actual photograph.':'Trip context.') +'</span>';$('pose').textContent=mode.toUpperCase()+' · '+Math.round((m[mode]||m.pov).bearing||0)+'°'}
+function markers(show){if(!cap||!tgt)return;cap.getElement().style.display=show?'block':'none';tgt.getElement().style.display=show?'block':'none'}
+function go(next,anim=true){mode=next;active(buttons,next);const m=M[key];if(next==='photo'){$('photo').style.opacity=1;markers(false);update();return}$('photo').style.opacity=next==='scene'?.08:0;markers(next!=='pov');if(map&&ready)map[anim?'easeTo':'jumpTo']({...m[next],duration:anim?1000:0,essential:true});update()}
+function switchMoment(k){key=k;active(mom,k);$('photo').src=M[k].photo;if(cap){cap.setLngLat(M[k].capture);tgt.setLngLat(M[k].subject)}go(mode==='photo'?'world':mode,true)}
+function showError(prefix,e){$('status').classList.remove('ready');$('status').textContent=prefix+': '+(e?.message||e||'unknown')}
+try{
+ map=new maplibregl.Map({container:'map',style,...M.noho.world,maxPitch:85,attributionControl:true,fadeDuration:0});
+ const a=document.createElement('div');a.className='capture';cap=new maplibregl.Marker({element:a}).setLngLat(M.noho.capture).addTo(map);
+ const b=document.createElement('div');b.className='target';tgt=new maplibregl.Marker({element:b}).setLngLat(M.noho.subject).addTo(map);
+ map.on('style.load',()=>{ready=true;$('status').classList.add('ready');switchMoment('noho');go('world',false)});
+ map.on('error',e=>{console.warn('map error',e.error);if(!ready)showError('Map error',e.error)});
+ setTimeout(()=>{if(!ready){$('status').textContent='Map is taking too long — tap Photo to verify the page, or retry on better Wi‑Fi.'}},6000);
+}catch(e){showError('Map init error',e)}
+mom.noho.onclick=()=>switchMoment('noho');mom.flatiron.onclick=()=>switchMoment('flatiron');buttons.world.onclick=()=>go('world');buttons.scene.onclick=()=>go('scene');buttons.pov.onclick=()=>go('pov');buttons.photo.onclick=()=>go('photo');
+window.addEventListener('error',e=>{if(!ready)showError('Page error',e.message)});window.addEventListener('unhandledrejection',e=>{if(!ready)showError('Load error',e.reason)});
+</script>
+</body></html>
