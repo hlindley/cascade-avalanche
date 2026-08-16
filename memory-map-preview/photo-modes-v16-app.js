@@ -1,6 +1,6 @@
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.mjs';
 import {CLUSTERS} from './photo-modes-v13-data.js';
-import {PHOTO_ATLAS_DATA_URL, PHOTO_ATLAS_RECTS} from './photo-atlas-v16-proto.js';
+import {PHOTO_ATLAS_DATA_URL, PHOTO_ATLAS_RECTS} from './photo-atlas-v16-small.js';
 
 // Preserve the v15 camera behavior: the cluster-travel bearing turns throughout
 // the vertical lift instead of snapping before the ascent begins.
