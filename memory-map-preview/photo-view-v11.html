@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Memory Map · Photo</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05070a;color:#fff}body{font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;background:#05070a}.scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(#020407b8 0,transparent 22%,transparent 73%,#020407cf 100%)}.top{position:absolute;z-index:4;top:max(10px,env(safe-area-inset-top));left:10px;right:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.glass{background:#070b10ca;border:1px solid #ffffff24;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}a,button{color:#fff;text-decoration:none;border:1px solid #ffffff24;background:#070b10d9;border-radius:14px;padding:11px 13px;font-weight:750;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.info{border-radius:15px;padding:9px 11px;max-width:66vw}.info b{display:block;font-size:12px}.info span{display:block;color:#aab4c0;font-size:10px;margin-top:2px}.switcher{position:absolute;z-index:4;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));padding:6px;border-radius:16px;display:grid;grid-template-columns:1fr 1fr;gap:6px}.switcher button{text-align:left;background:#ffffff0e}.switcher button.active{background:#aa94ff3a;border-color:#bea9ff85}.switcher b{display:block}.switcher small{color:#aab4c0}.status{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);padding:9px 12px;border-radius:999px;color:#aab4c0;font-size:11px}.status.ready{display:none}@media(min-width:700px){.switcher{left:50%;right:auto;transform:translateX(-50%);width:520px}}
+</style>
+</head>
+<body>
+<img id="photo" class="photo" alt="Trip photograph">
+<div class="scrim"></div><div id="status" class="status glass">Loading photograph…</div>
+<div class="top"><a id="back" href="./photo-modes-v11.html">← Back to map</a><div id="info" class="info glass"></div></div>
+<div class="switcher glass"><button id="noho"><b>NoHo</b><small>5:36 PM</small></button><button id="flatiron"><b>Flatiron</b><small>1:14 PM</small></button></div>
+<script>
+const M={noho:{name:'NoHo façades',time:'5:36 PM',src:'./assets/noho-v9.jpg'},flatiron:{name:'Flatiron aperitivo',time:'1:14 PM',src:'./assets/flatiron-v9.jpg'}};
+const params=new URLSearchParams(location.search);let key=Object.hasOwn(M,params.get('moment'))?params.get('moment'):'noho';const returnMode=['world','scene','pov'].includes(params.get('returnMode'))?params.get('returnMode'):'pov';
+const photo=document.getElementById('photo'),status=document.getElementById('status'),info=document.getElementById('info'),back=document.getElementById('back'),buttons={noho:document.getElementById('noho'),flatiron:document.getElementById('flatiron')};
+function render(){const m=M[key];status.classList.remove('ready');status.textContent='Loading photograph…';photo.src='';requestAnimationFrame(()=>photo.src=m.src);info.innerHTML='<b>'+m.time+' · '+m.name+'</b><span>Standalone media view · no WebGL running</span>';back.href='./photo-modes-v11.html?moment='+encodeURIComponent(key)+'&mode='+encodeURIComponent(returnMode);Object.entries(buttons).forEach(([k,b])=>b.classList.toggle('active',k===key));history.replaceState(null,'','?moment='+encodeURIComponent(key)+'&returnMode='+encodeURIComponent(returnMode))}
+photo.onload=()=>status.classList.add('ready');photo.onerror=()=>{status.classList.remove('ready');status.textContent='Photograph failed to load. Back to map remains available.'};buttons.noho.onclick=()=>{key='noho';render()};buttons.flatiron.onclick=()=>{key='flatiron';render()};render();
+</script>
+</body>
+</html>
