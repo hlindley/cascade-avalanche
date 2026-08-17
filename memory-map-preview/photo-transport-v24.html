@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Memory Map · Photo Transport Diagnostic</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#071019;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{padding:max(18px,env(safe-area-inset-top)) 14px max(24px,env(safe-area-inset-bottom))}.panel{max-width:700px;margin:auto;background:#0b141ddd;border:1px solid #ffffff24;border-radius:18px;padding:14px;box-shadow:0 20px 60px #0008}h1{font-size:17px;margin:0 0 5px}p{margin:0 0 12px;color:#aeb9c5;font-size:12px;line-height:1.45}.status{border-radius:12px;padding:10px 11px;background:#ffffff0c;border:1px solid #ffffff18;font-size:12px;white-space:pre-wrap}.status.ok{border-color:#69e3cd88;color:#bffcef}.status.fail{border-color:#ff8d8d88;color:#ffd2d2}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}.tile{position:relative;aspect-ratio:3/4;border-radius:10px;overflow:hidden;background:#14202a;border:1px solid #ffffff20}.tile canvas{width:100%;height:100%;display:block}.tile span{position:absolute;left:5px;bottom:5px;background:#05090dcc;border:1px solid #ffffff44;padding:3px 5px;border-radius:999px;font-size:9px}.atlas{width:100%;height:auto;display:none;margin-top:12px;border-radius:12px;border:1px solid #ffffff22}button{width:100%;margin-top:12px;border:1px solid #69e3cd88;background:#69e3cd20;color:#fff;border-radius:12px;padding:12px;font-weight:750;font-size:13px}button:disabled{opacity:.4}.full{position:fixed;inset:0;z-index:10;background:#05070a;display:none}.full.visible{display:block}.full canvas{width:100%;height:100%;display:block}.full button{position:absolute;z-index:2;right:12px;top:max(12px,env(safe-area-inset-top));width:auto;margin:0;background:#071019dc;backdrop-filter:blur(12px)}
+</style>
+</head>
+<body>
+<div class="panel">
+<h1>Photo transport diagnostic</h1>
+<p>This page does not load MapLibre. It tests only the exact same-origin atlas transport and Canvas2D drawing used by the prototype.</p>
+<div id="status" class="status">Starting JavaScript…</div>
+<div id="grid" class="grid"></div>
+<canvas id="atlas" class="atlas"></canvas>
+<button id="fullButton" disabled>Show Flatiron full screen</button>
+</div>
+<div id="full" class="full"><canvas id="fullCanvas"></canvas><button id="close">Close</button></div>
+<script>
+(() => {
+const status=document.getElementById('status'),grid=document.getElementById('grid'),atlasCanvas=document.getElementById('atlas'),full=document.getElementById('full'),fullCanvas=document.getElementById('fullCanvas'),fullButton=document.getElementById('fullButton');
+const urls=['./assets-v16/atlas-00.b64','./assets-v16/atlas-01.b64','./assets-v16/atlas-02.b64'];
+const rects={'1300':[0,0,.2,.25],'1303':[.2,0,.2,.25],'1304':[.4,0,.2,.25],'1311':[.6,0,.2,.25],'1313':[.8,0,.2,.25],'1314':[0,.25,.2,.25],'1315':[.2,.25,.2,.25],'1317':[.4,.25,.2,.25],'1320':[.6,.25,.2,.25],'1322':[.8,.25,.2,.25],'1323':[0,.5,.2,.25],'1308':[0,.75,.355,.25]};
+let image=null,objectUrl=null;
+const report=(text,type='')=>{status.textContent=text;status.className='status '+type};
+window.addEventListener('error',e=>report('Page error: '+(e.message||'unknown'),'fail'));
+window.addEventListener('unhandledrejection',e=>report('Unhandled promise: '+(e.reason?.message||e.reason||'unknown'),'fail'));
+function crop(sw,sh,dw,dh){const sa=sw/sh,da=dw/dh;if(sa>da){const w=sh*da;return{x:(sw-w)/2,y:0,w,h:sh}}const h=sw/da;return{x:0,y:(sh-h)/2,w:sw,h}}
+function drawCell(canvas,id){const r=rects[id],ctx=canvas.getContext('2d');if(!image||!r||!ctx)return;const [u,v,wf,hf]=r,sx=u*image.naturalWidth,sy=v*image.naturalHeight,sw=wf*image.naturalWidth,sh=hf*image.naturalHeight,c=crop(sw,sh,canvas.width,canvas.height);ctx.drawImage(image,sx+c.x,sy+c.y,c.w,c.h,0,0,canvas.width,canvas.height)}
+function drawFull(id){const ratio=Math.min(devicePixelRatio||1,2);fullCanvas.width=Math.round(innerWidth*ratio);fullCanvas.height=Math.round(innerHeight*ratio);const ctx=fullCanvas.getContext('2d'),r=rects[id],[u,v,wf,hf]=r,sx=u*image.naturalWidth,sy=v*image.naturalHeight,sw=wf*image.naturalWidth,sh=hf*image.naturalHeight,c=crop(sw,sh,fullCanvas.width,fullCanvas.height);ctx.fillStyle='#05070a';ctx.fillRect(0,0,fullCanvas.width,fullCanvas.height);ctx.drawImage(image,sx+c.x,sy+c.y,c.w,c.h,0,0,fullCanvas.width,fullCanvas.height)}
+async function boot(){
+ report('JavaScript is running. Fetching 3 same-origin text chunks…');
+ const pieces=[];let total=0;
+ for(const url of urls){const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw new Error(url+' returned HTTP '+response.status);const text=await response.text();pieces.push(text);total+=text.length;report('Fetched '+pieces.length+'/3 chunks · '+total.toLocaleString()+' characters');}
+ const base64=pieces.join('').replace(/[^A-Za-z0-9+/=]/g,'');
+ report('All chunks fetched. Decoding '+base64.length.toLocaleString()+' base64 characters…');
+ let binary;try{binary=atob(base64)}catch(error){throw new Error('Base64 decode failed: '+error.message)}
+ const bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
+ const blob=new Blob([bytes],{type:'image/jpeg'});objectUrl=URL.createObjectURL(blob);
+ image=new Image();image.decoding='async';
+ await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(new Error('JPEG Image element rejected the reconstructed blob.'));image.src=objectUrl});
+ report('SUCCESS\nChunks: '+pieces.map(p=>p.length.toLocaleString()).join(' + ')+'\nJPEG bytes: '+bytes.length.toLocaleString()+'\nAtlas: '+image.naturalWidth+' × '+image.naturalHeight,'ok');
+ Object.keys(rects).forEach(id=>{const tile=document.createElement('div');tile.className='tile';const canvas=document.createElement('canvas');canvas.width=180;canvas.height=240;const label=document.createElement('span');label.textContent=id;tile.append(canvas,label);grid.appendChild(tile);drawCell(canvas,id)});
+ atlasCanvas.width=image.naturalWidth;atlasCanvas.height=image.naturalHeight;atlasCanvas.getContext('2d').drawImage(image,0,0);fullButton.disabled=false;
+}
+fullButton.onclick=()=>{drawFull('1300');full.classList.add('visible')};document.getElementById('close').onclick=()=>full.classList.remove('visible');
+boot().catch(error=>report('FAILED\n'+error.message+'\n\nThis isolates the failure to photo transport rather than MapLibre or navigation.','fail'));
+})();
+</script>
+</body>
+</html>
