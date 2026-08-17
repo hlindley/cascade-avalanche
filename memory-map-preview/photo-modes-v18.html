@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Memory Map · Photo Control v18</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.3.0/dist/maplibre-gl.css">
+<link rel="stylesheet" href="./photo-modes-v13.css">
+<style>
+  #photoBtn{transition:opacity .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease}
+  #photoBtn[aria-disabled="true"]{opacity:.34;filter:saturate(.25)}
+  #photoBtn[aria-disabled="false"]{opacity:1;filter:none;box-shadow:inset 0 0 0 1px #69e3cd88;border-color:#69e3cd88}
+  #photoBtn.photo-loading{animation:photoPulse 1.1s ease-in-out infinite}
+  #photoBtn.active{background:#aa94ff3a;border-color:#bea9ff85;animation:none}
+  @keyframes photoPulse{0%,100%{opacity:.66}50%{opacity:1}}
+  body.photo-visible .shade{opacity:.12}
+  body.photo-visible .maplibregl-ctrl-attrib{opacity:.12}
+</style>
+</head>
+<body>
+<div id="map"></div><div class="shade"></div><div id="status" class="status glass">Starting map…</div>
+<div class="top"><div class="chip glass" id="info"><b>NYC Saturday</b><span>Building the trip overview…</span></div><div class="chip glass" id="pose">WORLD</div></div>
+<div class="navigator glass">
+  <div class="clusters">
+    <button id="cluster-flatiron" class="cluster"><b>Flatiron</b><small>1 photo</small></button>
+    <button id="cluster-noho" class="cluster"><b>NoHo</b><small>10 photos</small></button>
+    <button id="cluster-central" class="cluster"><b>Central Park</b><small>1 photo</small></button>
+  </div>
+  <div class="observationNav">
+    <button id="prevObservation" class="arrow" aria-label="Previous photo">‹</button>
+    <div class="observationInfo"><b id="observationTitle">Trip overview</b><span id="observationMeta">12 photos · 3 clusters</span></div>
+    <button id="nextObservation" class="arrow" aria-label="Next photo">›</button>
+  </div>
+  <div id="dots" class="dots"></div>
+</div>
+<div class="tray glass"><div class="modes"><button id="world" class="active">World</button><button id="clusterMode">Cluster</button><button id="pov">POV</button><button id="photoBtn" type="button" aria-disabled="true">Photo</button></div><div class="note" id="note">World → Cluster → POV. Photo unlocks immediately in POV and prepares the texture after tap.</div></div>
+<script type="module" src="./photo-modes-v18-app.js"></script>
+</body>
+</html>
