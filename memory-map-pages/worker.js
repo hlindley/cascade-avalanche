@@ -1,25 +1,18 @@
-let atlasPromise;
+import { PHOTO_ATLAS_DATA_URL } from './photo-atlas.js';
 
-async function loadPhotoAtlas(request, env) {
-  if (!atlasPromise) {
-    atlasPromise = (async () => {
-      const origin = new URL(request.url).origin;
-      const chunkNames = ['atlas-00.b64', 'atlas-01.b64', 'atlas-02.b64'];
-      let base64 = '';
+let atlasBytes;
 
-      for (const name of chunkNames) {
-        const response = await env.ASSETS.fetch(new URL(`/photo-data/${name}`, origin));
-        if (!response.ok) throw new Error(`Missing photo chunk ${name}: HTTP ${response.status}`);
-        base64 += (await response.text()).replace(/\s+/g, '');
-      }
-
-      const binary = atob(base64);
-      const bytes = new Uint8Array(binary.length);
-      for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
-      return bytes;
-    })();
+function decodeAtlas() {
+  if (!atlasBytes) {
+    const comma = PHOTO_ATLAS_DATA_URL.indexOf(',');
+    if (comma < 0) throw new Error('Photo atlas data URL is malformed.');
+    const base64 = PHOTO_ATLAS_DATA_URL.slice(comma + 1);
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+    atlasBytes = bytes;
   }
-  return atlasPromise;
+  return atlasBytes;
 }
 
 export default {
@@ -28,19 +21,20 @@ export default {
 
     if (url.pathname === '/photo-atlas') {
       try {
-        const bytes = await loadPhotoAtlas(request, env);
-        return new Response(bytes, {
+        return new Response(decodeAtlas(), {
           headers: {
             'Content-Type': 'image/jpeg',
-            'Cache-Control': 'public, max-age=86400, immutable',
+            'Cache-Control': 'public, max-age=3600',
             'X-Content-Type-Options': 'nosniff'
           }
         });
       } catch (error) {
-        atlasPromise = undefined;
         return new Response(`Photo atlas unavailable: ${error?.message || error}`, {
           status: 500,
-          headers: {'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store'}
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'no-store'
+          }
         });
       }
     }
