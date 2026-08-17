@@ -15,16 +15,48 @@ function decodeAtlas() {
   return atlasBytes;
 }
 
+async function serveStaticJpeg(request, env, assetPath) {
+  const assetUrl = new URL(assetPath, request.url);
+  const response = await env.ASSETS.fetch(new Request(assetUrl, request));
+  const contentType = response.headers.get('content-type') || '';
+
+  // Never let the SPA fallback masquerade as a photograph.
+  if (!response.ok || !contentType.toLowerCase().startsWith('image/')) {
+    const diagnostic = `Photo asset route failed: ${assetPath}; status=${response.status}; content-type=${contentType || 'none'}`;
+    return new Response(diagnostic, {
+      status: 502,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-store'
+      }
+    });
+  }
+
+  const headers = new Headers(response.headers);
+  headers.set('Content-Type', 'image/jpeg');
+  headers.set('Cache-Control', 'no-store');
+  headers.set('X-Content-Type-Options', 'nosniff');
+  return new Response(response.body, {status: 200, headers});
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/photo/flatiron.jpg') {
+      return serveStaticJpeg(request, env, '/flatiron.jpg');
+    }
+
+    if (url.pathname === '/photo/noho.jpg') {
+      return serveStaticJpeg(request, env, '/noho.jpg');
+    }
 
     if (url.pathname === '/photo-atlas') {
       try {
         return new Response(decodeAtlas(), {
           headers: {
             'Content-Type': 'image/jpeg',
-            'Cache-Control': 'public, max-age=3600',
+            'Cache-Control': 'no-store',
             'X-Content-Type-Options': 'nosniff'
           }
         });
