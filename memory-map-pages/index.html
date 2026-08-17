@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+<meta name="theme-color" content="#050a0f" />
+<title>Memory Map · NYC Saturday</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@6.3.0/dist/maplibre-gl.css" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div id="map"></div>
+<div class="shade"></div>
+<canvas id="photoCanvas" aria-hidden="true"></canvas>
+<div id="status" class="status glass">Starting map…</div>
+
+<div class="top">
+  <div class="chip glass" id="info"><b>NYC Saturday</b><span>Reconstructing the trip…</span></div>
+  <div class="chip glass" id="pose">WORLD</div>
+</div>
+
+<div class="navigator glass">
+  <div class="clusters">
+    <button data-cluster="flatiron" class="cluster"><b>Flatiron</b><small>1 photo</small></button>
+    <button data-cluster="noho" class="cluster"><b>NoHo</b><small>10 photos</small></button>
+    <button data-cluster="central" class="cluster"><b>Central Park</b><small>1 photo</small></button>
+  </div>
+  <div class="observationNav">
+    <button id="prevObservation" class="arrow" aria-label="Previous photo">‹</button>
+    <div class="observationInfo"><b id="observationTitle">Trip overview</b><span id="observationMeta">12 photos · 3 clusters</span></div>
+    <button id="nextObservation" class="arrow" aria-label="Next photo">›</button>
+  </div>
+  <div id="dots" class="dots"></div>
+</div>
+
+<div class="tray glass">
+  <div class="modes">
+    <button id="world" class="active">World</button>
+    <button id="clusterMode">Cluster</button>
+    <button id="pov">POV</button>
+    <button id="photoBtn" type="button" aria-disabled="true">Photo</button>
+  </div>
+  <div class="note" id="note">World → Cluster → POV. Photo is the same-perspective evidence toggle.</div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
