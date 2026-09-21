@@ -1,11 +1,16 @@
-# Shared Lab Knowledge setup — pending activation
+# Shared Lab Knowledge setup
 
-This change installs task-start instructions only. The shared private registry has
-not been published by this rollout; cloud settings and fresh-session acceptance
-remain pending. Do not report successful access until an actual lookup succeeds.
+The canonical private registry was published and verified on 2026-09-21.
+The owner's Windows global rule is installed; local project lookups and a
+fresh Codex-session lookup passed. This draft PR remains unmerged.
+This project's cloud setup and isolated acceptance remain pending.
+Do not claim cloud or main-branch coverage from these local checks.
 
-Preserve the existing environment setup and maintenance commands. Once the registry
-owner has supplied a verified private repository and full published commit, configure
+Obtain the verified repository and full commit privately from the owner.
+Private registry mappings, receipts and pin values are intentionally
+excluded from this public repository.
+
+Preserve the existing environment setup and maintenance commands. Using the verified private repository and published commit, configure
 LAB_KNOWLEDGE_REPOSITORY and LAB_KNOWLEDGE_COMMIT as ordinary environment settings.
 Provide LAB_KNOWLEDGE_READ_TOKEN only as a setup/maintenance secret, restricted to
 Contents: read on that single repository. If setup-only secrets are unsupported,
