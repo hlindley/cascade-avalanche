@@ -1,0 +1,6 @@
+
+# Private agent knowledge snapshots and receipts
+/.knowledge/
+/.knowledge.last-known/
+/.knowledge-stage-*/
+/.knowledge-receipts/
