@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#1f2c3a">
+  <title>THE ALLEY · M1</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">
+  { "imports": {
+      "three": "./vendor/three/three.module.js",
+      "three/addons/": "./vendor/three/addons/",
+      "rapier": "./vendor/rapier/rapier.mjs"
+  } }
+  </script>
+</head>
+<body>
+  <canvas id="view" aria-label="The Alley"></canvas>
+  <div id="hitflash"></div>
+  <div id="vignette"></div>
+
+  <div id="reticle" aria-hidden="true"><i class="h"></i><i class="v"></i><b></b></div>
+
+  <div id="hud">
+    <div class="tag"><span>M1</span> THE ALLEY <em id="modeTag">COCKPIT</em></div>
+    <div id="weapons">
+      <div class="row"><label>CANNON</label><div class="bar"><div id="cannonFill"></div></div></div>
+      <div class="row"><label>SALVO</label><div class="bar"><div id="salvoFill"></div></div></div>
+      <div class="row"><label>BOOST</label><div class="bar boost"><div id="boostFill"></div></div></div>
+      <div class="speed" id="speed">0 km/h</div>
+    </div>
+    <div id="targetPanel">
+      <div class="title">TARGET <span id="tmode">STRAFE</span></div>
+      <div class="state" id="tstate">NOMINAL</div>
+      <div class="row"><label>KNEE L</label><div class="bar"><div id="kneeL"></div></div></div>
+      <div class="row"><label>KNEE R</label><div class="bar"><div id="kneeR"></div></div></div>
+      <div class="row"><label>CHASSIS</label><div class="bar"><div id="chassis"></div></div></div>
+    </div>
+  </div>
+
+  <div id="banner"></div>
+  <pre id="perf" hidden></pre>
+
+  <div id="help" hidden>
+    <b>CONTROLS</b>
+    <p>WASD move · mouse aim · <b>LMB</b> cannon · <b>RMB</b> rocket salvo · <b>Shift/Space</b> boost (forward = ram)</p>
+    <p><b>R</b> reset alley · <b>V</b> cockpit/chase · <b>`</b> perf overlay · <b>T</b> slow-mo · <b>P</b> pause · <b>M</b> mute</p>
+    <p>Target: <b>1</b> strafe · <b>2</b> cover (S1) · <b>3</b> inside block A · <b>4</b> hold · <b>0</b> toggle return fire</p>
+  </div>
+
+  <div id="start">
+    <div class="card">
+      <div class="eyebrow">MILESTONE 1 · VERTICAL SLICE</div>
+      <h1>THE ALLEY</h1>
+      <p>Heavy machine. Light feet. Thick walls that really break.</p>
+      <div class="keys">
+        <span><b>WASD</b> move</span><span><b>LMB</b> cannon</span><span><b>RMB</b> salvo</span>
+        <span><b>SHIFT</b> boost / ram</span><span><b>R</b> reset</span><span><b>V</b> camera</span><span><b>`</b> perf</span><span><b>H</b> help</span>
+      </div>
+      <div class="go">CLICK TO ENGAGE</div>
+      <div class="tests">
+        <button id="btnA" type="button">TEST A · THE MISS</button>
+        <button id="btnB" type="button">TEST B · THE SALVO</button>
+        <button id="btnC" type="button">TEST C · THE RAM</button>
+        <button id="btnReset" type="button">RESET</button>
+      </div>
+    </div>
+  </div>
+  <div id="loading">LOADING THE ALLEY…</div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

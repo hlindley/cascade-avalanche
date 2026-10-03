@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "task": "M1 The Alley destructible mech shooter: three.js rapier fracture destruction debris physics performance visual inspection webgpu multiplayer",
+  "project": null,
+  "checked_at": "2026-10-03T06:50:23+00:00",
+  "graph_sha256": "e99f5ef155500fc59b3c96b00803ce207efa911ec8b4ba55439a90734b104dcf",
+  "knowledge_commit": "26eaf50c7c5e283ee87362090422facf7b543e15",
+  "graph_updated_at": "2026-09-13",
+  "snapshot_status": "local-checkout-refresh-unverified",
+  "snapshot_fetched_at": null,
+  "fresh_remote_lookup": false,
+  "lookup_status": "matches",
+  "matches": [
+    {
+      "id": "find:blender-three-sync",
+      "title": "Bidirectional Blender ↔ Three.js through MCP",
+      "score": 12,
+      "verification": "feed-only",
+      "reuse_status": "not-cleared",
+      "status": "candidate",
+      "why": "Potentially shorten code → visual inspection → geometry correction loops.",
+      "caveats": [
+        "Same discovery resurfaced as new on September 12. Treat as one find; original publication date remains unverified. Current URL fetch failed."
+      ],
+      "source_urls": [
+        "https://www.reddit.com/r/threejs/comments/1vpuctv/quick_tip_you_can_sync_up_threejs_edits_with/"
+      ],
+      "matching_terms": [
+        "inspection",
+        "js",
+        "three",
+        "visual"
+      ],
+      "direct_project_match": false
+    },
+    {
+      "id": "find:rainy-worlds",
+      "title": "Rainy Worlds",
+      "score": 12,
+      "verification": "feed-only",
+      "reuse_status": "not-cleared",
+      "status": "needs-source",
+      "why": "Candidate natural-world atmosphere/performance reference.",
+      "caveats": [
+        "Missing source URL; terrain range, fallback support and performance need verification."
+      ],
+      "source_urls": [],
+      "matching_terms": [
+        "js",
+        "performance",
+        "three",
+        "webgpu"
+      ],
+      "direct_project_match": false
+    },
+    {
+      "id": "find:sparse-radiance-cascades",
+      "title": "Sparse Radiance Cascades GI in Three.js",
+      "score": 12,
+      "verification": "feed-only",
+      "reuse_status": "not-cleared",
+      "status": "candidate",
+      "why": "Candidate indirect-lighting architecture for island terrain, vegetation and boats.",
+      "caveats": [
+        "Same-author relationship to the FFT ocean is a feed claim until checked. Mobile performance and source availability are unverified."
+      ],
+      "source_urls": [
+        "https://www.reddit.com/r/threejs/comments/1wd0iax/three_js_global_illumination/",
+        "https://rc-balls.pages.dev/"
+      ],
+      "matching_terms": [
+        "js",
+        "performance",
+        "three",
+        "webgpu"
+      ],
+      "direct_project_match": false
+    },
+    {
+      "id": "find:tsl-noise-benchmark",
+      "title": "WebGL versus WebGPU procedural-noise stress test",
+      "score": 12,
+      "verification": "feed-only",
+      "reuse_status": "not-cleared",
+      "status": "candidate",
+      "why": "Candidate shader-workload benchmark for water, foam, terrain and atmosphere costs.",
+      "caveats": [
+        "The feed called it fresh, but original publication date is not verified. Claimed speedup is not portable across devices."
+      ],
+      "source_urls": [
+        "https://www.reddit.com/r/threejs/comments/1vo4re7/webgl_vs_webgpu/"
+      ],
+      "matching_terms": [
+        "js",
+        "performance",
+        "three",
+        "webgpu"
+      ],
+      "direct_project_match": false
+    },
+    {
+      "id": "find:claude-of-tanks",
+      "title": "Claude of Tanks procedural vehicles and visual quality gates",
+      "score": 9,
+      "verification": "feed-only",
+      "reuse_status": "not-cleared",
+      "status": "needs-source",
+      "why": "Process donor candidate for render → inspect → measure loops on procedural assets.",
+      "caveats": [
+        "Open-source status and model counts were feed claims; missing primary URL."
+      ],
+      "source_urls": [],
+      "matching_terms": [
+        "js",
+        "three",
+        "visual"
+      ],
+      "direct_project_match": false
+    }
+  ],
+  "decision_status": "pending-agent-review",
+  "decision_instruction": "Review relevant cards; record use/adapt/reject/not-applicable with reasons. A lookup receipt is not proof the sources were read or decisions were good.",
+  "source_access": "local snapshot; freshness is graph_updated_at, not checked_at"
+}
