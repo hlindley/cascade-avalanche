@@ -39,3 +39,7 @@ Open `http://localhost:8080`.
 ## Deployment
 
 The repository is ready for zero-build deployment to Cloudflare Pages. See `DEPLOYMENT.md`.
+
+## The Alley (M1, destructible mech shooter)
+
+A separate vertical slice lives in `alley/` (Three.js r186 + Rapier, vendored, no build step). Serve the repo root and open `/alley/`. Report, captures and measurements: `docs/alley/M1-REPORT.md`.

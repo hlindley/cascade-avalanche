@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "task": "M1 The Alley destructible mech shooter: three.js rapier fracture destruction debris physics performance visual inspection webgpu multiplayer",
-  "project": null,
+  "project": "the-alley (hlindley/cascade-avalanche, alley/)",
   "checked_at": "2026-10-03T06:50:23+00:00",
   "graph_sha256": "e99f5ef155500fc59b3c96b00803ce207efa911ec8b4ba55439a90734b104dcf",
   "knowledge_commit": "26eaf50c7c5e283ee87362090422facf7b543e15",
@@ -13,12 +13,12 @@
   "matches": [
     {
       "id": "find:blender-three-sync",
-      "title": "Bidirectional Blender ↔ Three.js through MCP",
+      "title": "Bidirectional Blender \u2194 Three.js through MCP",
       "score": 12,
       "verification": "feed-only",
       "reuse_status": "not-cleared",
       "status": "candidate",
-      "why": "Potentially shorten code → visual inspection → geometry correction loops.",
+      "why": "Potentially shorten code \u2192 visual inspection \u2192 geometry correction loops.",
       "caveats": [
         "Same discovery resurfaced as new on September 12. Treat as one find; original publication date remains unverified. Current URL fetch failed."
       ],
@@ -105,7 +105,7 @@
       "verification": "feed-only",
       "reuse_status": "not-cleared",
       "status": "needs-source",
-      "why": "Process donor candidate for render → inspect → measure loops on procedural assets.",
+      "why": "Process donor candidate for render \u2192 inspect \u2192 measure loops on procedural assets.",
       "caveats": [
         "Open-source status and model counts were feed claims; missing primary URL."
       ],
@@ -118,7 +118,35 @@
       "direct_project_match": false
     }
   ],
-  "decision_status": "pending-agent-review",
+  "decision_status": "reviewed",
   "decision_instruction": "Review relevant cards; record use/adapt/reject/not-applicable with reasons. A lookup receipt is not proof the sources were read or decisions were good.",
-  "source_access": "local snapshot; freshness is graph_updated_at, not checked_at"
+  "source_access": "local snapshot; freshness is graph_updated_at, not checked_at",
+  "decisions": {
+    "reviewed_at": "2026-10-03",
+    "matches": {
+      "find:blender-three-sync": "not-applicable: M1 uses procedural geometry; no Blender round-trip needed. Feed-only, not inspected.",
+      "find:rainy-worlds": "not-applicable: matched on generic terms only (no destruction/physics content).",
+      "find:sparse-radiance-cascades": "not-applicable for M1: GI out of scope; interior darkening solved with authored indirect-occlusion volumes.",
+      "find:tsl-noise-benchmark": "not-applicable: WebGL2 renderer, no TSL in M1.",
+      "find:claude-of-tanks": "adapt-process-only: render -> inspect -> measure loop adopted as practice (alley/tools/inspect.mjs). No code or source used; primary URL missing in registry."
+    },
+    "searched_no_match": [
+      "destruction",
+      "fracture",
+      "physics",
+      "rapier",
+      "debris",
+      "multiplayer",
+      "godot",
+      "voxel",
+      "defilade"
+    ],
+    "brief_named_record_missing": "find:defilade-godot-rts not present in graph.json at 26eaf50 nor in intake branches (higgsfield, jev-grassworks, seedocean) checked 2026-10-03.",
+    "new_evidence": "docs/knowledge-checks/20261003--alley-m1--destruction-spike.json (validated with radar.py ingest, not applied; needs PR to hlindley/lab-knowledge).",
+    "donor_verification": {
+      "@dgreenheck/three-pinata@2.0.1": "MIT verified in package LICENSE; executed locally for timing; rejected as runtime per-impact path; no code copied.",
+      "three@0.186.1": "MIT, vendored build files",
+      "@dimforge/rapier3d-compat@0.21.0": "Apache-2.0, vendored build file"
+    }
+  }
 }

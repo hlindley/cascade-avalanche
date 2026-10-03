@@ -11,3 +11,9 @@
 
 /styles.css
   Cache-Control: no-cache
+
+/alley/src/*
+  Cache-Control: no-cache
+
+/alley/index.html
+  Cache-Control: no-cache

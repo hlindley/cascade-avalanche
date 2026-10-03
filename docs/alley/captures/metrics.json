@@ -1,0 +1,1153 @@
+{
+  "date": "2026-10-03T07:38:37.734Z",
+  "base": "http://localhost:8080/alley/?manual",
+  "gpu": false,
+  "captures": {
+    "01-pristine-cockpit": {
+      "state": {
+        "target": {
+          "pos": [
+            -2,
+            0,
+            -8.6
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            0,
+            0,
+            13
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.8000000002793968,
+        "initMs": 4263.5999999996275,
+        "buildMs": {
+          "alley": 585.7000000001863,
+          "panels": 214.6999999997206
+        }
+      },
+      "render": {
+        "renderMs": 5.6,
+        "calls": 404,
+        "triangles": 182294
+      }
+    },
+    "01b-pristine-wide": {
+      "state": {
+        "target": {
+          "pos": [
+            13,
+            0,
+            9
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            0,
+            0,
+            13
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.3999999999068677,
+        "initMs": 4232.200000000186,
+        "buildMs": {
+          "alley": 569.8000000002794,
+          "panels": 250.79999999981374
+        }
+      },
+      "render": {
+        "renderMs": 4.7,
+        "calls": 388,
+        "triangles": 193382
+      }
+    },
+    "02-one-cannon-hole": {
+      "state": {
+        "target": {
+          "pos": [
+            12.99,
+            0.01,
+            8.98
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            2.11,
+            0.01,
+            5.84
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 21,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 10,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.3999999999068677,
+        "initMs": 4070.100000000093,
+        "buildMs": {
+          "alley": 621.7000000001863,
+          "panels": 243.8999999994412
+        }
+      },
+      "render": {
+        "renderMs": 3.6,
+        "calls": 312,
+        "triangles": 162410
+      }
+    },
+    "03-adjacent-cannon-holes": {
+      "state": {
+        "target": {
+          "pos": [
+            12.99,
+            0.01,
+            8.98
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            2.16,
+            0.01,
+            5.88
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 88,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 38,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.2000000001862645,
+        "initMs": 4101.300000000279,
+        "buildMs": {
+          "alley": 575.1000000000931,
+          "panels": 216.30000000121072
+        }
+      },
+      "render": {
+        "renderMs": 4.5,
+        "calls": 419,
+        "triangles": 179938
+      }
+    },
+    "04-rocket-facade": {
+      "state": {
+        "target": {
+          "pos": [
+            12.99,
+            0.01,
+            8.98
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            1,
+            0,
+            10
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 0,
+          "A-g3": 65,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 62,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 8.700000000186265,
+        "initMs": 4126.0999999996275,
+        "buildMs": {
+          "alley": 616.4000000003725,
+          "panels": 237.20000000065193
+        }
+      },
+      "render": {
+        "renderMs": 5.7,
+        "calls": 460,
+        "triangles": 171878
+      }
+    },
+    "05-large-breach": {
+      "state": {
+        "target": {
+          "pos": [
+            12.99,
+            0.01,
+            8.98
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            0.99,
+            0,
+            10.03
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 1,
+          "A-g3": 123,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 92,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 2,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.5,
+        "initMs": 4207.799999999814,
+        "buildMs": {
+          "alley": 634.1000000000931,
+          "panels": 261.8000000016764
+        }
+      },
+      "render": {
+        "renderMs": 4,
+        "calls": 555,
+        "triangles": 179174
+      }
+    },
+    "06-target-healthy-gait": {
+      "state": {
+        "target": {
+          "pos": [
+            -0.86,
+            0,
+            -8.6
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "strafe"
+        },
+        "player": {
+          "pos": [
+            0,
+            0,
+            13
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 5.2999999998137355,
+        "initMs": 4165.5,
+        "buildMs": {
+          "alley": 630.3999999999069,
+          "panels": 254.8000000002794
+        }
+      },
+      "render": {
+        "renderMs": 6.4,
+        "calls": 398,
+        "triangles": 198934
+      }
+    },
+    "07-target-limp": {
+      "state": {
+        "target": {
+          "pos": [
+            -0.51,
+            0,
+            -8.6
+          ],
+          "knee": [
+            100,
+            12
+          ],
+          "chassis": 402.4,
+          "disabled": false,
+          "knock": 0,
+          "mode": "strafe"
+        },
+        "player": {
+          "pos": [
+            0,
+            0,
+            13
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 0,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.7000000001862645,
+        "initMs": 4167.199999999721,
+        "buildMs": {
+          "alley": 595.7999999998137,
+          "panels": 223.79999999934807
+        }
+      },
+      "render": {
+        "renderMs": 3.8,
+        "calls": 399,
+        "triangles": 198988
+      }
+    },
+    "07b-testA-cockpit-after-knee-hit": {
+      "state": {
+        "target": {
+          "pos": [
+            5.35,
+            0,
+            -8.61
+          ],
+          "knee": [
+            54,
+            100
+          ],
+          "chassis": 410.8,
+          "disabled": false,
+          "knock": 0,
+          "mode": "strafe"
+        },
+        "player": {
+          "pos": [
+            0.02,
+            0,
+            13.11
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 35,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 0.599999999627471,
+        "initMs": 4149,
+        "buildMs": {
+          "alley": 605.6000000000931,
+          "panels": 251.8999999994412
+        }
+      },
+      "render": {
+        "renderMs": 5.4,
+        "calls": 441,
+        "triangles": 190284
+      }
+    },
+    "07c-testA-holes-behind": {
+      "state": {
+        "target": {
+          "pos": [
+            13,
+            0,
+            9
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 420,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            0.02,
+            0,
+            13.11
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 35,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 0.599999999627471,
+        "initMs": 4064.5,
+        "buildMs": {
+          "alley": 570,
+          "panels": 228.60000000009313
+        }
+      },
+      "render": {
+        "renderMs": 3.8,
+        "calls": 376,
+        "triangles": 174214
+      }
+    },
+    "08-ram-impact": {
+      "state": {
+        "target": {
+          "pos": [
+            -6,
+            0,
+            -11.96
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 304.5666520559735,
+          "disabled": false,
+          "knock": 25.46,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            -6,
+            0,
+            -7.38
+          ],
+          "energy": 58
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 36,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": {
+          "t": 4488.800000000279,
+          "speed": 26.859978120805785,
+          "dmg": 115.43334794402648
+        },
+        "lastDebrisHit": null,
+        "resetMs": 0.7999999998137355,
+        "initMs": 4315.0999999996275,
+        "buildMs": {
+          "alley": 595.7999999998137,
+          "panels": 233.50000000046566
+        }
+      },
+      "render": {
+        "renderMs": 4.6,
+        "calls": 498,
+        "triangles": 229544
+      }
+    },
+    "08b-ram-cockpit": {
+      "state": {
+        "target": {
+          "pos": [
+            -6,
+            0,
+            -11.96
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 304.52069405285613,
+          "disabled": false,
+          "knock": 25.47,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            -6,
+            0,
+            -7.26
+          ],
+          "energy": 58
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 36,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 0
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": {
+          "t": 4349,
+          "speed": 26.865324531254956,
+          "dmg": 115.4793059471439
+        },
+        "lastDebrisHit": null,
+        "resetMs": 0.6000000000931323,
+        "initMs": 4184.800000000279,
+        "buildMs": {
+          "alley": 617.6999999997206,
+          "panels": 256.20000000158325
+        }
+      },
+      "render": {
+        "renderMs": 3.9,
+        "calls": 372,
+        "triangles": 172346
+      }
+    },
+    "09-post-collapse-debris": {
+      "state": {
+        "target": {
+          "pos": [
+            -6,
+            0,
+            -17.14
+          ],
+          "knee": [
+            56.8993931224023,
+            29.92065262790298
+          ],
+          "chassis": 241.08551383836175,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            0,
+            0.01,
+            4
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 68,
+          "A-g2": 0,
+          "A-g3": 0,
+          "A-u0": 0,
+          "A-u2": 0,
+          "A-u4": 0,
+          "A-s1": 0,
+          "A-h1": 0,
+          "A-s3": 0,
+          "A-h3": 0,
+          "A-p0": 0,
+          "A-p1": 0,
+          "B-g0": 0,
+          "B-g2": 0,
+          "S1": 105
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 0,
+        "lastRam": null,
+        "lastDebrisHit": {
+          "dmg": 1.526430718915005,
+          "part": "knee",
+          "t": 4432
+        },
+        "resetMs": 0.599999999627471,
+        "initMs": 4140.899999999907,
+        "buildMs": {
+          "alley": 602.1000000000931,
+          "panels": 216.30000000074506
+        }
+      },
+      "render": {
+        "renderMs": 4.6,
+        "calls": 571,
+        "triangles": 206518
+      }
+    },
+    "10-heavily-damaged-alley": {
+      "state": {
+        "target": {
+          "pos": [
+            13.02,
+            0.01,
+            8.97
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 374,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            -0.08,
+            0.01,
+            12.19
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 75,
+          "A-g2": 71,
+          "A-g3": 65,
+          "A-u0": 77,
+          "A-u2": 42,
+          "A-u4": 93,
+          "A-s1": 0,
+          "A-h1": 16,
+          "A-s3": 13,
+          "A-h3": 15,
+          "A-p0": 64,
+          "A-p1": 61,
+          "B-g0": 22,
+          "B-g2": 25,
+          "S1": 93
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 4,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.900000000372529,
+        "initMs": 4015.1999999997206,
+        "buildMs": {
+          "alley": 635.8000000002794,
+          "panels": 266.8999999994412
+        }
+      },
+      "render": {
+        "renderMs": 6.9,
+        "calls": 1002,
+        "triangles": 250590
+      }
+    },
+    "10b-heavily-damaged-cockpit": {
+      "state": {
+        "target": {
+          "pos": [
+            13.02,
+            0.01,
+            8.97
+          ],
+          "knee": [
+            100,
+            100
+          ],
+          "chassis": 374,
+          "disabled": false,
+          "knock": 0,
+          "mode": "hold"
+        },
+        "player": {
+          "pos": [
+            -0.08,
+            0.01,
+            12.19
+          ],
+          "energy": 100
+        },
+        "panels": {
+          "A-g0": 0,
+          "A-g1": 75,
+          "A-g2": 71,
+          "A-g3": 65,
+          "A-u0": 77,
+          "A-u2": 42,
+          "A-u4": 93,
+          "A-s1": 0,
+          "A-h1": 16,
+          "A-s3": 13,
+          "A-h3": 15,
+          "A-p0": 64,
+          "A-p1": 61,
+          "B-g0": 22,
+          "B-g2": 25,
+          "S1": 93
+        },
+        "attachmentsReleased": [],
+        "glassBroken": 4,
+        "lastRam": null,
+        "lastDebrisHit": null,
+        "resetMs": 3.099999999627471,
+        "initMs": 4218.200000000186,
+        "buildMs": {
+          "alley": 584.5999999996275,
+          "panels": 223.60000000009313
+        }
+      },
+      "render": {
+        "renderMs": 6.5,
+        "calls": 901,
+        "triangles": 199362
+      }
+    }
+  },
+  "bench": {
+    "environment": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36",
+      "cores": 4,
+      "initMs": 4126.5,
+      "buildMs": {
+        "alley": 622.5,
+        "panels": 262.8999999994412
+      },
+      "cells": {
+        "alive": 1949,
+        "total": 1949
+      },
+      "staticDraws": 14
+    },
+    "idle": {
+      "label": "idle, target strafing",
+      "steps": 180,
+      "meanMs": 0.58,
+      "p50": 0.5,
+      "p95": 0.8,
+      "max": 2.3,
+      "worst": {
+        "ms": 2.3000000002793968,
+        "step": 0,
+        "ops": []
+      },
+      "over16ms": 0,
+      "bodies": {
+        "heroActive": 0,
+        "heroSleeping": 0,
+        "heroFrozen": 0,
+        "cosmeticFlying": 4,
+        "cosmeticSettled": 0
+      },
+      "cells": {
+        "alive": 1949,
+        "total": 1949
+      }
+    },
+    "salvoIntact": {
+      "label": "rocket salvo into intact facade",
+      "steps": 240,
+      "meanMs": 1.6,
+      "p50": 1.6,
+      "p95": 2.9,
+      "max": 9.1,
+      "worst": {
+        "ms": 9.100000000093132,
+        "step": 28,
+        "ops": [
+          "rocket-fracture:2.5ms/14"
+        ]
+      },
+      "over16ms": 0,
+      "bodies": {
+        "heroActive": 5,
+        "heroSleeping": 0,
+        "heroFrozen": 62,
+        "cosmeticFlying": 3,
+        "cosmeticSettled": 73
+      },
+      "cells": {
+        "alive": 1803,
+        "total": 1949
+      }
+    },
+    "repeatedCannon": {
+      "label": "10 cannon rounds into one bay, 0.6 s apart",
+      "steps": 390,
+      "meanMs": 1.16,
+      "p50": 1.1,
+      "p95": 1.6,
+      "max": 3.7,
+      "worst": {
+        "ms": 3.6999999997206032,
+        "step": 229,
+        "ops": [
+          "cannon-fracture:1.4ms/12"
+        ]
+      },
+      "over16ms": 0,
+      "bodies": {
+        "heroActive": 9,
+        "heroSleeping": 0,
+        "heroFrozen": 53,
+        "cosmeticFlying": 7,
+        "cosmeticSettled": 269
+      },
+      "cells": {
+        "alive": 1799,
+        "total": 1949
+      }
+    },
+    "ramBreach": {
+      "label": "boost-ram target through weakened facade",
+      "steps": 240,
+      "meanMs": 0.95,
+      "p50": 0.9,
+      "p95": 1.5,
+      "max": 9.4,
+      "worst": {
+        "ms": 9.399999999906868,
+        "step": 9,
+        "ops": []
+      },
+      "over16ms": 0,
+      "bodies": {
+        "heroActive": 4,
+        "heroSleeping": 0,
+        "heroFrozen": 12,
+        "cosmeticFlying": 0,
+        "cosmeticSettled": 16
+      },
+      "cells": {
+        "alive": 1878,
+        "total": 1949
+      }
+    },
+    "heavy": {
+      "label": "six salvos 1.33 s apart across the alley (simultaneous debris)",
+      "steps": 540,
+      "meanMs": 2.04,
+      "p50": 1.9,
+      "p95": 3.1,
+      "max": 8.7,
+      "worst": {
+        "ms": 8.700000000186265,
+        "step": 195,
+        "ops": [
+          "rocket-fracture:2.2ms/21",
+          "rocket-fracture:1.0ms/34"
+        ]
+      },
+      "over16ms": 0,
+      "bodies": {
+        "heroActive": 55,
+        "heroSleeping": 1,
+        "heroFrozen": 184,
+        "cosmeticFlying": 22,
+        "cosmeticSettled": 404
+      },
+      "cells": {
+        "alive": 1364,
+        "total": 1949
+      }
+    },
+    "heavyRender": {
+      "renderMs": 5.7,
+      "calls": 775,
+      "triangles": 175850
+    },
+    "heavySnapshot": {
+      "window5s": {
+        "frames": 24,
+        "fps": 863.3093525295543,
+        "interval": {
+          "p50": 0.39999999990686774,
+          "p95": 2.2999999998137355,
+          "max": 16.7
+        },
+        "cpu": {
+          "p50": 0.39999999990686774,
+          "p95": 0.8999999999068677,
+          "max": 2.1999999997206032
+        },
+        "update": {
+          "p50": 0.39999999990686774,
+          "max": 2
+        }
+      },
+      "last": {
+        "cpu": 0.3000000002793968,
+        "update": 0.3000000002793968,
+        "render": 0,
+        "gpu": null,
+        "calls": 450,
+        "tris": 189856
+      },
+      "bodies": {
+        "heroActive": 55,
+        "heroSleeping": 1,
+        "heroFrozen": 184,
+        "rapierBodies": 380,
+        "rapierColliders": 2486
+      },
+      "fragments": {
+        "cellsAlive": 1364,
+        "cellsTotal": 1949,
+        "cellsRemoved": 405,
+        "cellsReleased": 180,
+        "cosmeticFlying": 22,
+        "cosmeticSettled": 404,
+        "dust": 932,
+        "glow": 0
+      },
+      "fractureOpWorstMs": {
+        "cannon-fracture": 4.699999999720603,
+        "ram-impact": 2.3999999999068677,
+        "rocket-fracture": 2.7000000001862645
+      },
+      "worstFrames": [],
+      "byEvent": {},
+      "heapMB": 54,
+      "gpuTimer": true,
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+    },
+    "reset": {
+      "resetMs": [
+        13.2,
+        0.5,
+        0.3,
+        0.4,
+        0.4
+      ],
+      "cellsAfter": {
+        "alive": 1949,
+        "total": 1949
+      },
+      "bodies": {
+        "heroActive": 0,
+        "heroSleeping": 0,
+        "heroFrozen": 0,
+        "cosmeticFlying": 0,
+        "cosmeticSettled": 0
+      }
+    },
+    "pristineRender": {
+      "renderMs": 1.7,
+      "calls": 323,
+      "triangles": 153298
+    }
+  }
+}

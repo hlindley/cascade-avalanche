@@ -1,0 +1,222 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "manual-alley-m1-destruction-2026-10-03-v1",
+  "nodes": [
+    {
+      "id": "project:the-alley",
+      "type": "project",
+      "title": "The Alley (destructible mech shooter M1)",
+      "repo": "hlindley/cascade-avalanche",
+      "summary": "Compact destructible-mech vertical slice: heavy but agile 4-5 m machine, thick destructible infill on a permanent structural skeleton, cannon / rocket salvo / boost-ram verbs, knee damage that changes gait.",
+      "basis": "user-context; M1 code lives under alley/ on branch claude/alley-destructible-mech-jhl7dh"
+    },
+    {
+      "id": "technique:destruction",
+      "type": "technique",
+      "title": "Runtime destruction and fracture"
+    },
+    {
+      "id": "technique:rigid-body-physics",
+      "type": "technique",
+      "title": "Rigid-body physics (Rapier and similar)"
+    },
+    {
+      "id": "source:three-pinata-npm-2-0-1",
+      "type": "source",
+      "url": "https://www.npmjs.com/package/@dgreenheck/three-pinata/v/2.0.1",
+      "canonical_key": "npm:@dgreenheck/three-pinata@2.0.1",
+      "retrieval_status": "text-read",
+      "last_checked_at": "2026-10-03",
+      "note": "Package installed from the npm registry; README, LICENSE (MIT, Copyright (c) 2023 Daniel Greenheck) and build/index.d.ts read; library executed locally in Node 22 for timing. Git commit not pinned (npm tarball only)."
+    },
+    {
+      "id": "source:three-pinata-repo",
+      "type": "source",
+      "url": "https://github.com/dgreenheck/three-pinata",
+      "canonical_key": "https://github.com/dgreenheck/three-pinata",
+      "retrieval_status": "not-fetched",
+      "last_checked_at": "2026-10-03",
+      "note": "Repository URL taken from npm package metadata; repository itself was not fetched (outside session GitHub scope)."
+    },
+    {
+      "id": "find:three-pinata",
+      "type": "find",
+      "title": "three-pinata runtime Voronoi fracture for Three.js",
+      "kind": "library",
+      "imported_at": "2026-10-03",
+      "feed_date_claims": [],
+      "published_at": null,
+      "publication_date_status": "unverified",
+      "status": "candidate",
+      "summary": "Three.js library (v2.0.1) for runtime Voronoi (3D and 2.5D) fracture, impact-centred fracture, refracture and plane slicing with separate inner-face material.",
+      "why_it_matters": "Most direct browser donor for mesh fracture; measured too slow for per-impact fracture of wall-sized slabs in The Alley M1, still a candidate for offline pre-fracture or small hero-chunk refracture.",
+      "caveats": [
+        "Measured in Node 22 on a 4-core Intel Xeon @ 2.10 GHz cloud container (no GPU involvement): 2.5D exact fracture of a 6x4x0.35 m box took 62 ms for 30 fragments (3.7k tris), 182 ms for 60 impact-centred fragments (15.9k tris), 781 ms for 120 (56.7k tris), 2040 ms for 250 (89k tris); an 18x9 m facade at 600 fragments took 12.9 s and logged 'Failed to find final triangle'.",
+        "useApproximation=true cut 250 fragments to 145 ms / 21.9k tris but the library warns approximation may overlap fragments.",
+        "Refracturing one small fragment into ~12 pieces took 11-45 ms.",
+        "Browser timings not measured; Node timing excludes collider creation and GPU upload."
+      ],
+      "source_ids": [
+        "source:three-pinata-npm-2-0-1",
+        "source:three-pinata-repo"
+      ],
+      "repo_url": "https://github.com/dgreenheck/three-pinata",
+      "license": {
+        "spdx": "MIT",
+        "status": "verified-in-package",
+        "source_id": "source:three-pinata-npm-2-0-1"
+      },
+      "verification": {
+        "level": "author-reported",
+        "last_checked_at": "2026-10-03",
+        "method": "npm package README/types read and library executed locally for timing; feature claims beyond the measured 2.5D box cases remain author-reported. Promote after pinning an upstream git commit.",
+        "code_inspected": false,
+        "locally_reproduced": false
+      },
+      "upstream_commit": null,
+      "compatibility": {
+        "engine_version": "three@0.186.1 (peer >=0.158)",
+        "backend": "WebGL/any (CPU geometry)",
+        "devices_tested": [
+          "Node 22.22 / Intel Xeon 2.10GHz x4 (cloud container)"
+        ]
+      },
+      "reuse_status": "not-cleared",
+      "relevance_basis": "curator assessment plus local timing; not proof of browser performance",
+      "claims": [
+        {
+          "id": "claim:three-pinata:summary",
+          "text": "Runtime Voronoi fracture (3D / 2.5D), impact-centred seeding, refracture, plane slicing, separate inner material.",
+          "status": "author-reported",
+          "evidence_source_ids": [
+            "source:three-pinata-npm-2-0-1"
+          ]
+        }
+      ],
+      "performance": [
+        {
+          "scene": "2.5D exact fracture of BoxGeometry 6x4x0.35 m, impact-centred, 60 fragments",
+          "device": "Intel Xeon @2.10GHz x4, Node 22.22 (no browser)",
+          "result_ms": 182,
+          "measurement_source": "local benchmark, The Alley M1 spike 2026-10-03"
+        },
+        {
+          "scene": "2.5D exact fracture of BoxGeometry 18x9x0.35 m, 600 fragments",
+          "device": "Intel Xeon @2.10GHz x4, Node 22.22 (no browser)",
+          "result_ms": 12900,
+          "measurement_source": "local benchmark, The Alley M1 spike 2026-10-03"
+        }
+      ],
+      "outcomes": [
+        {
+          "project": "project:the-alley",
+          "decision": "rejected-for-runtime-per-impact-fracture",
+          "date": "2026-10-03",
+          "reason": "Per-impact fracture latency (180-780 ms per panel) and triangle growth exceed the frame budget; The Alley pre-fractures infill into convex Voronoi prisms at load and removes cells at impact instead."
+        }
+      ]
+    },
+    {
+      "id": "find:alley-prefractured-infill",
+      "type": "find",
+      "title": "Pre-fractured convex Voronoi infill with cell removal (The Alley M1 lesson)",
+      "kind": "architecture",
+      "imported_at": "2026-10-03",
+      "feed_date_claims": [],
+      "published_at": "2026-10-03",
+      "publication_date_status": "verified",
+      "status": "candidate",
+      "summary": "Thick planar infill is tessellated at load into convex 2.5D Voronoi prisms (exact half-plane clipping, welded shared vertices); each prism is a Rapier convex-hull collider on one fixed body per panel. Impacts disable colliders and zero index ranges; removed cells become exact-shape hero rigid bodies or instanced cosmetic rubble; connectivity with weighted edge anchors releases unsupported clusters.",
+      "why_it_matters": "Keeps visual holes, projectile collision and line of sight identical while keeping destruction ops in the low milliseconds; reusable for any browser destructible-cover project.",
+      "caveats": [
+        "Measured only under headless Chromium 141 + SwiftShader on a 4-core Xeon 2.1 GHz: worst fixed simulation step 8.7-9.4 ms in salvo/ram/heavy scenarios after load-time warm-up (76 ms before warm-up); destruction ops 1-3 ms; reset 0.3-13 ms. GPU frame time on real hardware not measured.",
+        "Draw calls grow with persistent hero debris (323 pristine to ~1000 in a heavily damaged alley).",
+        "Hole outlines follow Voronoi cell edges at ~0.3-0.56 m scale; sub-cell irregularity is not modelled.",
+        "Fracture side faces need polygon offset or they z-fight with the outer face along every cell edge."
+      ],
+      "source_ids": [],
+      "repo_url": "https://github.com/hlindley/cascade-avalanche",
+      "license": {
+        "spdx": null,
+        "status": "project-internal",
+        "source_id": null
+      },
+      "verification": {
+        "level": "locally-reproduced",
+        "last_checked_at": "2026-10-03",
+        "method": "Implemented and measured in-project (alley/tools/inspect.mjs; metrics in docs/alley/captures/metrics.json).",
+        "code_inspected": true,
+        "locally_reproduced": true
+      },
+      "upstream_commit": "eb85b1693ebe8931bc19cb0baf55c579ba22ff27",
+      "compatibility": {
+        "engine_version": "three@0.186.1, @dimforge/rapier3d-compat@0.21.0",
+        "backend": "WebGL2",
+        "devices_tested": [
+          "HeadlessChrome 141 / SwiftShader / Xeon 2.1GHz x4"
+        ]
+      },
+      "reuse_status": "project-internal",
+      "relevance_basis": "first-party implementation and measurement",
+      "claims": [],
+      "performance": [],
+      "outcomes": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "find:three-pinata",
+      "relation": "documented-by",
+      "to": "source:three-pinata-npm-2-0-1",
+      "basis": "primary-source-read"
+    },
+    {
+      "from": "find:three-pinata",
+      "relation": "documented-by",
+      "to": "source:three-pinata-repo",
+      "basis": "package-metadata-link"
+    },
+    {
+      "from": "find:three-pinata",
+      "relation": "candidate-for-technique",
+      "to": "technique:destruction",
+      "basis": "curator-assessment",
+      "evidence_source_ids": []
+    },
+    {
+      "from": "find:three-pinata",
+      "relation": "relevant-to",
+      "to": "project:the-alley",
+      "basis": "curator-assessment",
+      "evidence_source_ids": []
+    },
+    {
+      "from": "find:alley-prefractured-infill",
+      "relation": "candidate-for-technique",
+      "to": "technique:destruction",
+      "basis": "first-party-implementation",
+      "evidence_source_ids": []
+    },
+    {
+      "from": "find:alley-prefractured-infill",
+      "relation": "candidate-for-technique",
+      "to": "technique:rigid-body-physics",
+      "basis": "first-party-implementation",
+      "evidence_source_ids": []
+    },
+    {
+      "from": "find:alley-prefractured-infill",
+      "relation": "relevant-to",
+      "to": "project:the-alley",
+      "basis": "first-party-implementation",
+      "evidence_source_ids": []
+    },
+    {
+      "from": "find:alley-prefractured-infill",
+      "relation": "candidate-for-technique",
+      "to": "technique:performance",
+      "basis": "first-party-implementation",
+      "evidence_source_ids": []
+    }
+  ]
+}

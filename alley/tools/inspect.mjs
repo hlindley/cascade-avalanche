@@ -35,7 +35,7 @@ async function session(fn) {
 async function capture(name, code, view) {
   await session(async (page, ev) => {
     const res = await ev(`${code}; ${view}; g.render(); return { state: A.state(), render: A.renderTimed(1) };`);
-    await page.screenshot({ path: path.join(outDir, `${name}.png`) });
+    await page.screenshot({ path: path.join(outDir, `${name}.jpg`), type: 'jpeg', quality: 84 });
     metrics.captures[name] = res;
     console.log('captured', name);
   });
