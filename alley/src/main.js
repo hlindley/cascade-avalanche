@@ -67,10 +67,32 @@ class Game {
     this._hud();
     addEventListener('resize', () => this._resize());
     this.physics.world.step();
+    this._warmup();
     this.initMs = performance.now() - t0;
     installDebug(this);
     $('loading').hidden = true;
     if (!this.manual) requestAnimationFrame((t) => this._frame(t));
+  }
+
+  // Exercise every destruction path once at load (JIT, convex-hull and geometry code paths,
+  // shader variants for debris), render it, then reset. Without this the first salvo of a
+  // session cost ~50 ms in one fracture op versus ~3 ms afterwards.
+  _warmup() {
+    const t0 = performance.now();
+    const p = this.destruction.panels.find((x) => x.name === 'A-u4') ?? this.destruction.panels[0];
+    const c = p.toWorld(new THREE.Vector3(p.width / 2, p.height / 2, 0));
+    p.cannonHit(p.cellAt(p.width / 2, p.height / 2), c, p.n.clone().negate(), 1);
+    this.destruction.explosion(c.clone().add(new THREE.Vector3(0, -1, 0.3)), 2.5, 190);
+    this.fx.explosion(c, 1);
+    this.weapons.fireCannon(this.player, c.clone().addScaledVector(p.n, 20), c);
+    this.weapons.fireRocket(this.player, c.clone().addScaledVector(p.n, 20), c, 0);
+    for (let i = 0; i < 20; i++) this.step(DT, { move: { x: 0, z: 0 }, look: { dx: 0, dy: 0 }, fire: false, salvo: false, boost: false, aimPoint: c });
+    this.fx.update(DT);
+    this.camera.update(DT, this.player);
+    this.renderer.compile(this.scene, this.camera.camera);
+    this.renderer.render(this.scene, this.camera.camera);
+    this.reset();
+    this.warmupMs = performance.now() - t0;
   }
 
   _resize() {
@@ -91,7 +113,7 @@ class Game {
     this.perf.resetStats();
     this.lastResetMs = performance.now() - t0;
     this.perf.event('reset', this.lastResetMs);
-    this._flashBanner(`RESET · ${this.lastResetMs.toFixed(1)} ms`);
+    if (this.perf.el) this._flashBanner(`RESET · ${this.lastResetMs.toFixed(1)} ms`);
   }
 
   // one fixed simulation step
@@ -193,6 +215,7 @@ class Game {
 
   render() {
     this.camera.update(0.0001, this.player);
+    this._updateHud();
     this.renderer.render(this.scene, this.camera.camera);
   }
 

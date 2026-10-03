@@ -472,7 +472,7 @@ export function buildAlley(game) {
   const designS = {
     ops: [ops.fill('#e3ddd0'), ops.ties('rgba(70,62,54,0.35)', 1.0, 1.0, 0.5, 0.5), ops.rect('#1e9e98', 0, 0, 7, 1.25), ops.chevrons('#f0b92a', '#1f2c3a', 0, 4.25, 6.5, 0.55, 0.32), ops.text('S1', '#1f2c3a', 0.4, 2.2, 1.3)],
   };
-  mkPanel('S1', designS, 0, 0, 6.5, 4.8, { origin: new THREE.Vector3(-16.5, 0, -2.3), u: new THREE.Vector3(1, 0, 0) }, { thickness: 0.45, anchors: { bottom: 3, left: 1.0, right: 1.0, top: 0 }, supportRatio: 0.1, tint: 0xd8d2c5 });
+  mkPanel('S1', designS, 0, 0, 6.5, 4.8, { origin: new THREE.Vector3(-16.5, 0, -2.3), u: new THREE.Vector3(1, 0, 0) }, { thickness: 0.45, anchors: { bottom: 3, left: 0.35, right: 0.35, top: 0 }, supportRatio: 0.12, tint: 0xd8d2c5 });
   for (const x of [-16.6, -9.9]) {
     B.span(x - 0.15, 0, -2.25, x + 0.15, 5.2, -2.85, m.graphite);
     B.span(x - 0.35, 0, -2.0, x + 0.35, 0.25, -3.1, m.graphite);

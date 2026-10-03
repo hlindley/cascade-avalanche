@@ -305,7 +305,9 @@ export class Panel {
         const c = stack.pop();
         members.push(c);
         support += this.anchor[c] * Math.max(0.15, this.hp[c] / this.maxHp);
-        for (const nb of this.cells[c].neighbors) if (this.alive[nb] && comp[nb] < 0) { comp[nb] = id; stack.push(nb); }
+        // heavily cracked cells no longer carry load across them
+        if (this.hp[c] <= this.maxHp * 0.3) continue;
+        for (const nb of this.cells[c].neighbors) if (this.alive[nb] && comp[nb] < 0 && this.hp[nb] > this.maxHp * 0.3) { comp[nb] = id; stack.push(nb); }
       }
       const need = members.length <= 3 ? 0.01 : members.length * this.supportRatio;
       if (support < need) releases.push(members);

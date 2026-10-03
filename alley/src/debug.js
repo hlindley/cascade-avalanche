@@ -86,6 +86,33 @@ export function installDebug(game) {
     view(pos, look, fov) { game.camera.setFree(pos, look, fov); },
     cockpit() { game.camera.setMode('cockpit'); },
     snapshot: () => game.perf.snapshot(),
+    // Run `seconds` of simulation, timing every fixed step (physics + destruction + debris + rigs + fx).
+    timed(seconds, fn, label = '') {
+      const n = Math.round(seconds * 60);
+      const ms = [];
+      let worst = { ms: 0 };
+      for (let i = 0; i < n; i++) {
+        const inp = api.input(fn ? fn(i) ?? {} : {});
+        const opsBefore = game.destruction.ops.length;
+        const t0 = performance.now();
+        game.step(1 / 60, inp);
+        game.fx.update(1 / 60);
+        for (const p of game.destruction.panels) p.flush();
+        const dt = performance.now() - t0;
+        ms.push(dt);
+        if (dt > worst.ms) worst = { ms: dt, step: i, ops: game.destruction.ops.slice(opsBefore).map((o) => `${o.name}:${o.ms.toFixed(1)}ms/${o.count}`) };
+      }
+      const sorted = [...ms].sort((a, b) => a - b);
+      const q = (p) => sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * p))];
+      const d = game.debris.counts();
+      return { label, steps: n, meanMs: +(ms.reduce((a, b) => a + b, 0) / n).toFixed(2), p50: +q(0.5).toFixed(2), p95: +q(0.95).toFixed(2), max: +sorted[n - 1].toFixed(2), worst, over16ms: ms.filter((x) => x > 16.7).length, bodies: d, cells: game.destruction.totalCells() };
+    },
+    renderTimed(frames = 5) {
+      const t = [];
+      for (let i = 0; i < frames; i++) { const t0 = performance.now(); game.render(); game.renderer.getContext().finish(); t.push(performance.now() - t0); }
+      const info = game.renderer.info.render;
+      return { renderMs: +Math.min(...t).toFixed(1), calls: info.calls, triangles: info.triangles };
+    },
     state() {
       const T = game.target;
       return {

@@ -158,14 +158,14 @@ export class Debris {
     geo.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
     geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
     geo.setAttribute('color', new THREE.Float32BufferAttribute(col, 3));
+    // two draw groups per chunk: painted outer face, and everything else as fracture core
     const idx = [...groups[0], ...groups[1], ...groups[2]];
     geo.setIndex(idx);
     geo.addGroup(0, groups[0].length, 0);
-    geo.addGroup(groups[0].length, groups[1].length, 1);
-    geo.addGroup(groups[0].length + groups[1].length, groups[2].length, 2);
+    geo.addGroup(groups[0].length, groups[1].length + groups[2].length, 2);
     geo.computeBoundingSphere();
     const mesh = new THREE.Mesh(geo, panel.materials);
-    mesh.castShadow = true;
+    mesh.castShadow = at > 0.45;
     mesh.receiveShadow = true;
     mesh.matrixAutoUpdate = false;
     const worldPos = panel.toWorld(cen);
