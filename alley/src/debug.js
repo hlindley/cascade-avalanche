@@ -57,7 +57,7 @@ export function installDebug(game) {
       if (name === 'A') {
         api.place(P, 0, 13, Math.PI);
         T.setMode('strafe');
-        api.place(T, -7, -5, 0);
+        api.place(T, -7.5, -8.6, 0);
         T.fireEnabled = false;
       } else if (name === 'B') {
         api.place(P, -1, 12, Math.PI);
@@ -83,6 +83,8 @@ export function installDebug(game) {
       game.perf.event(`scenario-${name}`);
       game._flashBanner?.(`TEST ${name}`);
     },
+    view(pos, look, fov) { game.camera.setFree(pos, look, fov); },
+    cockpit() { game.camera.setMode('cockpit'); },
     snapshot: () => game.perf.snapshot(),
     state() {
       const T = game.target;

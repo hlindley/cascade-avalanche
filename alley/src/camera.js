@@ -30,40 +30,40 @@ export class CameraRig {
     const screenB = new THREE.MeshBasicMaterial({ color: new THREE.Color(1.6, 0.6, 0.2) });
     const rb = (w, h, d, r, m) => new THREE.Mesh(new RoundedBoxGeometry(w, h, d, 2, r), m);
     // top hood
-    const hood = rb(2.4, 0.16, 0.5, 0.06, frame);
-    hood.position.set(0, 0.47, -0.62);
-    hood.rotation.x = -0.25;
+    const hood = rb(2.6, 0.1, 0.35, 0.04, frame);
+    hood.position.set(0, 0.6, -0.62);
+    hood.rotation.x = -0.35;
     g.add(hood);
     // A-pillars
     for (const s of [-1, 1]) {
-      const p = rb(0.11, 1.15, 0.12, 0.04, frame);
-      p.position.set(s * 0.82, 0.02, -0.66);
-      p.rotation.z = s * 0.32;
+      const p = rb(0.07, 1.3, 0.08, 0.03, frame);
+      p.position.set(s * 0.98, 0.05, -0.66);
+      p.rotation.z = s * 0.38;
       p.rotation.y = s * -0.25;
       g.add(p);
-      const side = rb(0.35, 0.5, 0.9, 0.06, trim);
-      side.position.set(s * 1.0, -0.48, -0.5);
+      const side = rb(0.3, 0.4, 0.9, 0.06, trim);
+      side.position.set(s * 1.08, -0.56, -0.5);
       side.rotation.z = s * 0.35;
       g.add(side);
       const stripe = rb(0.02, 0.4, 0.04, 0.01, accent);
-      stripe.position.set(s * 0.77, -0.08, -0.6);
-      stripe.rotation.z = s * 0.32;
+      stripe.position.set(s * 0.93, -0.05, -0.6);
+      stripe.rotation.z = s * 0.38;
       stripe.rotation.y = s * -0.25;
       g.add(stripe);
     }
     // dash
     const dash = rb(1.9, 0.22, 0.42, 0.06, frame);
-    dash.position.set(0, -0.53, -0.62);
+    dash.position.set(0, -0.6, -0.62);
     dash.rotation.x = 0.35;
     g.add(dash);
     const lip = rb(1.2, 0.05, 0.08, 0.02, trim);
-    lip.position.set(0, -0.43, -0.48);
+    lip.position.set(0, -0.5, -0.48);
     g.add(lip);
     // screens
     const sGeo = new THREE.PlaneGeometry(0.22, 0.09);
     [[-0.5, screenA], [-0.22, screenB], [0.25, screenA], [0.52, screenA]].forEach(([x, m], i) => {
       const s = new THREE.Mesh(sGeo, m);
-      s.position.set(x, -0.455 + (i % 2) * 0.004, -0.52);
+      s.position.set(x, -0.525 + (i % 2) * 0.004, -0.52);
       s.rotation.x = -0.95;
       g.add(s);
     });
@@ -75,6 +75,17 @@ export class CameraRig {
   setMode(m) {
     this.mode = m;
     this.cockpit.visible = m === 'cockpit';
+  }
+
+  // inspection camera (debug / automated captures)
+  setFree(pos, look, fov = 60) {
+    this.mode = 'free';
+    this.cockpit.visible = false;
+    this.camera.position.copy(pos);
+    this.camera.fov = fov;
+    this.camera.updateProjectionMatrix();
+    this.camera.lookAt(look);
+    this.camera.updateMatrixWorld(true);
   }
 
   footstep(strength) { this.bobV -= strength * 0.55; this.frameVel.y -= strength * 0.06; }
@@ -108,6 +119,7 @@ export class CameraRig {
     const shx = (Math.sin(this.t * 61) + Math.sin(this.t * 37.3)) * 0.004 * sh;
     const shy = (Math.sin(this.t * 53.1) + Math.sin(this.t * 29.7)) * 0.004 * sh;
 
+    if (this.mode === 'free') { player.rig.root.visible = true; return; }
     cam.fov = this.baseFov + this.fovKick;
     cam.updateProjectionMatrix();
     const yaw = player.viewYaw, pitch = player.viewPitch;

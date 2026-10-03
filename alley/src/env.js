@@ -4,6 +4,28 @@ import { mulberry32 } from './voronoi.js';
 // Late-afternoon light: warm raking sun from the south-west across the main facade,
 // cool sky fill, hazy distance. Background masses are big and clean, fogged into the sky.
 
+// Sky fill (hemisphere + IBL) ignores occlusion, which made building interiors as bright as
+// the street. A few authored interior volumes scale indirect light inside them, so holes
+// reveal a dim, warm interior lit by its own lamps and by sun that enters through breaches.
+export function installInteriorOcclusion(volumes) {
+  const C = THREE.ShaderChunk;
+  if (C.common.includes('vAlleyWorld')) return;
+  const boxes = volumes.map((b) => `alleyBox(p, vec3(${b.min.map((v) => v.toFixed(2)).join(',')}), vec3(${b.max.map((v) => v.toFixed(2)).join(',')}), ${b.occ.toFixed(2)})`);
+  C.common += `
+varying vec3 vAlleyWorld;
+float alleyBox(vec3 p, vec3 mn, vec3 mx, float occ){
+  vec3 d = min(p - mn, mx - p);
+  float inside = smoothstep(-0.05, 0.9, min(min(d.x, d.y), d.z));
+  return mix(1.0, occ, inside);
+}
+float alleyInterior(vec3 p){ return ${boxes.length ? boxes.join(' * ') : '1.0'}; }
+`;
+  C.project_vertex = C.project_vertex.replace('mvPosition = modelViewMatrix * mvPosition;', 'vAlleyWorld = (modelMatrix * mvPosition).xyz;\nmvPosition = modelViewMatrix * mvPosition;');
+  C.aomap_fragment += `
+{ float alleyOcc = alleyInterior(vAlleyWorld); reflectedLight.indirectDiffuse *= alleyOcc; reflectedLight.indirectSpecular *= alleyOcc; }
+`;
+}
+
 export const SUN_DIR = new THREE.Vector3(-0.62, 0.52, 0.58).normalize();
 
 export function buildEnvironment(game) {

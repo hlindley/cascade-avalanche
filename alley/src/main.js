@@ -3,7 +3,7 @@ import { Physics } from './physics.js';
 import { FX } from './fx.js';
 import { Debris } from './debris.js';
 import { DestructionSystem } from './destruct.js';
-import { buildEnvironment } from './env.js';
+import { buildEnvironment, installInteriorOcclusion } from './env.js';
 import { buildAlley } from './alley.js';
 import { Weapons } from './weapons.js';
 import { Player } from './player.js';
@@ -35,6 +35,11 @@ class Game {
     const cam = new THREE.PerspectiveCamera(78, innerWidth / innerHeight, 0.05, 1500);
     this.scene.add(cam);
 
+    installInteriorOcclusion([
+      { min: [-15, -1, -26.1], max: [15, 6.65, -14.45], occ: 0.16 },
+      { min: [-15, 7.35, -26.1], max: [15, 12.25, -14.45], occ: 0.22 },
+      { min: [17.45, -1, -12.45], max: [29.05, 9.25, 9.45], occ: 0.15 },
+    ]);
     this.physics = await Physics.create();
     this.env = buildEnvironment(this);
     this.fx = new FX(this.scene, (x, z, y) => this.floorAt(x, z, y));

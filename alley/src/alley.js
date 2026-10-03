@@ -628,7 +628,7 @@ export function buildAlley(game) {
       target: { p: new THREE.Vector3(-6, 0, -5), yaw: 0 },
     },
     routes: {
-      strafe: [new THREE.Vector3(-7, 0, -5), new THREE.Vector3(9, 0, -5)],
+      strafe: [new THREE.Vector3(-7.5, 0, -8.6), new THREE.Vector3(7.5, 0, -8.6)],
       cover: [new THREE.Vector3(-9, 0, -5.6), new THREE.Vector3(-13.4, 0, -5.4)],
       inside: [new THREE.Vector3(12, 0, -7.5), new THREE.Vector3(12, 0, -16.8), new THREE.Vector3(6, 0, -17.6)],
       hold: [],

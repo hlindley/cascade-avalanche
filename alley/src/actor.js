@@ -99,7 +99,8 @@ export class MechActor {
     this.position.z += mv.z;
     if (this.position.y < 0) this.position.y = 0;
     this.body.setNextKinematicTranslation({ x: this.position.x, y: this.position.y + CENTER_Y, z: this.position.z });
-    this.velocity.set(mv.x / dt, 0, mv.z / dt);
+    // light smoothing: the controller occasionally reports a zero-length step on contact snaps
+    this.velocity.lerp(new THREE.Vector3(mv.x / dt, 0, mv.z / dt), 0.6);
     this._intendedVel = v;
     // knockback bleeds off quickly: mechs are heavy and dig in
     const kd = this.knock.length();

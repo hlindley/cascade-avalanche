@@ -225,12 +225,12 @@ export class Panel {
     const recess = dmg > 0.05 ? (0.015 + dmg * 0.07) * (0.6 + hash2(c, 9, 1) * 0.8) : 0;
     const tiltX = (hash2(c, 4, 2) - 0.5) * dmg * 0.08, tiltY = (hash2(c, 6, 3) - 0.5) * dmg * 0.08;
     const cx = this.cells[c].cx, cy = this.cells[c].cy;
-    const shade = (1 - dmg * 0.38) * (1 - sc * 0.72);
+    const shade = (1 - dmg * 0.22) * (1 - sc * 0.72);
     for (let k = 0; k < n; k++) {
       const vi = v0 + k;
       const x = posA[vi * 3], y = posA[vi * 3 + 1];
       posA[vi * 3 + 2] = -recess + (x - cx) * tiltX + (y - cy) * tiltY;
-      const g = shade * (0.9 + hash2(c, k, 7) * 0.1);
+      const g = shade * (0.97 + hash2(c, 0, 7) * 0.03);
       colA[vi * 3] = g; colA[vi * 3 + 1] = g * 0.97; colA[vi * 3 + 2] = g * 0.94;
     }
     for (let k = 0; k < n; k++) {
@@ -355,7 +355,7 @@ export class Panel {
     const t0 = performance.now();
     const lp = this.toLocal(worldPoint, _v);
     const seed = impactSerial++;
-    const R = 0.78 * energy;
+    const R = 1.2 * Math.sqrt(energy);
     const ang = hash2(seed, 1, 3) * Math.PI;
     const ca = Math.cos(ang), sa = Math.sin(ang);
     const squash = 0.7 + hash2(seed, 2, 3) * 0.3;

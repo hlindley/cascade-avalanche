@@ -8,7 +8,7 @@ const rng = mulberry32(777);
 // fires back occasionally. Its knee damage changes how it walks, not just how fast.
 export class Target extends MechActor {
   constructor(game, o) {
-    super(game, { main: 0x2c3a4a, second: 0x1a2430, dark: 0x16191d, accent: 0x2fd1c4, glow: 0xff6a2a }, { name: 'target', seed: 9, ...o });
+    super(game, { main: 0x5b6977, second: 0x26323f, dark: 0x16191d, accent: 0x2fd1c4, glow: 0xff6a2a }, { name: 'target', seed: 9, ...o });
     this.routes = o.routes;
     this.mode = 'strafe';
     this.autoCycle = false;

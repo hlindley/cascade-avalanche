@@ -1,5 +1,8 @@
 import * as THREE from 'three';
-import { GROUP_DEBRIS } from './physics.js';
+import { GROUP_DEBRIS, G, groups } from './physics.js';
+
+// freshly broken chunks start inside the hole they left; let them clear the remaining infill first
+const GROUP_DEBRIS_SPAWN = groups(G.DEBRIS, G.STATIC | G.DEBRIS | G.MECH | G.ATTACH);
 import { mulberry32 } from './voronoi.js';
 
 // Debris hierarchy:
@@ -186,12 +189,12 @@ export class Debris {
     for (const c of cells.slice(0, 18)) {
       const cd = R.ColliderDesc.convexHull(panel.cellHullPoints(c, cen));
       if (!cd) continue;
-      cd.setDensity(DENSITY).setFriction(0.9).setRestitution(0.05).setCollisionGroups(GROUP_DEBRIS);
+      cd.setDensity(DENSITY).setFriction(0.9).setRestitution(0.05).setCollisionGroups(GROUP_DEBRIS_SPAWN);
       const col = world.createCollider(cd, body);
       colliders.push(col);
     }
     const mass = body.mass();
-    const hero = { body, mesh, colliders, mass, born: performance.now(), frozen: false, still: 0, hitCooldown: 0, area };
+    const hero = { body, mesh, colliders, mass, born: performance.now(), frozen: false, still: 0, hitCooldown: 0, area, ghost: 0.35 };
     for (const col of colliders) this.physics.setOwner(col, { kind: 'debris', hero });
     this.scene.add(mesh);
     this._syncHero(hero);
@@ -378,13 +381,19 @@ export class Debris {
       const h = this.heroes[i];
       if (h.frozen) continue;
       h.hitCooldown = Math.max(0, h.hitCooldown - dt);
+      if (h.ghost > 0) {
+        h.ghost -= dt;
+        if (h.ghost <= 0) for (const c of h.colliders) c.setCollisionGroups(GROUP_DEBRIS);
+        else { h.still = 0; }
+      }
       const t = h.body.translation();
       if (t.y < -10) { this._removeHero(h); this.heroes.splice(i, 1); continue; }
       const v = h.body.linvel(), w = h.body.angvel();
       const sp = Math.hypot(v.x, v.y, v.z), ws = Math.hypot(w.x, w.y, w.z);
       h.speed = sp;
       if (h.body.isSleeping() || (sp < 0.25 && ws < 0.4)) h.still += dt; else h.still = 0;
-      const age = (performance.now() - h.born) / 1000;
+      h.age = (h.age ?? 0) + dt;
+      const age = h.age;
       if (h.still > 0.6 || (age > 9 && sp < 1.0)) this._freeze(h);
       if (h.mesh) {
         if (h.attachment) {
@@ -401,7 +410,7 @@ export class Debris {
     let dyn = this.dynamicCount();
     for (const h of this.heroes) {
       if (dyn <= MAX_DYNAMIC) break;
-      if (!h.frozen && (performance.now() - h.born) > 2500) { this._freeze(h); dyn--; }
+      if (!h.frozen && (h.age ?? 0) > 2.5) { this._freeze(h); dyn--; }
     }
     this._updateCosmetic(dt);
   }

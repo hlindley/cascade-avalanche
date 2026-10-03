@@ -493,7 +493,7 @@ export class Mech {
     v.push({ part: 'head', p: new THREE.Vector3(0, 1.62, 0.45).applyMatrix4(T), r: 0.45 });
     v.push({ part: 'pelvis', p: t.set(0, -0.1, 0).applyMatrix4(P).clone(), r: 0.8 });
     this.legs.forEach((L, i) => {
-      v.push({ part: 'knee', leg: i, p: L.knee.clone(), r: 0.52 });
+      v.push({ part: 'knee', leg: i, p: L.knee.clone(), r: 0.46 });
       v.push({ part: 'thigh', leg: i, p: new THREE.Vector3().lerpVectors(L.hip, L.knee, 0.45), r: 0.5 });
       v.push({ part: 'shin', leg: i, p: new THREE.Vector3().lerpVectors(L.knee, L.ankle, 0.5), r: 0.52 });
       v.push({ part: 'shin', leg: i, p: new THREE.Vector3().lerpVectors(L.knee, L.ankle, 0.9), r: 0.45 });

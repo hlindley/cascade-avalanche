@@ -210,8 +210,8 @@ export class Player extends MechActor {
     g.camera.impulse(1.1);
     // the rammer is stopped hard
     this.moveVel.copy(n).multiplyScalar(rel * 0.12);
-    this.dashStartVel = this.moveVel.clone();
-    this.dashT = Math.max(this.dashT, BOOST.rise + BOOST.hold);
+    this.dashing = false;
+    this.thrust = 0.3;
     this.lastRam = { t: performance.now(), speed: rel, dmg };
     g.perf?.event('ram-hit', 0, Math.round(rel));
     if (t.rig.disabled) t.disable(n.clone().multiplyScalar(rel * 0.5));
