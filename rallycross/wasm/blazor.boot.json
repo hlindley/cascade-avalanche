@@ -1,0 +1,26 @@
+{
+  "mainAssemblyName": "RallyCore",
+  "resources": {
+    "hash": "sha256-tCHBuIyZQCbdHjCIFTP1DL1PFVwpBEg+YqcPN8TtUKo=",
+    "jsModuleNative": {
+      "dotnet.native.8.0.31.244rwrrggm.js": "sha256-Q5LTyRl4Sg73Bdjglrfm2Lz4NTNuOFQ7ejQAemzJk4Q="
+    },
+    "jsModuleRuntime": {
+      "dotnet.runtime.8.0.31.6yws3qb41h.js": "sha256-qzVt86q0GKgDNek5+WFBz2hU8jGxI86YJeZmNGXj/qM="
+    },
+    "wasmNative": {
+      "dotnet.native.wasm": "sha256-6z2QR7sEj5M8Lbiurp6ot0AhAJ7DSgWkbF9H4Sw8WbQ="
+    },
+    "assembly": {
+      "RallyCore.wasm": "sha256-gDuJJnmlmARBz7WQ9UC3GOnPYwJnOuG1oVLLvAqhSNo=",
+      "System.Memory.wasm": "sha256-fNERHVth0O+rcyOPOTMSJGhjhv5oZ4uQclt9MAdKmiM=",
+      "System.Private.CoreLib.wasm": "sha256-80ooXp0hrK3YObozI9CQrr99d28vUHqU6K1E2h8Owd8=",
+      "System.Runtime.InteropServices.JavaScript.wasm": "sha256-hMS9DCutiNzOYZPSE2hlyM9qwceaGtyBJ/b/dB8T9FM=",
+      "System.Text.Json.wasm": "sha256-5CxTcWumgPVwU+cFQDsyG97A/aX7K8yqc65NCoPDqd0="
+    }
+  },
+  "cacheBootResources": true,
+  "debugLevel": 0,
+  "linkerEnabled": true,
+  "globalizationMode": "invariant"
+}

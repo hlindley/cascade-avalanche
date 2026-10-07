@@ -1,0 +1,94 @@
+{
+  "sampleRate": 44100,
+  "engineRpm": [
+    1500,
+    2000,
+    2750.5198,
+    3500,
+    4500,
+    5501.0396,
+    6501.2285,
+    7495.7505,
+    8494.382
+  ],
+  "engineOn": [
+    "engine_on_1500",
+    "engine_on_2000",
+    "engine_on_2750",
+    "engine_on_3500",
+    "engine_on_4500",
+    "engine_on_5500",
+    "engine_on_6500",
+    "engine_on_7500",
+    "engine_on_8500"
+  ],
+  "engineOff": [
+    "engine_off_1500",
+    "engine_off_2000",
+    "engine_off_2750",
+    "engine_off_3500",
+    "engine_off_4500",
+    "engine_off_5500",
+    "engine_off_6500",
+    "engine_off_7500",
+    "engine_off_8500"
+  ],
+  "turbo": "turbo",
+  "whine": "whine",
+  "gravel": "gravel_roll",
+  "slide": "gravel_slide",
+  "squeal": "asphalt_squeal",
+  "scrape": "body_scrape",
+  "kerb": "kerb_rumble",
+  "kerbRefMps": 15,
+  "kerbRefHz": 60,
+  "toneSector": "ui_sector",
+  "toneLap": "ui_lap",
+  "toneBest": "ui_best",
+  "toneInvalid": "ui_invalid",
+  "turboRefHz": 3000,
+  "whineRefHz": 1200,
+  "bov": [
+    "bov_1",
+    "bov_2",
+    "bov_3"
+  ],
+  "als": [
+    "als_1",
+    "als_2",
+    "als_3",
+    "als_4",
+    "als_5",
+    "als_6",
+    "als_7",
+    "als_8"
+  ],
+  "ping": [
+    "ping_1",
+    "ping_2",
+    "ping_3",
+    "ping_4",
+    "ping_5",
+    "ping_6",
+    "ping_7",
+    "ping_8"
+  ],
+  "thunk": [
+    "thunk_1",
+    "thunk_2",
+    "thunk_3",
+    "thunk_4"
+  ],
+  "landing": [
+    "landing_1",
+    "landing_2",
+    "landing_3",
+    "landing_4"
+  ],
+  "slam": [
+    "slam_1",
+    "slam_2",
+    "slam_3"
+  ],
+  "generator": "tools/rallyaudio gen"
+}

@@ -1,0 +1,74 @@
+{
+ "wheels": [
+  {
+   "name": "FL",
+   "clearBumpM": 0.132
+  },
+  {
+   "name": "FR",
+   "clearBumpM": 0.132
+  },
+  {
+   "name": "RL",
+   "clearBumpM": 0.052
+  },
+  {
+   "name": "RR",
+   "clearBumpM": 0.057
+  }
+ ],
+ "bodySmoothness": -1,
+ "bodyMetallic": -1,
+ "parts": [
+  {
+   "name": "Tyre",
+   "colourLinear": [
+    0.032,
+    0.032,
+    0.034
+   ],
+   "roughness": 0.88,
+   "metallic": 0.0
+  },
+  {
+   "name": "Rim",
+   "colourLinear": [
+    0.86,
+    0.87,
+    0.88
+   ],
+   "roughness": 0.32,
+   "metallic": 0.0
+  },
+  {
+   "name": "Nut",
+   "colourLinear": [
+    0.09,
+    0.09,
+    0.1
+   ],
+   "roughness": 0.35,
+   "metallic": 0.8
+  },
+  {
+   "name": "Disc",
+   "colourLinear": [
+    0.42,
+    0.42,
+    0.43
+   ],
+   "roughness": 0.38,
+   "metallic": 1.0
+  },
+  {
+   "name": "Caliper",
+   "colourLinear": [
+    0.72,
+    0.06,
+    0.04
+   ],
+   "roughness": 0.3,
+   "metallic": 0.0
+  }
+ ]
+}

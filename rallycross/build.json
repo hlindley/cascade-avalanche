@@ -1,0 +1,452 @@
+{
+ "commit": "cd82188",
+ "builtUtc": "2026-10-07T17:54:43",
+ "coreInputsHash": "8b4323f2c24545fa",
+ "assetInputsHash": "941a697013d5a09e",
+ "totalBytes": 14681422,
+ "audioBytes": 3714366,
+ "course": {
+  "version": "rallycross-1",
+  "gridSha256": "688a0a4a3ae4ccfa852a6f2ff7ae941b1a992b1ee80644c74d05fc9aae045b78",
+  "lengthM": 954.791
+ },
+ "check": {
+  "preset": 1,
+  "revision": "5.3",
+  "ticks": 2000,
+  "wasmHash": "e297c27d39b9e818",
+  "nativeHash": "a2f75037fcf802a6"
+ },
+ "files": [
+  {
+   "path": "index.html",
+   "bytes": 13376,
+   "sha256": "3c974784b2c68f59eeadf5ce056eddf556c0f3a02e338995c8df4649295acca5"
+  },
+  {
+   "path": "main.js",
+   "bytes": 28989,
+   "sha256": "b143d079c0eb4a92a2479b84f6122da66e715fe2754987cfb4c16c5357be1e53"
+  },
+  {
+   "path": "mixer-worklet.js",
+   "bytes": 2163,
+   "sha256": "ef0289040458e8ab0dd73a836ce9aa42913ca64c99d450044b9b9510d0bb0c87"
+  },
+  {
+   "path": "car/HeroCar_Body_BaseColor.jpg",
+   "bytes": 273308,
+   "sha256": "dc2659f0ed1408197b45882c5842e56a003e11378024f4dbbf6e86add65003a1"
+  },
+  {
+   "path": "car/HeroCar_Body_Normal.jpg",
+   "bytes": 211171,
+   "sha256": "e373c1adb264df927e47b7ce00b8fbc7098fd136b3d24ef816bf4fdd63f911cc"
+  },
+  {
+   "path": "car/HeroCar_Body_RoughMetal.jpg",
+   "bytes": 217855,
+   "sha256": "68ac47afce048e7e7c44f5e3ca9b1c8d700254eb87180f307f6c6b1d0f084b58"
+  },
+  {
+   "path": "car/HeroCar_Fit.json",
+   "bytes": 900,
+   "sha256": "e4adf1aa3d379b2c6473b9dbf74350ca93dd602b4df0920aeafd1eccca9714a6"
+  },
+  {
+   "path": "car/HeroCar_Tyre_BaseColor.png",
+   "bytes": 8782,
+   "sha256": "213fb5a4ed7fabc6fcee28dbf3995b9949833dc32b1738fab6542849c6e65430"
+  },
+  {
+   "path": "car/HeroCar_Tyre_Normal.png",
+   "bytes": 11040,
+   "sha256": "afd981e16fd7e20446c0ad00add86e7b3f69e165553094207d8fce9fbe2bb92f"
+  },
+  {
+   "path": "car/hero-car.glb.json",
+   "bytes": 4561356,
+   "sha256": "70a51020aab900ad7dea8db0e0ee7cdd81a1bff67a6a391e6a27980c6b580518"
+  },
+  {
+   "path": "audio/als_1.wav",
+   "bytes": 35324,
+   "sha256": "199aadaf727a547daebdf49ebec272a2e231213d7cad196e3497fb2e88009b27"
+  },
+  {
+   "path": "audio/als_2.wav",
+   "bytes": 35324,
+   "sha256": "f0f6e157e28834de6624be946b7c979f5b16ced946bc94122f484c9906cc7111"
+  },
+  {
+   "path": "audio/als_3.wav",
+   "bytes": 35324,
+   "sha256": "a1df697d0b2574c915f0791ed822657e947290f955b292d2b134923d4739653a"
+  },
+  {
+   "path": "audio/als_4.wav",
+   "bytes": 35324,
+   "sha256": "44e1ea32e6c0bf22b5171314a0c7330fb3c1ee96593de48adca725ac341bac41"
+  },
+  {
+   "path": "audio/als_5.wav",
+   "bytes": 35324,
+   "sha256": "44cd450322ad773a5015cc60c1d655a5f9046692a57df16db1ba13c6157f2324"
+  },
+  {
+   "path": "audio/als_6.wav",
+   "bytes": 35324,
+   "sha256": "242f07167f0997e0b9da48cc66e5f3ccb5f36cab48c1ab6e6f5ec32ed8132802"
+  },
+  {
+   "path": "audio/als_7.wav",
+   "bytes": 35324,
+   "sha256": "2a2b08d21bb0b3ac3b0e7d3714374be9efc58159e94b0e11cd2a4027e3fba85b"
+  },
+  {
+   "path": "audio/als_8.wav",
+   "bytes": 35324,
+   "sha256": "a0626cc9b8eac444924232d1a2a630fa5a56ccddde7563c6c7326c32b4a83f9a"
+  },
+  {
+   "path": "audio/asphalt_squeal.wav",
+   "bytes": 86480,
+   "sha256": "0d01a16902e0e65c41932be7f86a1ab3d9df19125e952ad75e4d1c2f992220d0"
+  },
+  {
+   "path": "audio/body_scrape.wav",
+   "bytes": 132344,
+   "sha256": "8d28f7751b1f48c06d19d7e56541dcd4f6307136477bb850dded479b3fdfada0"
+  },
+  {
+   "path": "audio/bov_1.wav",
+   "bytes": 79424,
+   "sha256": "6133539da383baa616b64cf623726e2372852fc4c5095b4fcb7895ea714eb118"
+  },
+  {
+   "path": "audio/bov_2.wav",
+   "bytes": 79424,
+   "sha256": "ab1320f61ad92df98fa96a477c503b6bce66ccec2745e711a998bc0cd16a0d49"
+  },
+  {
+   "path": "audio/bov_3.wav",
+   "bytes": 79424,
+   "sha256": "070c69fa40cead5ecb4cfb242892e95f2e820cbdf785296cf40e53764b8811c6"
+  },
+  {
+   "path": "audio/engine_off_1500.wav",
+   "bytes": 84716,
+   "sha256": "426c58b0c723c47a23dc501b7ad049ab6819e5eff9c19a3bf8ef880160b46d0a"
+  },
+  {
+   "path": "audio/engine_off_2000.wav",
+   "bytes": 90008,
+   "sha256": "c65196be1f451e503d78aca321ccd5e6a0eb4b0d8e96ecb163a2d13c7c458bdb"
+  },
+  {
+   "path": "audio/engine_off_2750.wav",
+   "bytes": 88548,
+   "sha256": "f9eb61ec845babc8469dc1084e12f7887f4adcdb32a30cb7dd10a4e14f239770"
+  },
+  {
+   "path": "audio/engine_off_3500.wav",
+   "bytes": 87740,
+   "sha256": "fca7490b56a6229427ea7ab0fa19c85a99b82b1c78e2f57e80b5de7b0f01724c"
+  },
+  {
+   "path": "audio/engine_off_4500.wav",
+   "bytes": 89420,
+   "sha256": "bb46d2f6eb353ddffc612f4740501c20511288b97c3b012fea3c5abf48fa7a38"
+  },
+  {
+   "path": "audio/engine_off_5500.wav",
+   "bytes": 88548,
+   "sha256": "228e5f1515d0a7236c225a983ed58c4f4f442e12028add878a409f645172489d"
+  },
+  {
+   "path": "audio/engine_off_6500.wav",
+   "bytes": 87956,
+   "sha256": "721b6d653a65e5cd9310f872e5be71b9a77061f280061d09c968470f562c17a4"
+  },
+  {
+   "path": "audio/engine_off_7500.wav",
+   "bytes": 87588,
+   "sha256": "a2601f71584fe5decb1f5fc5cfcab7f03c62abce7e192ef34ee24dadeb03a4b9"
+  },
+  {
+   "path": "audio/engine_off_8500.wav",
+   "bytes": 88510,
+   "sha256": "57000d5071b0ae8ea742abba743325e1990ef4e0161a8a3d64cb29d6336c8c15"
+  },
+  {
+   "path": "audio/engine_on_1500.wav",
+   "bytes": 84716,
+   "sha256": "4476ca5cac75ce9617b879b7909be9a2ac106fccf1c16bc8563c7e9708c1f740"
+  },
+  {
+   "path": "audio/engine_on_2000.wav",
+   "bytes": 90008,
+   "sha256": "7ed90cd504e1c1d44929113864d94a792044b7e92a4704d3793d2914f4429391"
+  },
+  {
+   "path": "audio/engine_on_2750.wav",
+   "bytes": 88548,
+   "sha256": "8263c77d416a01e9c9dd22e9818c1a4afdd784bf34926160e807f1f42cbef191"
+  },
+  {
+   "path": "audio/engine_on_3500.wav",
+   "bytes": 87740,
+   "sha256": "a5dadec0b291cfd190d3fc0051e3471be2c49fc0600a44ab8960cb1aebd455d6"
+  },
+  {
+   "path": "audio/engine_on_4500.wav",
+   "bytes": 89420,
+   "sha256": "c86221acfe72eb54951ae67f267f6618a7a2fd1a2fc1dea528fa8bcafa439f26"
+  },
+  {
+   "path": "audio/engine_on_5500.wav",
+   "bytes": 88548,
+   "sha256": "b5844f5a0815647764534549628b7726db52efe6d6a02cd96eac6e0268e37a2b"
+  },
+  {
+   "path": "audio/engine_on_6500.wav",
+   "bytes": 87956,
+   "sha256": "c3946c5e347e52bdb1eac2b83dc2d412510b4b19ee6f1ffb1a20b1dea38dbeee"
+  },
+  {
+   "path": "audio/engine_on_7500.wav",
+   "bytes": 87588,
+   "sha256": "ee8d4a638f9c0ec5bae76e333e5a014540d071942ec0cfbb23c859db473a0790"
+  },
+  {
+   "path": "audio/engine_on_8500.wav",
+   "bytes": 88510,
+   "sha256": "753fa3a5e895a1e729fbcbebd1deb6ba5e3cf566e661c9aee1e4c1f442e8a3de"
+  },
+  {
+   "path": "audio/gravel_roll.wav",
+   "bytes": 132344,
+   "sha256": "573b2a6780404cdb1accc3d5f4211133e455287608f70457f875b6a115998546"
+  },
+  {
+   "path": "audio/gravel_slide.wav",
+   "bytes": 132344,
+   "sha256": "94d92c1c0a38b8f83a213fab7eaa755bfa8296405d487fd21b8aa0c2c2b61584"
+  },
+  {
+   "path": "audio/kerb_rumble.wav",
+   "bytes": 88244,
+   "sha256": "c796c36e4d9e27395046a6f410154b92b90e00b4a4bf119ace1e0c1ee02835e1"
+  },
+  {
+   "path": "audio/landing_1.wav",
+   "bytes": 61782,
+   "sha256": "2fcc16fe8e18defe0be00a6580313b2634ae8f73445edb395bb7c8bce87ec22a"
+  },
+  {
+   "path": "audio/landing_2.wav",
+   "bytes": 61782,
+   "sha256": "add1490ed06165dfe64e2e614f304e3142dfce462ed297b90a0fa8e649b6d89a"
+  },
+  {
+   "path": "audio/landing_3.wav",
+   "bytes": 61782,
+   "sha256": "b91a978bb1bc6d6b81285a296f764ff9889e1f37aa64359f53b9d0e1b40e8fee"
+  },
+  {
+   "path": "audio/landing_4.wav",
+   "bytes": 61782,
+   "sha256": "59c5eb358eb7407db06d1f3fcc00b591b40d2df5f5464855fb0d9c9c36360865"
+  },
+  {
+   "path": "audio/manifest.json",
+   "bytes": 1535,
+   "sha256": "b34fc0b4547d9fdd4b3af2daf11e4843c4caaeacc3b389b79fd1be146a7ce6e4"
+  },
+  {
+   "path": "audio/ping_1.wav",
+   "bytes": 22094,
+   "sha256": "0603b9e9b97a3a672e8b08d15fa3c71c56b020da6ecdcd95fefbac9db4f43abc"
+  },
+  {
+   "path": "audio/ping_2.wav",
+   "bytes": 22094,
+   "sha256": "908475216e7414e032e36ef955b7a248394afd1ddf2c4aeff998bc819d72851d"
+  },
+  {
+   "path": "audio/ping_3.wav",
+   "bytes": 22094,
+   "sha256": "165f2c058d6dbc07fbbefaadfc13bcce43ced485a2d0bd3cc5833be8ea11c468"
+  },
+  {
+   "path": "audio/ping_4.wav",
+   "bytes": 22094,
+   "sha256": "3261584d6410cfbe683031af14c6fd1a3dfda66e070b85b38dd9a57e8607ca81"
+  },
+  {
+   "path": "audio/ping_5.wav",
+   "bytes": 22094,
+   "sha256": "8b4fc3dfdde51ffd0912105e59fdb8b7a3f60e7a7bb6a7a61b642f937921950b"
+  },
+  {
+   "path": "audio/ping_6.wav",
+   "bytes": 22094,
+   "sha256": "91bfee02c074dcf49accfd21f52d28659c606d779d589e7ef389b9f2b7932159"
+  },
+  {
+   "path": "audio/ping_7.wav",
+   "bytes": 22094,
+   "sha256": "65cad890f303537efd572db2bbe6fd3a0410d7d74f6753a9d1e7ce7a85ae24e1"
+  },
+  {
+   "path": "audio/ping_8.wav",
+   "bytes": 22094,
+   "sha256": "0baa75a1c5a8a786d9203d4748fee1793fd88626e426299d5d2fccc451bbb83f"
+  },
+  {
+   "path": "audio/slam_1.wav",
+   "bytes": 70604,
+   "sha256": "1b0a2c87cee0a24ed1723b45e7869b77184fea27c5f4ea19f96e1d084830ffce"
+  },
+  {
+   "path": "audio/slam_2.wav",
+   "bytes": 70604,
+   "sha256": "1287f62281d7148ce3dc1b95275866f703708455e1523021b92a0c02f0cf6dd0"
+  },
+  {
+   "path": "audio/slam_3.wav",
+   "bytes": 70604,
+   "sha256": "b0a29bfe2fa3cfa2789e0daffc03bcb7d4a8bc2a90c922067d293a1cc7d37a38"
+  },
+  {
+   "path": "audio/thunk_1.wav",
+   "bytes": 26504,
+   "sha256": "6247a4430cc63e8e3a88330a35e092eb4499e8492c836ca9db10fac177795c3f"
+  },
+  {
+   "path": "audio/thunk_2.wav",
+   "bytes": 26504,
+   "sha256": "a508ca298b794e902fdb98b96566d61af876f45856725662d437229520b7f76e"
+  },
+  {
+   "path": "audio/thunk_3.wav",
+   "bytes": 26504,
+   "sha256": "4dcca936c885a596dd9ed5ab010b7ac63fcd79291fe27ed4240682874372277c"
+  },
+  {
+   "path": "audio/thunk_4.wav",
+   "bytes": 26504,
+   "sha256": "c5e523474b97e37f7a7d08f0806b8dcdb26ea82778957df1e25960accabaa34e"
+  },
+  {
+   "path": "audio/turbo.wav",
+   "bytes": 88244,
+   "sha256": "87bc233c1e7f18836d74dcb677a0b295cb12566bb9400188249a4bcdcd60abaa"
+  },
+  {
+   "path": "audio/ui_best.wav",
+   "bytes": 35324,
+   "sha256": "955a32f6222768340c0978e6ca63a76b8e3d12047826c7d60ee1817287740d53"
+  },
+  {
+   "path": "audio/ui_invalid.wav",
+   "bytes": 37088,
+   "sha256": "85de4db0e5fd0c4612b73bd65b4c46af6333123581cef36fa3979d27b3d07e17"
+  },
+  {
+   "path": "audio/ui_lap.wav",
+   "bytes": 28268,
+   "sha256": "3d92d53945934f10cf290808c1ae7c980bd9331b0e43070538bb85e468d11c88"
+  },
+  {
+   "path": "audio/ui_sector.wav",
+   "bytes": 16802,
+   "sha256": "d408d3882ba1747f1e175445b7d4f6a9fdc0dd83847e21a56688714d9db49a54"
+  },
+  {
+   "path": "audio/whine.wav",
+   "bytes": 88244,
+   "sha256": "644e1abc33a0166f3681b1493271c3b66aae50fedb41021a510e5c02a8e03042"
+  },
+  {
+   "path": "wasm/RallyCore.wasm",
+   "bytes": 59669,
+   "sha256": "803b892679a5980441cfb590f540b718e9cf6302673ae1b5a152cbbc0aa148da"
+  },
+  {
+   "path": "wasm/System.Memory.wasm",
+   "bytes": 11541,
+   "sha256": "7cd1111d5b61d0efab73238f39331224686386fe68678b90725b7d30074a9a23"
+  },
+  {
+   "path": "wasm/System.Private.CoreLib.wasm",
+   "bytes": 916757,
+   "sha256": "f34a285e9d21acadd839ba3323d090aebf7d776f2f507a94e8ad44da1f0ec1df"
+  },
+  {
+   "path": "wasm/System.Runtime.InteropServices.JavaScript.wasm",
+   "bytes": 29973,
+   "sha256": "84c4bd0c2bad88dcce6193d2136865c8cf6ac1c79a1adc8127f6ff741f13f453"
+  },
+  {
+   "path": "wasm/System.Text.Json.wasm",
+   "bytes": 55573,
+   "sha256": "e42c53716ba680f57053e705403b321bdec0fda5fb2bccaa73ae4d0a83c3a9dd"
+  },
+  {
+   "path": "wasm/blazor.boot.json",
+   "bytes": 1079,
+   "sha256": "d30c4683cdda9f3927bf8afa918dd5b0f8adad7aeb302672e47c0631fec1596f"
+  },
+  {
+   "path": "wasm/dotnet.js",
+   "bytes": 35871,
+   "sha256": "0cf3f38cf7c9a4faff5633e13bdcd9b26f22ab7b2917105b73fbbc1e7437ea05"
+  },
+  {
+   "path": "wasm/dotnet.native.8.0.31.244rwrrggm.js",
+   "bytes": 136071,
+   "sha256": "4392d3c919784a0ef705d8e096b7e6d8bcf835336e38543b7a34007a6cc99384"
+  },
+  {
+   "path": "wasm/dotnet.native.wasm",
+   "bytes": 4792837,
+   "sha256": "eb3d9047bb048f933c2db8aeae9ea8b74021009ec34a05a46c5f47e12c3c59b4"
+  },
+  {
+   "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
+   "bytes": 223202,
+   "sha256": "ab356df3aab418a80335e939f96141cf6854f231b123ce9825e6663465e3fea3"
+  },
+  {
+   "path": "vendor/three.module.min.js",
+   "bytes": 691648,
+   "sha256": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7"
+  },
+  {
+   "path": "vendor/addons/loaders/GLTFLoader.js",
+   "bytes": 110273,
+   "sha256": "45139faddd5aaf48ed2d62203d976e5cbd703db1a592de40527f9f6cf58abd44"
+  },
+  {
+   "path": "vendor/addons/utils/BufferGeometryUtils.js",
+   "bytes": 31768,
+   "sha256": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6"
+  },
+  {
+   "path": "course/RallycrossGrid.json",
+   "bytes": 991759,
+   "sha256": "cf8ea8c544c755320606d2626f939f80f49db54b58e85a171df0ed241ac59d04"
+  },
+  {
+   "path": "course/rallycross-course.glb.json",
+   "bytes": 1123028,
+   "sha256": "301a71f8344e0c0e99c83e92118962cfac72df239565d11c213116a5e3b0f099"
+  },
+  {
+   "path": "course/rallycross.json",
+   "bytes": 139898,
+   "sha256": "c240dfba4d681551e47223cdc9d3bed29e447beaab2fc0ee220d3b5447e0de4b"
+  }
+ ]
+}
