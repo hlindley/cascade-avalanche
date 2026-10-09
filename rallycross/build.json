@@ -1,9 +1,9 @@
 {
- "commit": "c562b8b",
- "builtUtc": "2026-10-09T04:42:22",
+ "commit": "fa34d7e",
+ "builtUtc": "2026-10-09T06:04:33",
  "coreInputsHash": "bc11dee0121aaead",
  "assetInputsHash": "941a697013d5a09e",
- "totalBytes": 14723057,
+ "totalBytes": 14757422,
  "audioBytes": 4131417,
  "course": {
   "version": "rallycross-1",
@@ -20,13 +20,13 @@
  "files": [
   {
    "path": "index.html",
-   "bytes": 17619,
-   "sha256": "4ed295460f7b551497d5d5cd7047c4b4795bbea19c4f3d80e4687231e2962173"
+   "bytes": 19084,
+   "sha256": "7447f74b16796d5f7b53a025dda8d06b373d495fbd712159039e44aa6e287523"
   },
   {
    "path": "main.js",
-   "bytes": 44944,
-   "sha256": "afbadd828e9d602706637b4559770c0fa941685e67ce948e81dd9f86f52be008"
+   "bytes": 72043,
+   "sha256": "4e02b862a7680193c28d092908e5773f4d06da0b475a2f0e4cbddd22c85aec29"
   },
   {
    "path": "mixer-worklet.js",
@@ -37,6 +37,11 @@
    "path": "car/HeroCar_Body_BaseColor.jpg",
    "bytes": 273308,
    "sha256": "dc2659f0ed1408197b45882c5842e56a003e11378024f4dbbf6e86add65003a1"
+  },
+  {
+   "path": "car/HeroCar_Body_LampMask.png",
+   "bytes": 5801,
+   "sha256": "56edb3f07cd25d254d252d5dec5bcc9caf2dce629a9847cb70726fe10487fbd3"
   },
   {
    "path": "car/HeroCar_Body_Normal.jpg",
