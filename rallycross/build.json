@@ -1,9 +1,9 @@
 {
- "commit": "a1fb83a",
- "builtUtc": "2026-10-09T21:47:33",
+ "commit": "598e41f",
+ "builtUtc": "2026-10-09T22:48:55",
  "coreInputsHash": "493a69ba64630dd2",
  "assetInputsHash": "138ac610972e778c",
- "totalBytes": 14776204,
+ "totalBytes": 16396095,
  "audioBytes": 4131417,
  "course": {
   "version": "rallycross-1",
@@ -15,7 +15,7 @@
   "revision": "5.3",
   "ticks": 2000,
   "wasmHash": "d01feb84f69a922f",
-  "nativeHash": "a2f75037fcf802a6"
+  "nativeHash": "0c1788e4a3db9daa"
  },
  "files": [
   {
@@ -25,8 +25,8 @@
   },
   {
    "path": "main.js",
-   "bytes": 85984,
-   "sha256": "d81327ccc52b7e2b95d0de3ce9c6a6889e4452588a2d5b7bc9b55c2d8ee20ab8"
+   "bytes": 99396,
+   "sha256": "e7acab1fd23c69c17fea42004544f98aea40415729b29e108c7831f1e33e696f"
   },
   {
    "path": "mixer-worklet.js",
@@ -672,6 +672,16 @@
    "path": "course/RallycrossGrid.json",
    "bytes": 991759,
    "sha256": "cf8ea8c544c755320606d2626f939f80f49db54b58e85a171df0ed241ac59d04"
+  },
+  {
+   "path": "course/marks.json",
+   "bytes": 14860,
+   "sha256": "d58176dc2e187f5a001cb7b1ec363f34779926abe540c6e5e82e8323629fa8cd"
+  },
+  {
+   "path": "course/marks.png",
+   "bytes": 1591619,
+   "sha256": "2165797a5018c280c6fc8c4e8c5039a950eb1739c3a171461857ab7a2109e94c"
   },
   {
    "path": "course/pacenotes.json",
