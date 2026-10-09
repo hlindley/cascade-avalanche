@@ -1,0 +1,201 @@
+{
+  "format": "awd-rallycross-pacenotes/1",
+  "course": 954.791,
+  "revision": "5.1-rotation",
+  "speedScale": 1.2935,
+  "recce": true,
+  "brakingGearKmh": [
+    34.7,
+    63.8,
+    86.5,
+    107.1,
+    121.9
+  ],
+  "notes": [
+    {
+      "id": 0,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 114,
+      "sApex": 133.8,
+      "s1": 170.5,
+      "turnDeg": 94,
+      "radiusM": 32.1,
+      "apexKmh": 74.7,
+      "mods": [],
+      "text": "three right"
+    },
+    {
+      "id": 1,
+      "dir": "left",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 238.4,
+      "sApex": 248.3,
+      "s1": 273.2,
+      "turnDeg": 46,
+      "radiusM": 41,
+      "apexKmh": 98.8,
+      "mods": [],
+      "text": "four left"
+    },
+    {
+      "id": 2,
+      "dir": "right",
+      "gear": 2,
+      "hairpin": false,
+      "grade": "",
+      "s0": 275.2,
+      "sApex": 297.6,
+      "s1": 309.3,
+      "turnDeg": 107,
+      "radiusM": 16.4,
+      "apexKmh": 58.7,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "two right, don\u0027t cut"
+    },
+    {
+      "id": 3,
+      "dir": "right",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 390.3,
+      "sApex": 398.2,
+      "s1": 456.6,
+      "turnDeg": 67,
+      "radiusM": 55.3,
+      "apexKmh": 93.2,
+      "mods": [
+        "long"
+      ],
+      "text": "over crest, four right long"
+    },
+    {
+      "id": 4,
+      "dir": "left",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 558.6,
+      "sApex": 585.3,
+      "s1": 601.2,
+      "turnDeg": 69,
+      "radiusM": 32.2,
+      "apexKmh": 76.8,
+      "mods": [],
+      "text": "three left"
+    },
+    {
+      "id": 5,
+      "dir": "right",
+      "gear": 1,
+      "hairpin": true,
+      "grade": "",
+      "s0": 649.2,
+      "sApex": 664.1,
+      "s1": 694.9,
+      "turnDeg": 180,
+      "radiusM": 12,
+      "apexKmh": 26.4,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "compression, hairpin right, don\u0027t cut"
+    },
+    {
+      "id": 6,
+      "dir": "left",
+      "gear": 2,
+      "hairpin": false,
+      "grade": "",
+      "s0": 726.9,
+      "sApex": 747.5,
+      "s1": 775.9,
+      "turnDeg": 91,
+      "radiusM": 29.4,
+      "apexKmh": 58.6,
+      "mods": [],
+      "text": "two left"
+    },
+    {
+      "id": 7,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 778.9,
+      "sApex": 871.6,
+      "s1": 882.5,
+      "turnDeg": 118,
+      "radiusM": 49.9,
+      "apexKmh": 81.6,
+      "mods": [
+        "long"
+      ],
+      "text": "three right long"
+    }
+  ],
+  "calls": [
+    {
+      "s": 114,
+      "notes": [
+        0
+      ],
+      "text": "three right",
+      "apexKmh": 74.7
+    },
+    {
+      "s": 238.4,
+      "notes": [
+        1,
+        2
+      ],
+      "text": "four left, into two right, don\u0027t cut",
+      "apexKmh": 98.8
+    },
+    {
+      "s": 390.3,
+      "notes": [
+        3
+      ],
+      "text": "over crest, four right long",
+      "apexKmh": 93.2
+    },
+    {
+      "s": 558.6,
+      "notes": [
+        4
+      ],
+      "text": "three left",
+      "apexKmh": 76.8
+    },
+    {
+      "s": 649.2,
+      "notes": [
+        5,
+        6
+      ],
+      "text": "compression, hairpin right, don\u0027t cut, into two left",
+      "apexKmh": 26.4
+    },
+    {
+      "s": 778.9,
+      "notes": [
+        7
+      ],
+      "text": "three right long, two hundred",
+      "apexKmh": 81.6
+    }
+  ],
+  "checkedAgainst": [
+    "lap-40250.json",
+    "lap-41045.json",
+    "lap-40713.json"
+  ]
+}

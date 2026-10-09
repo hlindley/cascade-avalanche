@@ -1,0 +1,51 @@
+{
+  "format": "awd-rallycross-codriver/1",
+  "about": "The co-driver's lines (9 October 2026: pace notes and snide remarks from a Scottish co-driver, 'not just me but we'). 'text' is shown as a subtitle; 'say' (when present) is the spelling the voice engine is given, to steer it towards the accent. Pace-note calls come from Assets/HandlingLab/Rallycross/pacenotes.json. 'when' is the event that can trigger the line (web/rallycross/src/codriver.js).",
+  "lines": [
+    { "id": "start.1", "when": "start", "text": "Right. Let's go." },
+    { "id": "start.2", "when": "start", "text": "Here we go, then." },
+    { "id": "start.3", "when": "start", "text": "Clock starts at the line." },
+
+    { "id": "offroad.1", "when": "offroad", "text": "That's no' the road, by the way.", "say": "That's no the road, by the way." },
+    { "id": "offroad.2", "when": "offroad", "text": "Grass is for coos, no' cars.", "say": "Grass is for coos, no cars." },
+    { "id": "offroad.3", "when": "offroad", "text": "Aye, very scenic. Road's over there." },
+    { "id": "offroad.4", "when": "offroad", "text": "We're meant tae stay on the track, ye ken.", "say": "We're meant tay stay on the track, ye ken." },
+
+    { "id": "spin.1", "when": "spin", "text": "Lovely view o' where we've been.", "say": "Lovely view o where we've been." },
+    { "id": "spin.2", "when": "spin", "text": "Wrong way round, ya numpty." },
+    { "id": "spin.3", "when": "spin", "text": "Well. That's one way tae turn.", "say": "Well. That's one way tay turn." },
+    { "id": "spin.4", "when": "spin", "text": "Spinnin's no' a technique.", "say": "Spinnin's no a technique." },
+
+    { "id": "said.1", "when": "overspeed", "text": "I said one." },
+    { "id": "said.2", "when": "overspeed", "text": "I said two." },
+    { "id": "said.3", "when": "overspeed", "text": "I said three." },
+    { "id": "said.4", "when": "overspeed", "text": "I said four." },
+    { "id": "said.5", "when": "overspeed", "text": "I said five." },
+    { "id": "said.hairpin", "when": "overspeed", "text": "I said hairpin!" },
+    { "id": "tail.3", "when": "overspeed-tail", "text": "That was a three wi' hope.", "say": "That was a three, wi hope." },
+    { "id": "tail.4", "when": "overspeed-tail", "text": "That was a four wi' hope.", "say": "That was a four, wi hope." },
+    { "id": "tail.5", "when": "overspeed-tail", "text": "That was a five wi' hope.", "say": "That was a five, wi hope." },
+    { "id": "tail.6", "when": "overspeed-tail", "text": "That was a six wi' hope.", "say": "That was a six, wi hope." },
+    { "id": "quick.1", "when": "overspeed", "text": "Bit quick, that." },
+    { "id": "quick.2", "when": "overspeed", "text": "Brakes are the middle pedal, pal." },
+
+    { "id": "cut.1", "when": "cut", "text": "Did I say don't cut? I did say don't cut." },
+    { "id": "cut.2", "when": "cut", "text": "Inside's no' part o' the track.", "say": "Inside's no part o the track." },
+
+    { "id": "saved.1", "when": "saved", "text": "Oof. Saved it." },
+    { "id": "saved.2", "when": "saved", "text": "Ye're showin' off now.", "say": "Ye're showin off now." },
+    { "id": "saved.3", "when": "saved", "text": "Heart's still goin'. Just.", "say": "Heart's still goin. Just." },
+
+    { "id": "setup.1", "when": "setup", "text": "Twiddlin' knobs at speed? Brave.", "say": "Twiddlin knobs at speed? Brave." },
+    { "id": "setup.2", "when": "setup", "text": "Fiddlin' wi' the setup again?", "say": "Fiddlin wi the setup again?" },
+
+    { "id": "pb.1", "when": "pb", "text": "Aye... no' bad. Don't let it go tae yer head.", "say": "Aye. No bad. Don't let it go tay yer head." },
+    { "id": "pb.2", "when": "pb", "text": "Personal best! I'll tell yer mum." },
+    { "id": "best.1", "when": "sessionbest", "text": "That's mair like it.", "say": "That's mare like it." },
+    { "id": "best.2", "when": "sessionbest", "text": "Better. Keep that up." },
+    { "id": "lap.1", "when": "lap", "text": "Tidy." },
+    { "id": "lap.2", "when": "lap", "text": "Clean enough." },
+    { "id": "invalid.1", "when": "invalid", "text": "That one doesnae count, by the way.", "say": "That one doesnay count, by the way." },
+    { "id": "wrongway.1", "when": "wrongway", "text": "Wrong way! Turn it round!" }
+  ]
+}

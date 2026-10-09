@@ -66,6 +66,10 @@
   #laps { right: calc(10px + env(safe-area-inset-right, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding: 8px 10px; font: 500 12px/1.5 var(--body); color: var(--ink-dim); max-width: min(380px, calc(100vw - 20px)); pointer-events: auto; }
   #laps b { color: var(--ink); } #laps .laprow { margin-top: 6px; } #laps .chip { margin-left: 4px; } #lapstatus { margin-top: 6px; color: var(--ink); }
   #diag button { margin-top: 6px; }
+  /* Co-driver subtitle, above the speed readout */
+  #codriver { left: 50%; transform: translateX(-50%); bottom: calc(96px + env(safe-area-inset-bottom, 0px)); max-width: min(560px, calc(100vw - 32px)); padding: 5px 12px;
+    font: 500 15px/1.3 var(--body); color: var(--ink); text-align: center; text-wrap: balance; }
+  #codriver.call { font: 700 18px/1.2 var(--display); letter-spacing: .03em; color: var(--accent); }
   /* Car setup, right side under the options */
   #setup { right: calc(10px + env(safe-area-inset-right, 0px)); top: calc(178px + env(safe-area-inset-top, 0px)); padding: 8px 10px; width: min(340px, calc(100vw - 20px)); font: 500 12px/1.4 var(--body); color: var(--ink-dim); pointer-events: auto; display: grid; gap: 6px; }
   #setup b { color: var(--ink); font: 700 15px/1.1 var(--display); }
@@ -125,6 +129,7 @@
       max-height: calc(100vh - 30px - min(30vh, 150px) - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); overflow-y: auto; padding: 5px 8px; gap: 2px; font-size: 11px; }
     body.setup-open #timing { visibility: hidden; }
     #setup b { font-size: 13px; } .setuphead b { font-size: 12px; }
+    #codriver { bottom: auto; top: calc(64px + env(safe-area-inset-top, 0px)); font-size: 12px; max-width: 44vw; } #codriver.call { font-size: 14px; }
     .setuprow { padding: 1px 4px; } .setuprow > div { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: baseline; }
     .setuprow .chip { min-width: 38px; padding: 7px 0; } .setupnote, .setuphint { display: none; }
   }
@@ -159,6 +164,7 @@
   <div class="row">
     <button class="chip" id="soundbtn" type="button" aria-pressed="true">Sound</button>
     <button class="chip" id="beepbtn" type="button" aria-pressed="true">Beeps</button>
+    <button class="chip" id="cdbtn" type="button" aria-pressed="true" title="Co-driver: pace notes and remarks (C)">Co-driver</button>
     <button class="chip" id="diagbtn" type="button" aria-pressed="false">Diagnostics</button>
   </div>
   <div class="row">
@@ -177,6 +183,7 @@
 
 <div id="diag" class="hud panel" hidden></div>
 <div id="laps" class="hud panel" hidden></div>
+<div id="codriver" class="hud panel" hidden aria-live="polite"></div>
 <div id="setup" class="hud panel" hidden aria-label="Car setup"></div>
 
 <div id="touch" hidden>
@@ -208,6 +215,7 @@
       <kbd>Backspace</kbd><span>Back on the road here</span>
       <kbd>E · G · , .</kbd><span>Reverse (when stopped) · automatic on/off · shift down/up</span>
       <kbd>1 2 3 · M · B</kbd><span>Preset · mute · timing beeps</span>
+      <kbd>C</kbd><span>Co-driver on/off: pace notes numbered by gear ("three right": brake until 3rd) and remarks</span>
       <kbd>T · [ ] · − =</kbd><span>Car setup (pad: View, d-pad): open, choose a row, change it; applies at once</span>
     </div>
   </div>

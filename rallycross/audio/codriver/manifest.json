@@ -1,0 +1,233 @@
+{
+ "format": "awd-rallycross-codriver-clips/1",
+ "voice": {
+  "engine": "eSpeak NG text-to-speech: 1.51  Data at: /usr/lib/x86_64-linux-gnu/espeak-ng-data",
+  "voice": "en-gb-scotland+m3",
+  "speed": 178,
+  "pitch": 38,
+  "treatment": "intercom (ffmpeg)",
+  "renderer": "codriver-render/1"
+ },
+ "clips": {
+  "call:three right": {
+   "file": "3d804613261d35ad.mp3",
+   "seconds": 0.758,
+   "text": "three right"
+  },
+  "call:four left, into two right, don't cut": {
+   "file": "89853e437c57d56a.mp3",
+   "seconds": 2.377,
+   "text": "four left, into two right, don't cut"
+  },
+  "call:over crest, four right long": {
+   "file": "71c10d563efa98b7.mp3",
+   "seconds": 1.829,
+   "text": "over crest, four right long"
+  },
+  "call:three left": {
+   "file": "17f831cc4a236199.mp3",
+   "seconds": 0.81,
+   "text": "three left"
+  },
+  "call:compression, hairpin right, don't cut, into two left": {
+   "file": "e57ec02044433828.mp3",
+   "seconds": 3.37,
+   "text": "compression, hairpin right, don't cut, into two left"
+  },
+  "call:three right long, two hundred": {
+   "file": "94e019a52f76ef5a.mp3",
+   "seconds": 1.802,
+   "text": "three right long, two hundred"
+  },
+  "line:start.1": {
+   "file": "ed25c8391283333d.mp3",
+   "seconds": 1.411,
+   "text": "Right. Let's go."
+  },
+  "line:start.2": {
+   "file": "9951deb0b18ddf33.mp3",
+   "seconds": 1.358,
+   "text": "Here we go, then."
+  },
+  "line:start.3": {
+   "file": "4e94933484aa1c2b.mp3",
+   "seconds": 1.567,
+   "text": "Clock starts at the line."
+  },
+  "line:offroad.1": {
+   "file": "91d2148c0ca3fefd.mp3",
+   "seconds": 1.829,
+   "text": "That's no' the road, by the way."
+  },
+  "line:offroad.2": {
+   "file": "32331818deb9c054.mp3",
+   "seconds": 1.855,
+   "text": "Grass is for coos, no' cars."
+  },
+  "line:offroad.3": {
+   "file": "9564e216fde2cb60.mp3",
+   "seconds": 2.351,
+   "text": "Aye, very scenic. Road's over there."
+  },
+  "line:offroad.4": {
+   "file": "10cec41b4150b711.mp3",
+   "seconds": 2.351,
+   "text": "We're meant tae stay on the track, ye ken."
+  },
+  "line:spin.1": {
+   "file": "330724363d54d999.mp3",
+   "seconds": 1.75,
+   "text": "Lovely view o' where we've been."
+  },
+  "line:spin.2": {
+   "file": "364e1213ebb05307.mp3",
+   "seconds": 1.802,
+   "text": "Wrong way round, ya numpty."
+  },
+  "line:spin.3": {
+   "file": "6e9b13d59b864539.mp3",
+   "seconds": 2.09,
+   "text": "Well. That's one way tae turn."
+  },
+  "line:spin.4": {
+   "file": "b47f27c4aff39a41.mp3",
+   "seconds": 1.358,
+   "text": "Spinnin's no' a technique."
+  },
+  "line:said.1": {
+   "file": "e2d1d9dd900cc75f.mp3",
+   "seconds": 0.94,
+   "text": "I said one."
+  },
+  "line:said.2": {
+   "file": "fb0d960e042f5969.mp3",
+   "seconds": 0.967,
+   "text": "I said two."
+  },
+  "line:said.3": {
+   "file": "a1b22dd6f4a1c890.mp3",
+   "seconds": 0.993,
+   "text": "I said three."
+  },
+  "line:said.4": {
+   "file": "70ce1ce1833583a9.mp3",
+   "seconds": 0.94,
+   "text": "I said four."
+  },
+  "line:said.5": {
+   "file": "0d1dadc4d67f1a39.mp3",
+   "seconds": 1.045,
+   "text": "I said five."
+  },
+  "line:said.hairpin": {
+   "file": "785452f652ffe524.mp3",
+   "seconds": 1.097,
+   "text": "I said hairpin!"
+  },
+  "line:tail.3": {
+   "file": "f125dcc888673e73.mp3",
+   "seconds": 1.672,
+   "text": "That was a three wi' hope."
+  },
+  "line:tail.4": {
+   "file": "49beeac96f0dd0c7.mp3",
+   "seconds": 1.646,
+   "text": "That was a four wi' hope."
+  },
+  "line:tail.5": {
+   "file": "b3574891ccc89238.mp3",
+   "seconds": 1.776,
+   "text": "That was a five wi' hope."
+  },
+  "line:tail.6": {
+   "file": "d5aa31d90280f5d2.mp3",
+   "seconds": 1.724,
+   "text": "That was a six wi' hope."
+  },
+  "line:quick.1": {
+   "file": "d7bd69c80590a62a.mp3",
+   "seconds": 1.28,
+   "text": "Bit quick, that."
+  },
+  "line:quick.2": {
+   "file": "89e7e43ff380206b.mp3",
+   "seconds": 1.907,
+   "text": "Brakes are the middle pedal, pal."
+  },
+  "line:cut.1": {
+   "file": "2b7caa5905d41e93.mp3",
+   "seconds": 2.691,
+   "text": "Did I say don't cut? I did say don't cut."
+  },
+  "line:cut.2": {
+   "file": "c0049007c0532a5a.mp3",
+   "seconds": 1.829,
+   "text": "Inside's no' part o' the track."
+  },
+  "line:saved.1": {
+   "file": "6bd5cce830c0cfa5.mp3",
+   "seconds": 1.332,
+   "text": "Oof. Saved it."
+  },
+  "line:saved.2": {
+   "file": "7339be3bf2b7bfbf.mp3",
+   "seconds": 1.228,
+   "text": "Ye're showin' off now."
+  },
+  "line:saved.3": {
+   "file": "a08d0f99bce89843.mp3",
+   "seconds": 1.802,
+   "text": "Heart's still goin'. Just."
+  },
+  "line:setup.1": {
+   "file": "b6993eec3709e57f.mp3",
+   "seconds": 2.064,
+   "text": "Twiddlin' knobs at speed? Brave."
+  },
+  "line:setup.2": {
+   "file": "42222fa0fc67a9ea.mp3",
+   "seconds": 1.776,
+   "text": "Fiddlin' wi' the setup again?"
+  },
+  "line:pb.1": {
+   "file": "2292b5f07780ff47.mp3",
+   "seconds": 2.978,
+   "text": "Aye... no' bad. Don't let it go tae yer head."
+  },
+  "line:pb.2": {
+   "file": "e5721d83a604b1a2.mp3",
+   "seconds": 2.22,
+   "text": "Personal best! I'll tell yer mum."
+  },
+  "line:best.1": {
+   "file": "ed019e98995179fd.mp3",
+   "seconds": 1.149,
+   "text": "That's mair like it."
+  },
+  "line:best.2": {
+   "file": "f7afb02f9a17f2b5.mp3",
+   "seconds": 1.646,
+   "text": "Better. Keep that up."
+  },
+  "line:lap.1": {
+   "file": "f40a88ae1fd802c3.mp3",
+   "seconds": 0.653,
+   "text": "Tidy."
+  },
+  "line:lap.2": {
+   "file": "b503cb01ba272499.mp3",
+   "seconds": 0.81,
+   "text": "Clean enough."
+  },
+  "line:invalid.1": {
+   "file": "9c9f89d1b9312e7d.mp3",
+   "seconds": 2.142,
+   "text": "That one doesnae count, by the way."
+  },
+  "line:wrongway.1": {
+   "file": "2ccb24cf047b42ec.mp3",
+   "seconds": 1.802,
+   "text": "Wrong way! Turn it round!"
+  }
+ }
+}
