@@ -63,6 +63,8 @@
   /* Diagnostics, bottom left */
   #diag { left: calc(10px + env(safe-area-inset-left, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding: 8px 10px; font: 500 11px/1.45 var(--mono); color: var(--ink-dim); max-width: min(360px, calc(100vw - 20px)); pointer-events: auto; }
   #diag b { color: var(--ink); font-weight: 500; }
+  #laps { right: calc(10px + env(safe-area-inset-right, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding: 8px 10px; font: 500 12px/1.5 var(--body); color: var(--ink-dim); max-width: min(380px, calc(100vw - 20px)); pointer-events: auto; }
+  #laps b { color: var(--ink); } #laps .laprow { margin-top: 6px; } #laps .chip { margin-left: 4px; } #lapstatus { margin-top: 6px; color: var(--ink); }
   #diag button { margin-top: 6px; }
 
   /* Touch controls (shown on touch screens) */
@@ -106,6 +108,7 @@
     #dash { top: calc(8px + env(safe-area-inset-top, 0px)); bottom: auto; padding: 4px 10px 5px; }
     #speed { font-size: 24px; } #gear { font-size: 18px; } #surface { font-size: 8.5px; }
     #diag { bottom: auto; top: calc(130px + env(safe-area-inset-top, 0px)); }
+    #laps { bottom: auto; top: calc(130px + env(safe-area-inset-top, 0px)); }
   }
   @media (prefers-reduced-motion: reduce) { #steerdot { transition: none; } }
 </style>
@@ -123,7 +126,7 @@
   <div id="bests">
     <div><span class="label">Session best</span><b id="sb">-:--.---</b></div>
     <div><span class="label">Optimal</span><b id="opt">-:--.---</b></div>
-    <div><span class="label">Personal best</span><b id="pb">-:--.---</b></div>
+    <div><span class="label" id="pblabel">Personal best</span><b id="pb">-:--.---</b></div>
   </div>
   <div id="state"></div>
 </div>
@@ -139,6 +142,8 @@
     <button class="chip" id="soundbtn" type="button" aria-pressed="true">Sound</button>
     <button class="chip" id="beepbtn" type="button" aria-pressed="true">Beeps</button>
     <button class="chip" id="diagbtn" type="button" aria-pressed="false">Diagnostics</button>
+    <button class="chip" id="lapsbtn" type="button" aria-pressed="false">Laps</button>
+    <button class="chip" id="standbtn" type="button" aria-pressed="true" title="Every lap from a standing start; off track restarts it">Standing start</button>
   </div>
 </div>
 
@@ -150,6 +155,7 @@
 </div>
 
 <div id="diag" class="hud panel" hidden></div>
+<div id="laps" class="hud panel" hidden></div>
 
 <div id="touch" hidden>
   <div class="pad" id="steerpad" aria-label="Steering: drag left or right"><div id="steerdot"></div></div>

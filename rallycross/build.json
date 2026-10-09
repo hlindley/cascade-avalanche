@@ -1,9 +1,9 @@
 {
- "commit": "4193ef4",
- "builtUtc": "2026-10-09T00:25:27",
+ "commit": "9af306a",
+ "builtUtc": "2026-10-09T01:34:48",
  "coreInputsHash": "8b4323f2c24545fa",
  "assetInputsHash": "941a697013d5a09e",
- "totalBytes": 14681422,
+ "totalBytes": 14687953,
  "audioBytes": 3679094,
  "course": {
   "version": "rallycross-1",
@@ -20,13 +20,13 @@
  "files": [
   {
    "path": "index.html",
-   "bytes": 13376,
-   "sha256": "3c974784b2c68f59eeadf5ce056eddf556c0f3a02e338995c8df4649295acca5"
+   "bytes": 14173,
+   "sha256": "16bdf88305218287439c41641c34424c843b44e32f49d1aa0db1f6673a0eaa73"
   },
   {
    "path": "main.js",
-   "bytes": 28989,
-   "sha256": "b143d079c0eb4a92a2479b84f6122da66e715fe2754987cfb4c16c5357be1e53"
+   "bytes": 34723,
+   "sha256": "da2a7e72902b5b7ae1e685549eb203c535abcdb49ff6eef869fe36964e5e8759"
   },
   {
    "path": "mixer-worklet.js",
