@@ -1,9 +1,9 @@
 {
- "commit": "243af50",
- "builtUtc": "2026-10-09T01:47:22",
- "coreInputsHash": "8b4323f2c24545fa",
+ "commit": "20fa686",
+ "builtUtc": "2026-10-09T03:58:22",
+ "coreInputsHash": "bc11dee0121aaead",
  "assetInputsHash": "941a697013d5a09e",
- "totalBytes": 14688145,
+ "totalBytes": 14707572,
  "audioBytes": 3679094,
  "course": {
   "version": "rallycross-1",
@@ -20,13 +20,13 @@
  "files": [
   {
    "path": "index.html",
-   "bytes": 14371,
-   "sha256": "5edadd2fed3b96d5fcf716859a79adf167fc24afe7c3d6a7eeed38ed6c661579"
+   "bytes": 16720,
+   "sha256": "69488ec81a167066650cc8d48b8d5e4cda8e49de15ed320d4c9c979795d0c922"
   },
   {
    "path": "main.js",
-   "bytes": 34717,
-   "sha256": "fc861c58722c5771ecba5b18948027512ba59d025ec774375e38206c9d61ec5f"
+   "bytes": 38195,
+   "sha256": "f47236795f94900e881f1e1b016e4f92921ed2551b9d836528b9886780d63203"
   },
   {
    "path": "mixer-worklet.js",
@@ -370,8 +370,8 @@
   },
   {
    "path": "wasm/RallyCore.wasm",
-   "bytes": 59669,
-   "sha256": "803b892679a5980441cfb590f540b718e9cf6302673ae1b5a152cbbc0aa148da"
+   "bytes": 63253,
+   "sha256": "955af8c2d7108c564b5ac98168bf080676d08a74998f6e48b991a1df399ae62d"
   },
   {
    "path": "wasm/System.Memory.wasm",
@@ -381,7 +381,7 @@
   {
    "path": "wasm/System.Private.CoreLib.wasm",
    "bytes": 916757,
-   "sha256": "f34a285e9d21acadd839ba3323d090aebf7d776f2f507a94e8ad44da1f0ec1df"
+   "sha256": "0aa06138b96a2692ce6e03a6f87742ef2505078374b8de1e835bddf849bedc1c"
   },
   {
    "path": "wasm/System.Runtime.InteropServices.JavaScript.wasm",
@@ -396,7 +396,7 @@
   {
    "path": "wasm/blazor.boot.json",
    "bytes": 1079,
-   "sha256": "d30c4683cdda9f3927bf8afa918dd5b0f8adad7aeb302672e47c0631fec1596f"
+   "sha256": "54e39799a57652bce55a60234a015d521431dcb89c51afa8291d366877cd9aa3"
   },
   {
    "path": "wasm/dotnet.js",
@@ -410,8 +410,8 @@
   },
   {
    "path": "wasm/dotnet.native.wasm",
-   "bytes": 4792837,
-   "sha256": "eb3d9047bb048f933c2db8aeae9ea8b74021009ec34a05a46c5f47e12c3c59b4"
+   "bytes": 4802853,
+   "sha256": "40b9ba83eb328033ec8eaaeb793f352c0ec3e8b089aef96a2ce8e297e45df268"
   },
   {
    "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
