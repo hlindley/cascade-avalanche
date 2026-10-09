@@ -1,9 +1,9 @@
 {
- "commit": "4329e25",
- "builtUtc": "2026-10-09T15:13:04",
- "coreInputsHash": "9db88cb8373c62c7",
+ "commit": "cb85a25",
+ "builtUtc": "2026-10-09T18:30:18",
+ "coreInputsHash": "f3e7575e05c2aee3",
  "assetInputsHash": "138ac610972e778c",
- "totalBytes": 14762340,
+ "totalBytes": 14760967,
  "audioBytes": 4131417,
  "course": {
   "version": "rallycross-1",
@@ -14,7 +14,7 @@
   "preset": 1,
   "revision": "5.3",
   "ticks": 2000,
-  "wasmHash": "b73250aa46090349",
+  "wasmHash": "e844ad5e29659d29",
   "nativeHash": "a2f75037fcf802a6"
  },
  "files": [
@@ -141,92 +141,92 @@
   {
    "path": "audio/engine_off_1500.wav",
    "bytes": 84716,
-   "sha256": "426c58b0c723c47a23dc501b7ad049ab6819e5eff9c19a3bf8ef880160b46d0a"
+   "sha256": "5581c2bbc70a9ab18815a525d6388ff8da327df5a1039b0ceb37d1eccc33cbf7"
   },
   {
    "path": "audio/engine_off_2000.wav",
    "bytes": 90008,
-   "sha256": "c65196be1f451e503d78aca321ccd5e6a0eb4b0d8e96ecb163a2d13c7c458bdb"
+   "sha256": "4aed0496e1233fbfa818aa3b8678c15b75cd5b33960f307d56fa3f4cf30ad21d"
   },
   {
    "path": "audio/engine_off_2750.wav",
    "bytes": 88548,
-   "sha256": "f9eb61ec845babc8469dc1084e12f7887f4adcdb32a30cb7dd10a4e14f239770"
+   "sha256": "c840a45d4fa7b7c826a94cb37720879dfa6ef1371d3b5e5ed1bf3ed45d4ed4ea"
   },
   {
    "path": "audio/engine_off_3500.wav",
    "bytes": 87740,
-   "sha256": "fca7490b56a6229427ea7ab0fa19c85a99b82b1c78e2f57e80b5de7b0f01724c"
+   "sha256": "7a16a4f311370d2737fd92fbdcd53969dcf9152b62f8df5b7005edc10804cabe"
   },
   {
    "path": "audio/engine_off_4500.wav",
    "bytes": 89420,
-   "sha256": "bb46d2f6eb353ddffc612f4740501c20511288b97c3b012fea3c5abf48fa7a38"
+   "sha256": "eb44f4c7820f9d3b1edf67dfdc75ace34bff164b9bd541300d4799e7e76f5653"
   },
   {
    "path": "audio/engine_off_5500.wav",
    "bytes": 88548,
-   "sha256": "228e5f1515d0a7236c225a983ed58c4f4f442e12028add878a409f645172489d"
+   "sha256": "4e9b6bdb14239ed85699f1da1c2bc59cef1869dbaa797053833809a77a924645"
   },
   {
    "path": "audio/engine_off_6500.wav",
    "bytes": 87956,
-   "sha256": "721b6d653a65e5cd9310f872e5be71b9a77061f280061d09c968470f562c17a4"
+   "sha256": "d23038de7f9963eb77c1feb3d8f382db2200580cab236bd5fee2462b2d8cc63e"
   },
   {
    "path": "audio/engine_off_7500.wav",
    "bytes": 87588,
-   "sha256": "a2601f71584fe5decb1f5fc5cfcab7f03c62abce7e192ef34ee24dadeb03a4b9"
+   "sha256": "6e680eab5c4c1c80226624eb5f8bce17bf32ecbafb73e6462e3f518d71351d67"
   },
   {
    "path": "audio/engine_off_8500.wav",
    "bytes": 88510,
-   "sha256": "57000d5071b0ae8ea742abba743325e1990ef4e0161a8a3d64cb29d6336c8c15"
+   "sha256": "7f03957e1855e153f0390b916ebf260831b33de1ff5fc234c92ce1ae8e59372c"
   },
   {
    "path": "audio/engine_on_1500.wav",
    "bytes": 84716,
-   "sha256": "4476ca5cac75ce9617b879b7909be9a2ac106fccf1c16bc8563c7e9708c1f740"
+   "sha256": "654abc668169df61acbfbec143e224cfb700f1fa537a6cbeae0fc89802c5dff8"
   },
   {
    "path": "audio/engine_on_2000.wav",
    "bytes": 90008,
-   "sha256": "7ed90cd504e1c1d44929113864d94a792044b7e92a4704d3793d2914f4429391"
+   "sha256": "a44738aca75390ec888627f60270ac9ff5e971ff91a5f5ef4308ee6f66a1f557"
   },
   {
    "path": "audio/engine_on_2750.wav",
    "bytes": 88548,
-   "sha256": "8263c77d416a01e9c9dd22e9818c1a4afdd784bf34926160e807f1f42cbef191"
+   "sha256": "f6123564e9b96cd8c757e8d73d51f7a4e072f3aebccd738a502d41a4acba8992"
   },
   {
    "path": "audio/engine_on_3500.wav",
    "bytes": 87740,
-   "sha256": "a5dadec0b291cfd190d3fc0051e3471be2c49fc0600a44ab8960cb1aebd455d6"
+   "sha256": "952aa93598bb26965fcb76b653062290415ea9445e4e40e761c515f9c8c1f23d"
   },
   {
    "path": "audio/engine_on_4500.wav",
    "bytes": 89420,
-   "sha256": "c86221acfe72eb54951ae67f267f6618a7a2fd1a2fc1dea528fa8bcafa439f26"
+   "sha256": "f35b436c2d74fbd515eda0b2f7079c65019c6d8ddf61d54f284bf57a02f471d5"
   },
   {
    "path": "audio/engine_on_5500.wav",
    "bytes": 88548,
-   "sha256": "b5844f5a0815647764534549628b7726db52efe6d6a02cd96eac6e0268e37a2b"
+   "sha256": "e078de37fab6e103b94d6bee2eb90b92cae6fef067ffaee998a3622544d50d49"
   },
   {
    "path": "audio/engine_on_6500.wav",
    "bytes": 87956,
-   "sha256": "c3946c5e347e52bdb1eac2b83dc2d412510b4b19ee6f1ffb1a20b1dea38dbeee"
+   "sha256": "24b282aae50da0fefaae5a2a6476b2dac49c4bee258696d1b3c06d787b916ac4"
   },
   {
    "path": "audio/engine_on_7500.wav",
    "bytes": 87588,
-   "sha256": "ee8d4a638f9c0ec5bae76e333e5a014540d071942ec0cfbb23c859db473a0790"
+   "sha256": "6b904d40a27d8152c9beaa9f5c39e1aae3c7431f9485245f51d04104bad0a7bf"
   },
   {
    "path": "audio/engine_on_8500.wav",
    "bytes": 88510,
-   "sha256": "753fa3a5e895a1e729fbcbebd1deb6ba5e3cf566e661c9aee1e4c1f442e8a3de"
+   "sha256": "6c763e1ff31da9f9977ed57847acb9ef6391591ee4757933df7eb6d24d5b846c"
   },
   {
    "path": "audio/gravel_roll.wav",
@@ -371,7 +371,7 @@
   {
    "path": "audio/whine.wav",
    "bytes": 88244,
-   "sha256": "644e1abc33a0166f3681b1493271c3b66aae50fedb41021a510e5c02a8e03042"
+   "sha256": "5b5a3444783ac762d32fa22b0a0e44cf3f715b874c7374c779b6e223e0808534"
   },
   {
    "path": "audio/codriver/0d1dadc4d67f1a39.mp3",
@@ -601,7 +601,7 @@
   {
    "path": "wasm/RallyCore.wasm",
    "bytes": 63253,
-   "sha256": "0779437be69c6eb05bd68986663482fa19e8e2b5078b26f54820382c8fbfcd6f"
+   "sha256": "3122c7fe91bec9739e25abd309c507a1d86b30a041bbfc0dc76b913723e044b7"
   },
   {
    "path": "wasm/System.Memory.wasm",
@@ -626,7 +626,7 @@
   {
    "path": "wasm/blazor.boot.json",
    "bytes": 1079,
-   "sha256": "109fff029125fe2705769361fcab4734f4b363917024f558e1872950a0a18bd2"
+   "sha256": "842737bcd433293c18d7d5aa9ee0323bf66ba50de5be42d6620ffd1176cf8cdf"
   },
   {
    "path": "wasm/dotnet.js",
@@ -640,8 +640,8 @@
   },
   {
    "path": "wasm/dotnet.native.wasm",
-   "bytes": 4800784,
-   "sha256": "6945d644388554a332b4e8ab1a72fd783f8e596c4cc704be331affef3e7eca1e"
+   "bytes": 4799411,
+   "sha256": "e9d72f1eff553f226d000779b5737d969859f4b7a824779dd4ac189a174f2b7b"
   },
   {
    "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
