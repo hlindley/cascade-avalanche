@@ -1,9 +1,9 @@
 {
- "commit": "1e6ef3f",
- "builtUtc": "2026-10-09T20:09:33",
- "coreInputsHash": "f3e7575e05c2aee3",
+ "commit": "1787379",
+ "builtUtc": "2026-10-09T21:09:14",
+ "coreInputsHash": "81660241d5d9814c",
  "assetInputsHash": "138ac610972e778c",
- "totalBytes": 14773531,
+ "totalBytes": 14776590,
  "audioBytes": 4131417,
  "course": {
   "version": "rallycross-1",
@@ -14,7 +14,7 @@
   "preset": 1,
   "revision": "5.3",
   "ticks": 2000,
-  "wasmHash": "e844ad5e29659d29",
+  "wasmHash": "d7c2f9b5d4d0a21c",
   "nativeHash": "a2f75037fcf802a6"
  },
  "files": [
@@ -25,13 +25,13 @@
   },
   {
    "path": "main.js",
-   "bytes": 85547,
-   "sha256": "6055d9aa0e259ac763c8187f8e8c1f2a07bdc2803acda1880bc21849d324adad"
+   "bytes": 85984,
+   "sha256": "d81327ccc52b7e2b95d0de3ce9c6a6889e4452588a2d5b7bc9b55c2d8ee20ab8"
   },
   {
    "path": "mixer-worklet.js",
-   "bytes": 8048,
-   "sha256": "a790ef8efb76cdcc8b18a971beae3165408a0da343aa8fc7cd78b47310766d74"
+   "bytes": 8690,
+   "sha256": "d0b8c015ecb7fc396d80a32cafbb67c31365df6e67d5e82c3d2a70df4d6766e1"
   },
   {
    "path": "car/HeroCar_Body_BaseColor.jpg",
@@ -601,7 +601,7 @@
   {
    "path": "wasm/RallyCore.wasm",
    "bytes": 63253,
-   "sha256": "3122c7fe91bec9739e25abd309c507a1d86b30a041bbfc0dc76b913723e044b7"
+   "sha256": "f62ef26d69729bf44e006fe877a1332ab143c6f4e067c53490a1baa5806a8033"
   },
   {
    "path": "wasm/System.Memory.wasm",
@@ -626,7 +626,7 @@
   {
    "path": "wasm/blazor.boot.json",
    "bytes": 1079,
-   "sha256": "842737bcd433293c18d7d5aa9ee0323bf66ba50de5be42d6620ffd1176cf8cdf"
+   "sha256": "7c83701949df58656a737beff1e6dfd6f4cd6fc76faf04da911f326d15cc18c5"
   },
   {
    "path": "wasm/dotnet.js",
@@ -640,8 +640,8 @@
   },
   {
    "path": "wasm/dotnet.native.wasm",
-   "bytes": 4799411,
-   "sha256": "e9d72f1eff553f226d000779b5737d969859f4b7a824779dd4ac189a174f2b7b"
+   "bytes": 4801391,
+   "sha256": "14b9134c05a579d5334f8f0abd194379089139279331496c2c8e21577b94b4f0"
   },
   {
    "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
