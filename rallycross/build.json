@@ -1,8 +1,8 @@
 {
- "commit": "4508306",
- "builtUtc": "2026-10-09T14:30:00",
+ "commit": "4329e25",
+ "builtUtc": "2026-10-09T15:13:04",
  "coreInputsHash": "9db88cb8373c62c7",
- "assetInputsHash": "941a697013d5a09e",
+ "assetInputsHash": "138ac610972e778c",
  "totalBytes": 14762340,
  "audioBytes": 4131417,
  "course": {
@@ -71,7 +71,7 @@
   {
    "path": "car/hero-car.glb.json",
    "bytes": 4561356,
-   "sha256": "70a51020aab900ad7dea8db0e0ee7cdd81a1bff67a6a391e6a27980c6b580518"
+   "sha256": "3ea37359e9e63de84090464ead4b442e7deefec34d036f1f1cea2fea43220ca4"
   },
   {
    "path": "audio/als_1.wav",
