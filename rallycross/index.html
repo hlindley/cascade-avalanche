@@ -108,7 +108,8 @@
     #dash { top: calc(8px + env(safe-area-inset-top, 0px)); bottom: auto; padding: 4px 10px 5px; }
     #speed { font-size: 24px; } #gear { font-size: 18px; } #surface { font-size: 8.5px; }
     #diag { bottom: auto; top: calc(130px + env(safe-area-inset-top, 0px)); }
-    #laps { bottom: auto; top: calc(130px + env(safe-area-inset-top, 0px)); }
+    /* Between the timing tower and the touch pads, clear of both. */
+    #laps { bottom: auto; right: auto; left: 50%; transform: translateX(-50%); top: calc(118px + env(safe-area-inset-top, 0px)); max-width: min(360px, 44vw); font-size: 11px; }
   }
   @media (prefers-reduced-motion: reduce) { #steerdot { transition: none; } }
 </style>
@@ -142,8 +143,10 @@
     <button class="chip" id="soundbtn" type="button" aria-pressed="true">Sound</button>
     <button class="chip" id="beepbtn" type="button" aria-pressed="true">Beeps</button>
     <button class="chip" id="diagbtn" type="button" aria-pressed="false">Diagnostics</button>
-    <button class="chip" id="lapsbtn" type="button" aria-pressed="false">Laps</button>
+  </div>
+  <div class="row">
     <button class="chip" id="standbtn" type="button" aria-pressed="true" title="Every lap from a standing start; off track restarts it">Standing start</button>
+    <button class="chip" id="lapsbtn" type="button" aria-pressed="false">Laps</button>
   </div>
 </div>
 
