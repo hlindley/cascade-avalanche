@@ -1,9 +1,9 @@
 {
- "commit": "1787379",
- "builtUtc": "2026-10-09T21:09:14",
- "coreInputsHash": "81660241d5d9814c",
+ "commit": "a1fb83a",
+ "builtUtc": "2026-10-09T21:47:33",
+ "coreInputsHash": "493a69ba64630dd2",
  "assetInputsHash": "138ac610972e778c",
- "totalBytes": 14776590,
+ "totalBytes": 14776204,
  "audioBytes": 4131417,
  "course": {
   "version": "rallycross-1",
@@ -14,7 +14,7 @@
   "preset": 1,
   "revision": "5.3",
   "ticks": 2000,
-  "wasmHash": "d7c2f9b5d4d0a21c",
+  "wasmHash": "d01feb84f69a922f",
   "nativeHash": "a2f75037fcf802a6"
  },
  "files": [
@@ -601,7 +601,7 @@
   {
    "path": "wasm/RallyCore.wasm",
    "bytes": 63253,
-   "sha256": "f62ef26d69729bf44e006fe877a1332ab143c6f4e067c53490a1baa5806a8033"
+   "sha256": "4101edebf6d96c9686d3e78e1fbac4e6471088fc52ab7603d4fd347900fddce8"
   },
   {
    "path": "wasm/System.Memory.wasm",
@@ -626,7 +626,7 @@
   {
    "path": "wasm/blazor.boot.json",
    "bytes": 1079,
-   "sha256": "7c83701949df58656a737beff1e6dfd6f4cd6fc76faf04da911f326d15cc18c5"
+   "sha256": "ecf3e0ba78d8fdd098ebbe6220801b8d802a0b128999113afac928744672f15a"
   },
   {
    "path": "wasm/dotnet.js",
@@ -640,8 +640,8 @@
   },
   {
    "path": "wasm/dotnet.native.wasm",
-   "bytes": 4801391,
-   "sha256": "14b9134c05a579d5334f8f0abd194379089139279331496c2c8e21577b94b4f0"
+   "bytes": 4801005,
+   "sha256": "844531c4d9983f95c1434490b9f8c481a5715ab7ece5dc3fa001bd6c3e2df01c"
   },
   {
    "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
