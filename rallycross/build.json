@@ -1,10 +1,10 @@
 {
- "commit": "cd82188",
- "builtUtc": "2026-10-07T17:54:43",
+ "commit": "4193ef4",
+ "builtUtc": "2026-10-09T00:25:27",
  "coreInputsHash": "8b4323f2c24545fa",
  "assetInputsHash": "941a697013d5a09e",
  "totalBytes": 14681422,
- "audioBytes": 3714366,
+ "audioBytes": 3679094,
  "course": {
   "version": "rallycross-1",
   "gridSha256": "688a0a4a3ae4ccfa852a6f2ff7ae941b1a992b1ee80644c74d05fc9aae045b78",
@@ -240,23 +240,23 @@
   },
   {
    "path": "audio/landing_1.wav",
-   "bytes": 61782,
-   "sha256": "2fcc16fe8e18defe0be00a6580313b2634ae8f73445edb395bb7c8bce87ec22a"
+   "bytes": 52964,
+   "sha256": "8da8a7f88c2a085c3fa073df907e6b0cefa6b19e7f06e22d5edff4637129ef58"
   },
   {
    "path": "audio/landing_2.wav",
-   "bytes": 61782,
-   "sha256": "add1490ed06165dfe64e2e614f304e3142dfce462ed297b90a0fa8e649b6d89a"
+   "bytes": 52964,
+   "sha256": "a86d5240238007e1987b773b5c887012919f92094721e9b67cc01b9734cf673e"
   },
   {
    "path": "audio/landing_3.wav",
-   "bytes": 61782,
-   "sha256": "b91a978bb1bc6d6b81285a296f764ff9889e1f37aa64359f53b9d0e1b40e8fee"
+   "bytes": 52964,
+   "sha256": "23d7aa289aa066a9a348027658ea74b807ea7c91fb50ae98fd451675eb747946"
   },
   {
    "path": "audio/landing_4.wav",
-   "bytes": 61782,
-   "sha256": "59c5eb358eb7407db06d1f3fcc00b591b40d2df5f5464855fb0d9c9c36360865"
+   "bytes": 52964,
+   "sha256": "aab75e1e1e60cbf392c17ca56ed9454beb5227d58f848174a00f08626dede95a"
   },
   {
    "path": "audio/manifest.json",
@@ -306,17 +306,17 @@
   {
    "path": "audio/slam_1.wav",
    "bytes": 70604,
-   "sha256": "1b0a2c87cee0a24ed1723b45e7869b77184fea27c5f4ea19f96e1d084830ffce"
+   "sha256": "4127af53ae0cdc01adaf90646241dbfe4a16a907843acc60f0b892411f2a49ad"
   },
   {
    "path": "audio/slam_2.wav",
    "bytes": 70604,
-   "sha256": "1287f62281d7148ce3dc1b95275866f703708455e1523021b92a0c02f0cf6dd0"
+   "sha256": "ce721626bb81b3a2ca61137309e8561f08cfc7c81c4139e7c7010e8a54516fba"
   },
   {
    "path": "audio/slam_3.wav",
    "bytes": 70604,
-   "sha256": "b0a29bfe2fa3cfa2789e0daffc03bcb7d4a8bc2a90c922067d293a1cc7d37a38"
+   "sha256": "4e6603df72a89fb831e9ee6a67bbdb15c877707ab00ba714779fd3441e378689"
   },
   {
    "path": "audio/thunk_1.wav",
