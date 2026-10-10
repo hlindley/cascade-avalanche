@@ -1,9 +1,10 @@
 {
- "commit": "598e41f",
- "builtUtc": "2026-10-09T22:48:55",
- "coreInputsHash": "493a69ba64630dd2",
+ "commit": "b442a5e",
+ "builtUtc": "2026-10-10T15:18:52",
+ "coreInputsHash": "a4cefd67eaee0f38",
  "assetInputsHash": "138ac610972e778c",
- "totalBytes": 16396095,
+ "physics": "596ea60695d5e4ff",
+ "totalBytes": 16521731,
  "audioBytes": 4131417,
  "course": {
   "version": "rallycross-1",
@@ -20,13 +21,13 @@
  "files": [
   {
    "path": "index.html",
-   "bytes": 19246,
-   "sha256": "6d38328d8d6a8e96e251c892dd9f4c4cc0773cf28d9fb4fb6059d43d64d59743"
+   "bytes": 24255,
+   "sha256": "9e41fbc5f75aef71dbedab58867eaaa7834c811f8a9e85641c7c84d8ba1be137"
   },
   {
    "path": "main.js",
-   "bytes": 99396,
-   "sha256": "e7acab1fd23c69c17fea42004544f98aea40415729b29e108c7831f1e33e696f"
+   "bytes": 122905,
+   "sha256": "2b11c0c9d5998514426ee9272ca53d1fea1c423774d049cfbf2f3493a0389e90"
   },
   {
    "path": "mixer-worklet.js",
@@ -600,8 +601,13 @@
   },
   {
    "path": "wasm/RallyCore.wasm",
-   "bytes": 63253,
-   "sha256": "4101edebf6d96c9686d3e78e1fbac4e6471088fc52ab7603d4fd347900fddce8"
+   "bytes": 68373,
+   "sha256": "301f1a009c715cd3b27aed8bb57031022cfb6c80b92b1786c2779e582a89c06f"
+  },
+  {
+   "path": "wasm/System.Linq.wasm",
+   "bytes": 10517,
+   "sha256": "eb189f4a14cbc4b305554dc333115411eb0882939fcc442b389798cf5864301d"
   },
   {
    "path": "wasm/System.Memory.wasm",
@@ -610,13 +616,13 @@
   },
   {
    "path": "wasm/System.Private.CoreLib.wasm",
-   "bytes": 916757,
-   "sha256": "0aa06138b96a2692ce6e03a6f87742ef2505078374b8de1e835bddf849bedc1c"
+   "bytes": 926485,
+   "sha256": "9e2760abbc4231bbf345b98b212e6c108fc7335a501adfc8af27f839487cd2d9"
   },
   {
    "path": "wasm/System.Runtime.InteropServices.JavaScript.wasm",
    "bytes": 29973,
-   "sha256": "84c4bd0c2bad88dcce6193d2136865c8cf6ac1c79a1adc8127f6ff741f13f453"
+   "sha256": "b60e886c62dfa26e8d7b4a14d8848bb566c334eeb09665d7362f967b72bd0643"
   },
   {
    "path": "wasm/System.Text.Json.wasm",
@@ -625,8 +631,8 @@
   },
   {
    "path": "wasm/blazor.boot.json",
-   "bytes": 1079,
-   "sha256": "ecf3e0ba78d8fdd098ebbe6220801b8d802a0b128999113afac928744672f15a"
+   "bytes": 1160,
+   "sha256": "ecc1337387d33f729a857813c81826c240cc198a9c0cb744144e98d296bcb36d"
   },
   {
    "path": "wasm/dotnet.js",
@@ -635,13 +641,13 @@
   },
   {
    "path": "wasm/dotnet.native.8.0.31.244rwrrggm.js",
-   "bytes": 136071,
-   "sha256": "4392d3c919784a0ef705d8e096b7e6d8bcf835336e38543b7a34007a6cc99384"
+   "bytes": 136318,
+   "sha256": "5c3dfa6a5ce3aa6e5afe910b7ecfa7d9d0a3475abbda7bfe2a83b644feb88400"
   },
   {
    "path": "wasm/dotnet.native.wasm",
-   "bytes": 4801005,
-   "sha256": "844531c4d9983f95c1434490b9f8c481a5715ab7ece5dc3fa001bd6c3e2df01c"
+   "bytes": 4872430,
+   "sha256": "27ffe0e2cd9ca93b11b9e021f2934a2c99c9deab5b40e418bcf658b608a2a8cb"
   },
   {
    "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
@@ -676,7 +682,7 @@
   {
    "path": "course/marks.json",
    "bytes": 14860,
-   "sha256": "d58176dc2e187f5a001cb7b1ec363f34779926abe540c6e5e82e8323629fa8cd"
+   "sha256": "bc9f5fbb054e3172cf289ea50b9e44a05a27aa7656ed0fdee37bbc8753a784b9"
   },
   {
    "path": "course/marks.png",
