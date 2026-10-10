@@ -1,10 +1,10 @@
 {
- "commit": "b442a5e",
- "builtUtc": "2026-10-10T15:18:52",
+ "commit": "2cacea6",
+ "builtUtc": "2026-10-10T18:02:16",
  "coreInputsHash": "a4cefd67eaee0f38",
  "assetInputsHash": "138ac610972e778c",
  "physics": "596ea60695d5e4ff",
- "totalBytes": 16521731,
+ "totalBytes": 16521171,
  "audioBytes": 4131417,
  "course": {
   "version": "rallycross-1",
@@ -26,8 +26,8 @@
   },
   {
    "path": "main.js",
-   "bytes": 122905,
-   "sha256": "2b11c0c9d5998514426ee9272ca53d1fea1c423774d049cfbf2f3493a0389e90"
+   "bytes": 122978,
+   "sha256": "c2d4210fa25b6d8960a5ec356b2cd5671650ff99aec36708f9dc4f6fae935be9"
   },
   {
    "path": "mixer-worklet.js",
@@ -41,8 +41,8 @@
   },
   {
    "path": "car/HeroCar_Body_LampMask.png",
-   "bytes": 5801,
-   "sha256": "56edb3f07cd25d254d252d5dec5bcc9caf2dce629a9847cb70726fe10487fbd3"
+   "bytes": 5168,
+   "sha256": "adeff5ccb82b0bb781adfd9f6be3557cddeb4aec7006b8ef2b1fb9917c827057"
   },
   {
    "path": "car/HeroCar_Body_Normal.jpg",
