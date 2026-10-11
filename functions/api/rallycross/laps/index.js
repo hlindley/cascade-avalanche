@@ -1,4 +1,4 @@
-// GET  /api/rallycross/laps?board=PHYSICS|REVISION|PRESET|standing|flying[&limit=50]
+// GET  /api/rallycross/laps?board=PHYSICS|COURSE|REVISION|PRESET|standing|flying[&limit=50]
 //      -> { board, players, entries: [{ id, rank, nickname, lapS, sectors, config, device, recorded, submitted, checked, player }] }
 //      each player's best lap on that board, fastest first.
 // POST /api/rallycross/laps  { nickname, player (32 hex, random per browser), lap (awd-rallycross-lap/1) }

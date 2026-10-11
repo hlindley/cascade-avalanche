@@ -1,9 +1,10 @@
 // Leaderboard store for the web rallycross (10 October 2026, leaderboard slice 1): Cloudflare Pages Functions on a D1
 // database bound as DB. Each entry is the lap itself (laprec.js's awd-rallycross-lap/1 record: every tick's inputs), so
-// anyone can watch it replayed by the physics. Boards are per physics version (build.json "physics"), car revision,
-// preset and start (standing: lap 1 from the line; flying: any other lap), because a physics change makes old laps
-// replay differently. The server checks the record's shape and limits, not the time itself: entries are marked
-// "browser" (the submitting page replayed the lap and got the same time). Server-side replay checks come later.
+// anyone can watch it replayed by the physics. Boards are per physics version (build.json "physics"), course (build.json
+// courses[].key, since 11 October 2026: the rallycross or a generated stage), car revision, preset and start (standing:
+// lap 1 from the line; flying: any other lap), because a physics or course change makes old laps replay differently.
+// The server checks the record's shape and limits, not the time itself: entries are marked "browser" (the submitting
+// page replayed the lap and got the same time). Server-side replay checks come later.
 // No personal data is kept: a nickname, a random player id from the browser, and a salted hash of the address for
 // rate limits.
 
@@ -30,7 +31,8 @@ export async function database(env) {
   return env.DB;
 }
 
-export const BOARD_RE = /^[0-9a-f]{16}\|5\.[13]\|[012]\|(standing|flying)$/;
+export const COURSE_RE = /^[a-z0-9-]{1,40}\.[0-9a-f]{8}$/;
+export const BOARD_RE = /^[0-9a-f]{16}\|[a-z0-9-]{1,40}\.[0-9a-f]{8}\|5\.[13]\|[012]\|(standing|flying)$/;
 const B64_RE = /^[A-Za-z0-9+/]*={0,2}$/;
 const num = (v, lo, hi) => typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi;
 const int = (v, lo, hi) => Number.isInteger(v) && v >= lo && v <= hi;
@@ -49,6 +51,7 @@ export function checkLap(l) {
   if (l.clean !== true) return { error: 'only counted laps can be submitted' };
   if (l.exactInputs !== true) return { error: 'the lap was not driven with recorded inputs' };
   if (!str(l.physics, 16) || !/^[0-9a-f]{16}$/.test(l.physics)) return { error: 'the lap has no physics version (recorded by an older build): drive a new one' };
+  if (!str(l.courseKey, 60) || !COURSE_RE.test(l.courseKey)) return { error: 'the lap has no course key (recorded by an older build): drive a new one' };
   if (!['5.1', '5.3'].includes(l.revision) || !int(l.preset, 0, 2)) return { error: 'unknown car' };
   if (!num(l.lapS, 10, 600)) return { error: 'lap time out of range' };
   if (!Array.isArray(l.sectors) || l.sectors.length < 1 || l.sectors.length > 8 || !l.sectors.every(v => num(v, .5, 600))) return { error: 'bad sector times' };
@@ -66,14 +69,14 @@ export function checkLap(l) {
   const t = l.trace && typeof l.trace === 'object' && str(l.trace.data, 200000) && B64_RE.test(l.trace.data) && int(l.trace.everyTicks, 1, 1000) && int(l.trace.fromTick, 0, r.ticks)
     ? { everyTicks: l.trace.everyTicks, fromTick: l.trace.fromTick, encoding: 'base64 float32le (x, z, speed)', data: l.trace.data } : null;
   const lap = {
-    format: l.format, utc: l.utc, build: str(l.build, 40) ? l.build : '', physics: l.physics, course: str(l.course, 80) ? l.course : '',
+    format: l.format, utc: l.utc, build: str(l.build, 40) ? l.build : '', physics: l.physics, course: str(l.course, 80) ? l.course : '', courseKey: l.courseKey,
     device: ['Keyboard', 'Gamepad', 'Touch', 'test'].includes(l.device) ? l.device : 'unknown', standingStartMode: l.standingStartMode === true,
     revision: l.revision, preset: l.preset, config: l.config, lapS: l.lapS, sectors: l.sectors, clean: true, lapNumber: l.lapNumber, exactInputs: true,
     run: { kind: r.kind, utc: str(r.utc, 40) ? r.utc : l.utc, automaticAtStart: r.automaticAtStart !== false, start: r.start, setup: r.setup || [-1, -1, -1, -1], ticks: r.ticks, lapStartTick: r.lapStartTick },
     events: l.events, inputs: { encoding: 'base64 int16le x4 per tick (steer, throttle, brake, handbrake) / 2000', ticks: inp.ticks, data: inp.data }, trace: t,
   };
   const category = r.kind === 'start' && l.lapNumber === 1 && r.lapStartTick === 0 ? 'standing' : 'flying';
-  return { lap, board: `${l.physics}|${l.revision}|${l.preset}|${category}` };
+  return { lap, board: `${l.physics}|${l.courseKey}|${l.revision}|${l.preset}|${category}` };
 }
 
 export async function addressHash(request, env) {

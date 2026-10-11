@@ -197,6 +197,7 @@
     <button class="chip" id="rev51" type="button">v5.1</button><button class="chip" id="rev53" type="button">v5.3 jumps</button>
     <button class="chip" id="lookbtn" type="button" aria-pressed="true" title="Sunset or the Unity lab's daylight look (L)">Sunset</button>
     <button class="chip" id="boardbtn" type="button" aria-pressed="false" title="Leaderboard: submit your best lap, watch others' laps replayed">Board</button>
+    <button class="chip" id="coursebtn" type="button" hidden title="Course: the rallycross or a generated stage (click twice: the page reloads with it)">Rallycross</button>
   </div>
   <div class="row" role="group" aria-label="Handling preset">
     <button class="chip" id="pre0" type="button">Baseline</button><button class="chip" id="pre1" type="button">Forgiving</button><button class="chip" id="pre2" type="button">Assisted</button>
@@ -255,7 +256,8 @@
 <div id="start">
   <div id="card" class="panel">
     <h1>AWD Rallycross <span>Lab</span></h1>
-    <p>The 955 m mixed asphalt and gravel course with the hero car. The handling physics, lap timer and engine sound model are the same C# code as the Unity lab, compiled to WebAssembly. This page only draws the scene, reads your controls and plays the sounds.</p>
+    <p id="cardtext">The 955 m mixed asphalt and gravel course with the hero car. The handling physics, lap timer and engine sound model are the same C# code as the Unity lab, compiled to WebAssembly. This page only draws the scene, reads your controls and plays the sounds.</p>
+    <div class="opts" id="courseopts" role="group" aria-label="Course" hidden></div>
     <div class="opts" role="group" aria-label="Car to start with">
       <span class="label">Car</span>
       <button class="chip" id="srev51" type="button">v5.1</button><button class="chip" id="srev53" type="button">v5.3 jumps</button>

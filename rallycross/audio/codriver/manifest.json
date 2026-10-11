@@ -39,6 +39,111 @@
    "seconds": 1.802,
    "text": "three right long, two hundred"
   },
+  "call:three left minus, don't cut, into two right plus": {
+   "file": "e4c406a9c1d4bb62.mp3",
+   "seconds": 2.978,
+   "text": "three left minus, don't cut, into two right plus"
+  },
+  "call:compression, three left": {
+   "file": "b208be580c2c8446.mp3",
+   "seconds": 1.646,
+   "text": "compression, three left"
+  },
+  "call:two left minus, don't cut, three hundred": {
+   "file": "94837954da84c3a4.mp3",
+   "seconds": 2.56,
+   "text": "two left minus, don't cut, three hundred"
+  },
+  "call:four right plus long": {
+   "file": "67d5aea5e1a27410.mp3",
+   "seconds": 1.332,
+   "text": "four right plus long"
+  },
+  "call:three right plus": {
+   "file": "1701ae4ce3d541c6.mp3",
+   "seconds": 1.071,
+   "text": "three right plus"
+  },
+  "call:four left minus, into three right plus": {
+   "file": "070fc04037f7d466.mp3",
+   "seconds": 2.299,
+   "text": "four left minus, into three right plus"
+  },
+  "call:three right, one fifty": {
+   "file": "ca0fd7a31a8f9d33.mp3",
+   "seconds": 1.489,
+   "text": "three right, one fifty"
+  },
+  "call:five right": {
+   "file": "ecf496a9c39afad7.mp3",
+   "seconds": 0.81,
+   "text": "five right"
+  },
+  "call:four left long": {
+   "file": "b53b5fac2ecdc668.mp3",
+   "seconds": 1.123,
+   "text": "four left long"
+  },
+  "call:three right, into six left": {
+   "file": "815556c2864942f5.mp3",
+   "seconds": 1.776,
+   "text": "three right, into six left"
+  },
+  "call:one right, don't cut": {
+   "file": "068d24ab84bc74e1.mp3",
+   "seconds": 1.463,
+   "text": "one right, don't cut"
+  },
+  "call:three right minus": {
+   "file": "e84b3fb0b137e33c.mp3",
+   "seconds": 1.071,
+   "text": "three right minus"
+  },
+  "call:three left long, one fifty": {
+   "file": "886beb5a7bd1b164.mp3",
+   "seconds": 1.855,
+   "text": "three left long, one fifty"
+  },
+  "call:compression": {
+   "file": "c3c8770c013a8b53.mp3",
+   "seconds": 0.94,
+   "text": "compression"
+  },
+  "call:over crest, three left, into two right": {
+   "file": "eef09185509d19d2.mp3",
+   "seconds": 2.456,
+   "text": "over crest, three left, into two right"
+  },
+  "call:three left plus, two hundred": {
+   "file": "cb0128e27ddf6003.mp3",
+   "seconds": 1.881,
+   "text": "three left plus, two hundred"
+  },
+  "call:crest": {
+   "file": "4798141f7838744f.mp3",
+   "seconds": 0.653,
+   "text": "crest"
+  },
+  "call:jump": {
+   "file": "d1487fbe5eb09db2.mp3",
+   "seconds": 0.653,
+   "text": "jump"
+  },
+  "call:four right": {
+   "file": "897d1b70b659dd4f.mp3",
+   "seconds": 0.784,
+   "text": "four right"
+  },
+  "call:two right, don't cut, two fifty": {
+   "file": "d6f8f1a684ed0554.mp3",
+   "seconds": 2.116,
+   "text": "two right, don't cut, two fifty"
+  },
+  "call:over crest, three left, to finish": {
+   "file": "ed61b4ac31f706d1.mp3",
+   "seconds": 2.273,
+   "text": "over crest, three left, to finish"
+  },
   "line:start.1": {
    "file": "ed25c8391283333d.mp3",
    "seconds": 1.411,

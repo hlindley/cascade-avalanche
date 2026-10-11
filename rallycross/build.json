@@ -1,11 +1,38 @@
 {
- "commit": "2cacea6",
- "builtUtc": "2026-10-10T18:02:16",
- "coreInputsHash": "a4cefd67eaee0f38",
+ "commit": "813786d",
+ "builtUtc": "2026-10-11T17:18:12",
+ "coreInputsHash": "00772262e6c290c6",
  "assetInputsHash": "138ac610972e778c",
- "physics": "596ea60695d5e4ff",
- "totalBytes": 16521171,
- "audioBytes": 4131417,
+ "physics": "502372413509b15c",
+ "totalBytes": 12683529,
+ "audioBytes": 4338352,
+ "courses": [
+  {
+   "id": "rallycross",
+   "name": "Rallycross",
+   "kind": "rallycross",
+   "dir": "course/",
+   "key": "rallycross.8ae686a7",
+   "lengthM": 954.8,
+   "gridSha256": "688a0a4a3ae4ccfa852a6f2ff7ae941b1a992b1ee80644c74d05fc9aae045b78",
+   "version": "rallycross-1",
+   "bytes": 3864766
+  },
+  {
+   "id": "stage-wales-1",
+   "name": "Forest stage, Wales",
+   "kind": "stage",
+   "dir": "course/stages/stage-wales-1/",
+   "key": "stage-wales-1.aedc3ba8",
+   "lengthM": 3225.0,
+   "gridSha256": "79467422ee1d9b0ae887e4babf685b3be04166df7ee2862ce21135fb7a0e3183",
+   "version": "stage-1",
+   "bytes": 3926761,
+   "style": "wales",
+   "seed": 1,
+   "notes": 24
+  }
+ ],
  "course": {
   "version": "rallycross-1",
   "gridSha256": "688a0a4a3ae4ccfa852a6f2ff7ae941b1a992b1ee80644c74d05fc9aae045b78",
@@ -21,13 +48,13 @@
  "files": [
   {
    "path": "index.html",
-   "bytes": 24255,
-   "sha256": "9e41fbc5f75aef71dbedab58867eaaa7834c811f8a9e85641c7c84d8ba1be137"
+   "bytes": 24527,
+   "sha256": "99dc3758daa8f7371dfd8b10fef3eee654f0a9bdfd50ea65390373503c9b95ea"
   },
   {
    "path": "main.js",
-   "bytes": 122978,
-   "sha256": "c2d4210fa25b6d8960a5ec356b2cd5671650ff99aec36708f9dc4f6fae935be9"
+   "bytes": 141489,
+   "sha256": "5006414f2853dc415ef3682ab9260f833127177710ec0c0ad329a37a629169d4"
   },
   {
    "path": "mixer-worklet.js",
@@ -375,6 +402,16 @@
    "sha256": "5b5a3444783ac762d32fa22b0a0e44cf3f715b874c7374c779b6e223e0808534"
   },
   {
+   "path": "audio/codriver/068d24ab84bc74e1.mp3",
+   "bytes": 9004,
+   "sha256": "503e02310665a81406ddb2720a55df5b65f8300d7180b90d7bb4b03cac756b4e"
+  },
+  {
+   "path": "audio/codriver/070fc04037f7d466.mp3",
+   "bytes": 14019,
+   "sha256": "fd4824d6de7fbedf39db535a31c5f22aee9483bc101739d316e443e523ab0623"
+  },
+  {
    "path": "audio/codriver/0d1dadc4d67f1a39.mp3",
    "bytes": 6496,
    "sha256": "2e43e6a48c03d91c4938d80889f2eec35d971d3c4dba0b74dfa6b7a5f1d15f91"
@@ -383,6 +420,11 @@
    "path": "audio/codriver/10cec41b4150b711.mp3",
    "bytes": 14333,
    "sha256": "be2f352d40011441312fecdac22f0c57d2f509aea2f01697c9c0c93e4f5275ba"
+  },
+  {
+   "path": "audio/codriver/1701ae4ce3d541c6.mp3",
+   "bytes": 6653,
+   "sha256": "9215645cb4a913e773169393490bfb308f578e4b10e4eda5f070401f28c50a73"
   },
   {
    "path": "audio/codriver/17f831cc4a236199.mp3",
@@ -430,6 +472,11 @@
    "sha256": "e462bc8ce3fed1592a7851a516cec96adfddbca250cff65b5bca6719aa48d8a7"
   },
   {
+   "path": "audio/codriver/4798141f7838744f.mp3",
+   "bytes": 4145,
+   "sha256": "2a9256ca10c8b5ec0cba50247e6ebd00a2465e90409bbd36cdc3c7d12a6d2775"
+  },
+  {
    "path": "audio/codriver/49beeac96f0dd0c7.mp3",
    "bytes": 10101,
    "sha256": "cc1d1528fb0e4c22d78f8f59e85ba7ebf64afada23c52f68d2edd68002760d90"
@@ -438,6 +485,11 @@
    "path": "audio/codriver/4e94933484aa1c2b.mp3",
    "bytes": 9631,
    "sha256": "c166a108f053c3c2d8dbb17a2d3df6276deed0e27e8f5d0ba241ed14c7b5d21c"
+  },
+  {
+   "path": "audio/codriver/67d5aea5e1a27410.mp3",
+   "bytes": 8220,
+   "sha256": "03ea4ba125baee7509697d794fd416e5b83b63fd94b5c1c80122c2056cd4372f"
   },
   {
    "path": "audio/codriver/6bd5cce830c0cfa5.mp3",
@@ -470,6 +522,21 @@
    "sha256": "1fe6e813c0ad6769d69dfa5cda5772d1e14baa9daebdc27a8a6557967917ce76"
   },
   {
+   "path": "audio/codriver/815556c2864942f5.mp3",
+   "bytes": 10885,
+   "sha256": "88c1e8698b963281aaef770394fadc7156e46b7c8172d52bc482b6ef47d277c3"
+  },
+  {
+   "path": "audio/codriver/886beb5a7bd1b164.mp3",
+   "bytes": 11355,
+   "sha256": "75ce841b80aa41a7d1238df4b72bb1d51ac862e9ed443b4a5d90868f9dfb193e"
+  },
+  {
+   "path": "audio/codriver/897d1b70b659dd4f.mp3",
+   "bytes": 4929,
+   "sha256": "a27b7d03ec3abb2f3b2af7409fb3a85724d83920e3bc2c72ad16dd4401851f66"
+  },
+  {
    "path": "audio/codriver/89853e437c57d56a.mp3",
    "bytes": 14490,
    "sha256": "62b19824f50dec715ee08ec9089b5abd3c7d20df88c87efb5c5fd22b6575c591"
@@ -483,6 +550,11 @@
    "path": "audio/codriver/91d2148c0ca3fefd.mp3",
    "bytes": 11198,
    "sha256": "6253dd5294c3dbd62d43ee66753ad4f94b16fdb170c380af04e3922a492d40f9"
+  },
+  {
+   "path": "audio/codriver/94837954da84c3a4.mp3",
+   "bytes": 15587,
+   "sha256": "0184eb8292799d8d27fe5c3ac4e3ab4afff291c62e22fbaa232d6b03fbef6bd8"
   },
   {
    "path": "audio/codriver/94e019a52f76ef5a.mp3",
@@ -515,6 +587,11 @@
    "sha256": "5620ea017419f140850ec840b627f2231e5136d9f4f4324620cdfce015e828a7"
   },
   {
+   "path": "audio/codriver/b208be580c2c8446.mp3",
+   "bytes": 10101,
+   "sha256": "cc1d1528fb0e4c22d78f8f59e85ba7ebf64afada23c52f68d2edd68002760d90"
+  },
+  {
    "path": "audio/codriver/b3574891ccc89238.mp3",
    "bytes": 10885,
    "sha256": "08c28f3054f5911a7cb9be7eb0c2ebb3ca43c8faabd8a599cf9867811afe3a07"
@@ -530,6 +607,11 @@
    "sha256": "137a7ff8c95446a8f025a5cf9eeb10ecedb6c99c4a81a4134c0c61e833fe177d"
   },
   {
+   "path": "audio/codriver/b53b5fac2ecdc668.mp3",
+   "bytes": 6966,
+   "sha256": "d57a1cf55390c6384831e8c530e1f847ff2daee7abdd3d53d46599e25687edf7"
+  },
+  {
    "path": "audio/codriver/b6993eec3709e57f.mp3",
    "bytes": 12609,
    "sha256": "697f2e0d0ebc0e388b8bb4c517e013e5d9c0cdb116c8f05b8ce619e934c2b34c"
@@ -540,9 +622,34 @@
    "sha256": "47d4ad364d59bbfe89f4ef8de331f36022f1e3df618cca85860cf08d6c859c2e"
   },
   {
+   "path": "audio/codriver/c3c8770c013a8b53.mp3",
+   "bytes": 5869,
+   "sha256": "8768c155cdadaf82fd8e436f5fdea2e39aa470d754c4998b2f499cfe357264b5"
+  },
+  {
+   "path": "audio/codriver/ca0fd7a31a8f9d33.mp3",
+   "bytes": 9161,
+   "sha256": "c91582a8e1b865e12c9043966437e47152d94cc50980caad9b01011d3ebacaa1"
+  },
+  {
+   "path": "audio/codriver/cb0128e27ddf6003.mp3",
+   "bytes": 11512,
+   "sha256": "6b9daeca472624901b18cdb8e9f00d74497898ac7aab3ec8ff01587c97b65b72"
+  },
+  {
+   "path": "audio/codriver/d1487fbe5eb09db2.mp3",
+   "bytes": 4145,
+   "sha256": "afec3352f57a1a6506eefee67a536f336daf65a295cd18ac786a9abfebae84df"
+  },
+  {
    "path": "audio/codriver/d5aa31d90280f5d2.mp3",
    "bytes": 10571,
    "sha256": "df954e11daf2c01e76373bf4507ffac4998f68df62c238dec2ed08638ab0f227"
+  },
+  {
+   "path": "audio/codriver/d6f8f1a684ed0554.mp3",
+   "bytes": 12922,
+   "sha256": "a6a06a5c4259b16107fe05ed9ffb3634349a0f7d7458d805acbcc73f3cce38e4"
   },
   {
    "path": "audio/codriver/d7bd69c80590a62a.mp3",
@@ -555,6 +662,11 @@
    "sha256": "b825b614223f2a56b6f1f649dcefe6d76da2e752027d449b8d20278b4585f1ab"
   },
   {
+   "path": "audio/codriver/e4c406a9c1d4bb62.mp3",
+   "bytes": 18095,
+   "sha256": "0c8645b3f467ae8089fb4d3b692dbba9925d8f3750dc69b28dcff7b92ee461cc"
+  },
+  {
    "path": "audio/codriver/e5721d83a604b1a2.mp3",
    "bytes": 13549,
    "sha256": "da109e6144df9a94fdc2f925abd928913597b7adc7df044f59f4186e35692688"
@@ -565,6 +677,16 @@
    "sha256": "1708b9030dd8b862007be911d1505d85b2dde56e15a56d75f2edfe4ed60d28b8"
   },
   {
+   "path": "audio/codriver/e84b3fb0b137e33c.mp3",
+   "bytes": 6653,
+   "sha256": "7d1d0fade431619c576c8b2c5917559bea39c2815e54b3f7ea15bc9bef3fe816"
+  },
+  {
+   "path": "audio/codriver/ecf496a9c39afad7.mp3",
+   "bytes": 5086,
+   "sha256": "e1e6e02bb5cd82561b76f53e1168c4773c3fecdaf51489aef1e30ac33dd6294a"
+  },
+  {
    "path": "audio/codriver/ed019e98995179fd.mp3",
    "bytes": 7123,
    "sha256": "3cb909e21a53362193adb6190bdbb9d535af1fbb29179d2b28a701844839e7ca"
@@ -573,6 +695,16 @@
    "path": "audio/codriver/ed25c8391283333d.mp3",
    "bytes": 8690,
    "sha256": "85fe023997f3334781dae90b244d3c20a920b064a2db2bf2c5ae1e82f72e31b1"
+  },
+  {
+   "path": "audio/codriver/ed61b4ac31f706d1.mp3",
+   "bytes": 13863,
+   "sha256": "291beb086a449f333bdcba61298d7663d7883109347e7797d18bab2871ac00b5"
+  },
+  {
+   "path": "audio/codriver/eef09185509d19d2.mp3",
+   "bytes": 14960,
+   "sha256": "243f1c80d3d74458917f28703770d8a65909434e2f4d18fd5d9d2b4ddf86ac4d"
   },
   {
    "path": "audio/codriver/f125dcc888673e73.mp3",
@@ -596,13 +728,13 @@
   },
   {
    "path": "audio/codriver/manifest.json",
-   "bytes": 5683,
-   "sha256": "791d5ea9f357676e8a1da3787c218f4521f3b3c571e73c1c98ae8da02194d0be"
+   "bytes": 8488,
+   "sha256": "f820aa948120717e40323077c41610063e4d6431d27f906bddbbc6cb6616f953"
   },
   {
    "path": "wasm/RallyCore.wasm",
-   "bytes": 68373,
-   "sha256": "301f1a009c715cd3b27aed8bb57031022cfb6c80b92b1786c2779e582a89c06f"
+   "bytes": 70933,
+   "sha256": "339c0101049a5886eb9e52651c547b59e845ab918dd64129a1fe750d330e016b"
   },
   {
    "path": "wasm/System.Linq.wasm",
@@ -627,12 +759,12 @@
   {
    "path": "wasm/System.Text.Json.wasm",
    "bytes": 55573,
-   "sha256": "e42c53716ba680f57053e705403b321bdec0fda5fb2bccaa73ae4d0a83c3a9dd"
+   "sha256": "e797ae14d7ab83dedb6e38980efe3c1fafc9696ebcc39bc8b3d05527837a31d0"
   },
   {
    "path": "wasm/blazor.boot.json",
    "bytes": 1160,
-   "sha256": "ecc1337387d33f729a857813c81826c240cc198a9c0cb744144e98d296bcb36d"
+   "sha256": "8e200f2e25d8b7c037d84b3fe263e18540f1aadbd3e9b88693a89b3181f3d9fa"
   },
   {
    "path": "wasm/dotnet.js",
@@ -646,8 +778,8 @@
   },
   {
    "path": "wasm/dotnet.native.wasm",
-   "bytes": 4872430,
-   "sha256": "27ffe0e2cd9ca93b11b9e021f2934a2c99c9deab5b40e418bcf658b608a2a8cb"
+   "bytes": 4878211,
+   "sha256": "e87276b587f6c0541d8f7ee8cb7ebdc3392c67dc65cd7cd86f9b3dd812cea561"
   },
   {
    "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
@@ -682,7 +814,7 @@
   {
    "path": "course/marks.json",
    "bytes": 14860,
-   "sha256": "bc9f5fbb054e3172cf289ea50b9e44a05a27aa7656ed0fdee37bbc8753a784b9"
+   "sha256": "d448e360f6195b1e0efed6026998d3245f3a64ec435660012fed363d7ed7101a"
   },
   {
    "path": "course/marks.png",
@@ -703,6 +835,21 @@
    "path": "course/rallycross.json",
    "bytes": 139898,
    "sha256": "c240dfba4d681551e47223cdc9d3bed29e447beaab2fc0ee220d3b5447e0de4b"
+  },
+  {
+   "path": "course/stages/stage-wales-1/RallycrossGrid.json",
+   "bytes": 3483348,
+   "sha256": "5d63f861b978d478b3c6e017fdc7204de65435993a3eb436953f6c5880aba4e0"
+  },
+  {
+   "path": "course/stages/stage-wales-1/pacenotes.json",
+   "bytes": 10491,
+   "sha256": "7de319439ae1b02ac066628762666e25af94826b4534da7d64ef34b17d32254a"
+  },
+  {
+   "path": "course/stages/stage-wales-1/rallycross.json",
+   "bytes": 432922,
+   "sha256": "08222ea6c48e38ca6e4c6ad5a300a72413289675bda92afd8a8989b66bb8dd79"
   }
  ]
 }
