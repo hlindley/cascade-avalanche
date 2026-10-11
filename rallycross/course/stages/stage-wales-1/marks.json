@@ -1,0 +1,754 @@
+{
+  "format": "RGB PNG: x = lateral offset from the route centre line (\u002B right, Unity frame), from -latHalfM; y = route distance s from 0 (row 0 at the top). R rubber (asphalt and kerb friction work), G churn (gravel friction work), B passes (path length, every surface); each log(1 \u002B v / x0) / log(1 \u002B p997 / x0).",
+  "width": 400,
+  "height": 6750,
+  "dsM": 0.5,
+  "dlatM": 0.05,
+  "latHalfM": 10,
+  "routeLengthM": 3375,
+  "laps": 1,
+  "tyreWidthM": 0.24,
+  "config": "config/stage-marks.json",
+  "scale": {
+    "rubber": {
+      "p997": 1,
+      "x0": 0.016666666666666666,
+      "cellsTouched": 0
+    },
+    "churn": {
+      "p997": 1251.4337158203125,
+      "x0": 20.857228597005207,
+      "cellsTouched": 776114
+    },
+    "passes": {
+      "p997": 2.9419589042663574,
+      "x0": 0.04903264840443929,
+      "cellsTouched": 792164
+    }
+  },
+  "drives": [
+    {
+      "name": "racing line",
+      "revision": "5.3",
+      "preset": 0,
+      "halfWidthM": 3.3,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        146.913
+      ],
+      "offRoadS": 6,
+      "spun": true,
+      "healthy": true,
+      "marksStopAtS": 2923
+    },
+    {
+      "name": "racing line",
+      "revision": "5.3",
+      "preset": 0,
+      "halfWidthM": 3.9,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        146.217
+      ],
+      "offRoadS": 5.82,
+      "spun": true,
+      "healthy": true,
+      "marksStopAtS": 2925.2
+    },
+    {
+      "name": "racing line",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.3,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.392
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.9,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.167
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.3",
+      "preset": 2,
+      "halfWidthM": 3.3,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.462
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.3",
+      "preset": 2,
+      "halfWidthM": 3.9,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.286
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.1",
+      "preset": 0,
+      "halfWidthM": 3.3,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.563
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.1",
+      "preset": 0,
+      "halfWidthM": 3.9,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        146.46
+      ],
+      "offRoadS": 7.41,
+      "spun": true,
+      "healthy": true,
+      "marksStopAtS": 2968.6
+    },
+    {
+      "name": "racing line",
+      "revision": "5.1",
+      "preset": 1,
+      "halfWidthM": 3.3,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.287
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.1",
+      "preset": 1,
+      "halfWidthM": 3.9,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.195
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.1",
+      "preset": 2,
+      "halfWidthM": 3.3,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.421
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line",
+      "revision": "5.1",
+      "preset": 2,
+      "halfWidthM": 3.9,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0.35,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.297
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, on the limit",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.97,
+      "apexM": 0,
+      "perturbM": 0.25,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        135.286
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, on the limit",
+      "revision": "5.3",
+      "preset": 2,
+      "halfWidthM": 3.5,
+      "margin": 0.97,
+      "apexM": 0,
+      "perturbM": 0.25,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        135.005
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, on the limit",
+      "revision": "5.1",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.97,
+      "apexM": 0,
+      "perturbM": 0.25,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        135.474
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, on the limit",
+      "revision": "5.1",
+      "preset": 2,
+      "halfWidthM": 3.5,
+      "margin": 0.97,
+      "apexM": 0,
+      "perturbM": 0.25,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        135.046
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, human hands",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.92,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 0,
+      "human": "delay=.12,steerRate=8",
+      "lapsDone": 1,
+      "lapTimes": [
+        149.388
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, human hands",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.92,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 1,
+      "human": "delay=.12,steerRate=8",
+      "lapsDone": 1,
+      "lapTimes": [
+        148.873
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, human hands",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.92,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 2,
+      "human": "delay=.12,steerRate=8",
+      "lapsDone": 1,
+      "lapTimes": [
+        146.396
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, human hands",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.92,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 3,
+      "human": "delay=.12,steerRate=8",
+      "lapsDone": 1,
+      "lapTimes": [
+        146.907
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, human hands",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.92,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 4,
+      "human": "delay=.12,steerRate=8",
+      "lapsDone": 1,
+      "lapTimes": [
+        144.59
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "racing line, human hands",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 3.5,
+      "margin": 0.92,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 5,
+      "human": "delay=.12,steerRate=8",
+      "lapsDone": 1,
+      "lapTimes": [
+        147.132
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 2.4,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 0,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        165.153
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 2.4,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 1,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        161.47
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 2.4,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 2,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        161.618
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 2.4,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 3,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        156.603
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 4.1,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 0,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        161.818
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 4.1,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 1,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        182.369
+      ],
+      "offRoadS": 1.74,
+      "spun": true,
+      "healthy": true,
+      "marksStopAtS": 3207
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 4.1,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 2,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        171.223
+      ],
+      "offRoadS": 0,
+      "spun": true,
+      "healthy": true,
+      "marksStopAtS": 3208.4
+    },
+    {
+      "name": "wide and early lines",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 4.1,
+      "margin": 0.82,
+      "apexM": 0,
+      "perturbM": 0.8,
+      "copy": 3,
+      "human": "delay=.14,steerRate=7",
+      "lapsDone": 1,
+      "lapTimes": [
+        164.639
+      ],
+      "offRoadS": 1,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.8,
+      "apexM": 0,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        143.426
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.8,
+      "apexM": 4,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        143.426
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.047
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.3",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.9,
+      "apexM": 4,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.047
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.1",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.8,
+      "apexM": 0,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        143.426
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.1",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.8,
+      "apexM": 4,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        143.426
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.1",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.9,
+      "apexM": 0,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.107
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    },
+    {
+      "name": "centre line",
+      "revision": "5.1",
+      "preset": 1,
+      "halfWidthM": 0,
+      "margin": 0.9,
+      "apexM": 4,
+      "perturbM": 0,
+      "copy": 0,
+      "human": "",
+      "lapsDone": 1,
+      "lapTimes": [
+        138.107
+      ],
+      "offRoadS": 0,
+      "spun": false,
+      "healthy": true,
+      "marksStopAtS": null
+    }
+  ],
+  "seconds": 60.6
+}
