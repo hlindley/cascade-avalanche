@@ -1,5 +1,7 @@
 {
   "format": "RGB PNG: x = lateral offset from the route centre line (\u002B right, Unity frame), from -latHalfM; y = route distance s from 0 (row 0 at the top). R rubber (asphalt and kerb friction work), G churn (gravel friction work), B passes (path length, every surface); each log(1 \u002B v / x0) / log(1 \u002B p997 / x0).",
+  "brakeFile": "marks-brake.png",
+  "brakeFormat": "greyscale PNG, same layout: the tyres\u0027 friction work while the brake pedal is down (above workThresholdW.brake per wheel), log-scaled like the others.",
   "width": 640,
   "height": 3820,
   "dsM": 0.25,
@@ -24,6 +26,11 @@
       "p997": 2.267892837524414,
       "x0": 0.03779821395874024,
       "cellsTouched": 692415
+    },
+    "brake": {
+      "p997": 807.4796142578125,
+      "x0": 13.457993570963541,
+      "cellsTouched": 161171
     }
   },
   "drives": [
@@ -750,5 +757,5 @@
       "healthy": true
     }
   ],
-  "seconds": 38.4
+  "seconds": 50.8
 }

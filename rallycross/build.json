@@ -1,10 +1,10 @@
 {
- "commit": "cb63afc",
- "builtUtc": "2026-10-11T20:02:21",
+ "commit": "2dd96e2",
+ "builtUtc": "2026-10-12T01:39:06",
  "coreInputsHash": "00772262e6c290c6",
  "assetInputsHash": "138ac610972e778c",
  "physics": "502372413509b15c",
- "totalBytes": 12683519,
+ "totalBytes": 12686757,
  "audioBytes": 4338352,
  "courses": [
   {
@@ -16,7 +16,7 @@
    "lengthM": 954.8,
    "gridSha256": "688a0a4a3ae4ccfa852a6f2ff7ae941b1a992b1ee80644c74d05fc9aae045b78",
    "version": "rallycross-1",
-   "bytes": 3864766
+   "bytes": 4039622
   },
   {
    "id": "stage-wales-1",
@@ -27,7 +27,7 @@
    "lengthM": 3225.0,
    "gridSha256": "79467422ee1d9b0ae887e4babf685b3be04166df7ee2862ce21135fb7a0e3183",
    "version": "stage-1",
-   "bytes": 5755249,
+   "bytes": 6023942,
    "style": "wales",
    "seed": 1,
    "notes": 24
@@ -53,8 +53,8 @@
   },
   {
    "path": "main.js",
-   "bytes": 141479,
-   "sha256": "fa8be2c8bd1473584f69bfe64ad72ea2ab05c6b26e31b1a4dae84b34bc691512"
+   "bytes": 144717,
+   "sha256": "a3f8885cbe951cddfaa925a1457360a53f32dd295be6ac4a342231b94e832a8b"
   },
   {
    "path": "mixer-worklet.js",
@@ -812,9 +812,14 @@
    "sha256": "cf8ea8c544c755320606d2626f939f80f49db54b58e85a171df0ed241ac59d04"
   },
   {
+   "path": "course/marks-brake.png",
+   "bytes": 174530,
+   "sha256": "d05be0d925a5f77d763ea80832ad58baecb4e7addb12051478f4946f1817c699"
+  },
+  {
    "path": "course/marks.json",
-   "bytes": 14860,
-   "sha256": "ef0d9d648df12d6997386a2e8ff5fcaad4e7162e7d2c71741b05867e0d650296"
+   "bytes": 15186,
+   "sha256": "f78ae29f1ac1cd7c504f12c4d72095aec1dbae6bd79349c8000e9ffb7ec8e57d"
   },
   {
    "path": "course/marks.png",
@@ -842,9 +847,14 @@
    "sha256": "5d63f861b978d478b3c6e017fdc7204de65435993a3eb436953f6c5880aba4e0"
   },
   {
+   "path": "course/stages/stage-wales-1/marks-brake.png",
+   "bytes": 268367,
+   "sha256": "9d01687c42ee672747fdf9cd4624cdf70f2860e77e49aaf6a598da47e5c4ddb2"
+  },
+  {
    "path": "course/stages/stage-wales-1/marks.json",
-   "bytes": 15356,
-   "sha256": "d7dbf87ec2a2deb93e05b889c6e2d658adbcbfcdd01624d3323d9ab000e3d77e"
+   "bytes": 15682,
+   "sha256": "48a67fd9a04a65efc93b7d04f16c85f436831fbb7f0ff046fbb88a863ee0716f"
   },
   {
    "path": "course/stages/stage-wales-1/marks.png",
