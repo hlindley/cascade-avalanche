@@ -1,11 +1,11 @@
 {
- "commit": "f4a5af5+local",
- "builtUtc": "2026-10-12T16:19:53",
+ "commit": "5c5c9c0+local",
+ "builtUtc": "2026-10-12T18:57:51",
  "coreInputsHash": "00772262e6c290c6",
  "assetInputsHash": "138ac610972e778c",
  "physics": "502372413509b15c",
- "totalBytes": 12696101,
- "audioBytes": 4527347,
+ "totalBytes": 12718856,
+ "audioBytes": 4804794,
  "courses": [
   {
    "id": "rallycross",
@@ -51,6 +51,32 @@
    "biome": "mediterranean",
    "climbM": 165.6,
    "descentM": 15.1
+  },
+  {
+   "id": "stage-ouninpohja",
+   "name": "Ouninpohja, Finland",
+   "kind": "stage",
+   "dir": "course/stages/stage-ouninpohja/",
+   "key": "stage-ouninpohja.4b3725bc",
+   "lengthM": 6500.0,
+   "gridSha256": "a01af76e3a1aeb2612e004aac8ab39c4ac8375aeda1044354cd65564aca6bd4a",
+   "version": "stage-1",
+   "bytes": 10587048,
+   "style": "finland",
+   "seed": 1,
+   "notes": 26,
+   "biome": "boreal",
+   "climbM": 151.0,
+   "descentM": 137.3,
+   "realRoad": {
+    "roads": [
+     "Ouninpohjantie",
+     "Ouninpohja"
+    ],
+    "source": "National Land Survey of Finland: Topographic Database 2025 (roads) and 2 m elevation model, CC BY 4.0",
+    "crests": 17
+   },
+   "landcover": true
   }
  ],
  "course": {
@@ -73,8 +99,8 @@
   },
   {
    "path": "main.js",
-   "bytes": 154061,
-   "sha256": "f4a4f197a8c928eb93fb0cb9eb62792144c63a01b8cfd92b29857546b24d5edb"
+   "bytes": 171149,
+   "sha256": "8931990a3077eec54092d7de49189e1753652a965d53971604afd5e81a9a8a00"
   },
   {
    "path": "mixer-worklet.js",
@@ -432,6 +458,11 @@
    "sha256": "fd4824d6de7fbedf39db535a31c5f22aee9483bc101739d316e443e523ab0623"
   },
   {
+   "path": "audio/codriver/0ab468ab23cad155.mp3",
+   "bytes": 5399,
+   "sha256": "88c29fc7aa35438ca1c5246c582bd3aac99fd438cd4dfe2e770820e93e1e7d04"
+  },
+  {
    "path": "audio/codriver/0d1dadc4d67f1a39.mp3",
    "bytes": 6496,
    "sha256": "2e43e6a48c03d91c4938d80889f2eec35d971d3c4dba0b74dfa6b7a5f1d15f91"
@@ -440,6 +471,11 @@
    "path": "audio/codriver/10cec41b4150b711.mp3",
    "bytes": 14333,
    "sha256": "be2f352d40011441312fecdac22f0c57d2f509aea2f01697c9c0c93e4f5275ba"
+  },
+  {
+   "path": "audio/codriver/11c8b56e489293fe.mp3",
+   "bytes": 8220,
+   "sha256": "dce04feeaa0f2c0680fb203e444328326c38dbb8ead43a0f5c16040295f4528f"
   },
   {
    "path": "audio/codriver/1701ae4ce3d541c6.mp3",
@@ -462,6 +498,11 @@
    "sha256": "bda5e4e708241cf85ca6bc835d613ed7beaaa8e642741cd1bf1afaf1d40d5601"
   },
   {
+   "path": "audio/codriver/2b31d940aa5ddc73.mp3",
+   "bytes": 11825,
+   "sha256": "a9c7f337ddde8c5678479663b22fd02cc81ace44e98ffbee59cc30e3b14c258b"
+  },
+  {
    "path": "audio/codriver/2b7caa5905d41e93.mp3",
    "bytes": 16370,
    "sha256": "0843414a96b9ed758fdebf62e515559dddfc564110df996c8239e7ef876c8e45"
@@ -475,6 +516,11 @@
    "path": "audio/codriver/2ccb24cf047b42ec.mp3",
    "bytes": 11041,
    "sha256": "6d0dceae0328576fe26b9542c99632161d5c99a687de1f0f512e60cf8ae15d71"
+  },
+  {
+   "path": "audio/codriver/308feb86f0a75f54.mp3",
+   "bytes": 17624,
+   "sha256": "1edf05641933589639fd94868552892fe138685b79608b0614647ed366e9d429"
   },
   {
    "path": "audio/codriver/32331818deb9c054.mp3",
@@ -495,6 +541,11 @@
    "path": "audio/codriver/3d804613261d35ad.mp3",
    "bytes": 4772,
    "sha256": "ef250e28945f06c0ca48296e5c7eb6b99b7c0ef1d782387a3493ac39ec75baf1"
+  },
+  {
+   "path": "audio/codriver/3ed8c43d2fcfda8a.mp3",
+   "bytes": 12139,
+   "sha256": "7c516b8e261de53a383050d2e4e4f6cb745d31d4a117df76e6f438e6cadad86f"
   },
   {
    "path": "audio/codriver/42222fa0fc67a9ea.mp3",
@@ -527,9 +578,24 @@
    "sha256": "c166a108f053c3c2d8dbb17a2d3df6276deed0e27e8f5d0ba241ed14c7b5d21c"
   },
   {
+   "path": "audio/codriver/52258e6e42c77289.mp3",
+   "bytes": 9944,
+   "sha256": "d5fddee1ccb4732259c37a872cd48ab3efb1daf13fc46dc0dfccef1a8317aa55"
+  },
+  {
+   "path": "audio/codriver/533bf75450d6a48e.mp3",
+   "bytes": 25931,
+   "sha256": "e8ae403b6f5f829fa33e966f4908d20ba2a8cf76c27d4857e0e4c0008c9f8203"
+  },
+  {
    "path": "audio/codriver/5d1e7be9e9ca61a9.mp3",
    "bytes": 9004,
    "sha256": "923b1ad4f4e5fec2045cf4767ca720eda65cbacc845321ecbc03d4c96128d225"
+  },
+  {
+   "path": "audio/codriver/5e01f822ce024eb8.mp3",
+   "bytes": 10415,
+   "sha256": "f91f02bd2bcbe145e291a8bd97889f04d1033b44cafeefc983f9e06d9e17b7af"
   },
   {
    "path": "audio/codriver/5ec8cdd45820cd35.mp3",
@@ -537,9 +603,19 @@
    "sha256": "6c0e5c071fc202319d338c11b73a983dcae735b2d4b241d569465df8cf4b2db2"
   },
   {
+   "path": "audio/codriver/5f196e17c2783c6e.mp3",
+   "bytes": 10101,
+   "sha256": "0139c251406a7e234ad0d2f7f8bd291004d131fe7015906ddc64d874038f0947"
+  },
+  {
    "path": "audio/codriver/67d5aea5e1a27410.mp3",
    "bytes": 8220,
    "sha256": "03ea4ba125baee7509697d794fd416e5b83b63fd94b5c1c80122c2056cd4372f"
+  },
+  {
+   "path": "audio/codriver/6818b68b89bca8c8.mp3",
+   "bytes": 14803,
+   "sha256": "15f88157b2667e36bc5043b03fbe92eb26663cb73406a5b728ffa3e2541bbf7e"
   },
   {
    "path": "audio/codriver/6a4d1b165976f5cc.mp3",
@@ -582,9 +658,29 @@
    "sha256": "1fe6e813c0ad6769d69dfa5cda5772d1e14baa9daebdc27a8a6557967917ce76"
   },
   {
+   "path": "audio/codriver/7cac99954cfb5de1.mp3",
+   "bytes": 11825,
+   "sha256": "1215f27a65ea308b3d965eb19a3b8d3fc7ce945b410f0c88f2d218d6f8ff50db"
+  },
+  {
+   "path": "audio/codriver/7f1e6aa431c4904d.mp3",
+   "bytes": 21386,
+   "sha256": "333ba08e6c50f94769cd24ec3136f367547f28e761134919cc5a8e422d8e9b91"
+  },
+  {
    "path": "audio/codriver/815556c2864942f5.mp3",
    "bytes": 10885,
    "sha256": "88c1e8698b963281aaef770394fadc7156e46b7c8172d52bc482b6ef47d277c3"
+  },
+  {
+   "path": "audio/codriver/856f16b677ab5323.mp3",
+   "bytes": 18095,
+   "sha256": "fe7ff79c10a7814f66638ecbf0e13a2d49b78d83d2ede5eb5c19ed9275e66801"
+  },
+  {
+   "path": "audio/codriver/86ef8341c92c3c78.mp3",
+   "bytes": 15900,
+   "sha256": "a60663a86a588f7dc14ab85dac0d5e2325b73a2302f4072ff7e975ce723f23c4"
   },
   {
    "path": "audio/codriver/886beb5a7bd1b164.mp3",
@@ -605,6 +701,16 @@
    "path": "audio/codriver/89e7e43ff380206b.mp3",
    "bytes": 11668,
    "sha256": "8515ecb4bbbf3db2cb4ba76e6a9988592a31559c83e7612b07b88474f0edeb78"
+  },
+  {
+   "path": "audio/codriver/8be531bc404ffef5.mp3",
+   "bytes": 11198,
+   "sha256": "31f5119d321f064ae37165cbe80ed9bdac780ab2219bcd66745d7c606a2dd537"
+  },
+  {
+   "path": "audio/codriver/9195edbad6bf6509.mp3",
+   "bytes": 11982,
+   "sha256": "5fb85629874523d6257145bced3e070a89496cf0ddd411d3baaec6042e345e42"
   },
   {
    "path": "audio/codriver/91d2148c0ca3fefd.mp3",
@@ -647,6 +753,11 @@
    "sha256": "b2c27b641ed4ca81b14911fbada74b11049ab8e70330278dd094f37118d18a3b"
   },
   {
+   "path": "audio/codriver/9f1aa0541f183ee3.mp3",
+   "bytes": 19505,
+   "sha256": "5eee78d056b25842e1315b21350afc21d13c481f4f38c5904953a939af6ad7b6"
+  },
+  {
    "path": "audio/codriver/9f9a5e37d8f87178.mp3",
    "bytes": 11198,
    "sha256": "09410de7f151ef43a47337a84913ab7996887d283f24eb2a20d3673dd6414772"
@@ -670,6 +781,11 @@
    "path": "audio/codriver/b208be580c2c8446.mp3",
    "bytes": 10101,
    "sha256": "cc1d1528fb0e4c22d78f8f59e85ba7ebf64afada23c52f68d2edd68002760d90"
+  },
+  {
+   "path": "audio/codriver/b2bf01ae28673231.mp3",
+   "bytes": 11668,
+   "sha256": "125625e22a90f4cdf9335ed62e863f4c97ab61261b77835c76370c1b6abe1421"
   },
   {
    "path": "audio/codriver/b2c0e57e918c8755.mp3",
@@ -732,6 +848,11 @@
    "sha256": "f358d30827985ac9a99aa39a75cc711896e30a9a5b04da4c613f2271dbe80dde"
   },
   {
+   "path": "audio/codriver/d4c9294e38395c36.mp3",
+   "bytes": 8377,
+   "sha256": "078d5b6f4f9e4788db7e9b226cf6aea739ae2b428c8ef2f94209e663dce80e72"
+  },
+  {
    "path": "audio/codriver/d5aa31d90280f5d2.mp3",
    "bytes": 10571,
    "sha256": "df954e11daf2c01e76373bf4507ffac4998f68df62c238dec2ed08638ab0f227"
@@ -755,6 +876,11 @@
    "path": "audio/codriver/e4c406a9c1d4bb62.mp3",
    "bytes": 18095,
    "sha256": "0c8645b3f467ae8089fb4d3b692dbba9925d8f3750dc69b28dcff7b92ee461cc"
+  },
+  {
+   "path": "audio/codriver/e549b6301cc89866.mp3",
+   "bytes": 18095,
+   "sha256": "8e39fdb1f5140d598d7812484a23497a832c780614330a5e9e1104398964b6ae"
   },
   {
    "path": "audio/codriver/e5721d83a604b1a2.mp3",
@@ -823,13 +949,13 @@
   },
   {
    "path": "audio/codriver/manifest.json",
-   "bytes": 10702,
-   "sha256": "26b9cac04cbfcf034d02dd03314176ff33074d629441c3442800292966b68eef"
+   "bytes": 13717,
+   "sha256": "bf14d986619ff094e7c7049ce0830782235b0939f7f44b2ff267dcf040260f72"
   },
   {
    "path": "wasm/RallyCore.wasm",
    "bytes": 70933,
-   "sha256": "339c0101049a5886eb9e52651c547b59e845ab918dd64129a1fe750d330e016b"
+   "sha256": "1c18f2bcc47c81209664d2e130b4576a9efaed8dfa9ae89ea5de3687779adf30"
   },
   {
    "path": "wasm/System.Linq.wasm",
@@ -859,7 +985,7 @@
   {
    "path": "wasm/blazor.boot.json",
    "bytes": 1160,
-   "sha256": "8e200f2e25d8b7c037d84b3fe263e18540f1aadbd3e9b88693a89b3181f3d9fa"
+   "sha256": "99cb312bd646ab26cdf3bf097d4a499da3003bfa7bcf4ba4f5b3637172214590"
   },
   {
    "path": "wasm/dotnet.js",
@@ -873,8 +999,8 @@
   },
   {
    "path": "wasm/dotnet.native.wasm",
-   "bytes": 4878211,
-   "sha256": "e87276b587f6c0541d8f7ee8cb7ebdc3392c67dc65cd7cd86f9b3dd812cea561"
+   "bytes": 4883878,
+   "sha256": "a5a558b93f360b7ec1ed628159f5845b52d66daafbfd3fb32057da1d72e4e5ef"
   },
   {
    "path": "wasm/dotnet.runtime.8.0.31.6yws3qb41h.js",
@@ -914,7 +1040,7 @@
   {
    "path": "course/marks.json",
    "bytes": 15186,
-   "sha256": "f78ae29f1ac1cd7c504f12c4d72095aec1dbae6bd79349c8000e9ffb7ec8e57d"
+   "sha256": "a15a295c3c64c108e4b2810e36dfc91ecdce7124826da3c0622f14ecaaf956af"
   },
   {
    "path": "course/marks.png",
@@ -949,7 +1075,7 @@
   {
    "path": "course/stages/stage-sardinia-34/marks.json",
    "bytes": 15669,
-   "sha256": "355cecfc06b10dd2de02dd44740f818b32127c6c8fa5454c890ff44e25f3ae8d"
+   "sha256": "2bf27d75e865fa7a0687153aa19b6af619ad577da9e3091394dfba3b46d93ae8"
   },
   {
    "path": "course/stages/stage-sardinia-34/marks.png",
@@ -979,7 +1105,7 @@
   {
    "path": "course/stages/stage-wales-1/marks.json",
    "bytes": 15682,
-   "sha256": "e6e77edfd27a88a32af24637197cb6bd3ed8e164240e1b16b790dd8f4c29dd3c"
+   "sha256": "11daf2e27e7fc41a5c107dfc9f18daed9d0c4e21ccf24ade7c163609d1580393"
   },
   {
    "path": "course/stages/stage-wales-1/marks.png",
@@ -995,6 +1121,46 @@
    "path": "course/stages/stage-wales-1/rallycross.json",
    "bytes": 432922,
    "sha256": "08222ea6c48e38ca6e4c6ad5a300a72413289675bda92afd8a8989b66bb8dd79"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/RallycrossGrid.json",
+   "bytes": 7329360,
+   "sha256": "adbb25dde22924976a576ef2b80f7364e6e0389076e5348741b7f181a382cc3e"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/landcover.json",
+   "bytes": 145208,
+   "sha256": "fd8d8eb5af5740039af16eb31e1d5fd6f437760e7da667f0283396f2b21d1468"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/landcover.png",
+   "bytes": 59465,
+   "sha256": "36a7bec7039052d368cbc70451e7e4eed7fc35af990d22562e0193a11dfd40d9"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/marks-brake.png",
+   "bytes": 188501,
+   "sha256": "ed7190216f44008479c760d43d24cad53de2ab6e07619d25591d8c16a9c8253d"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/marks.json",
+   "bytes": 15826,
+   "sha256": "e0e1de15c1da7724b791f6136d9a64978ba3dfeda6f6059313a368eb22ecdd9c"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/marks.png",
+   "bytes": 1971137,
+   "sha256": "65962435fbaefcd79407b6f87613252f6d985974ea05569b6dc432d4baeed626"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/pacenotes.json",
+   "bytes": 15530,
+   "sha256": "799d37cc30d11cac71f76fd60817a987d670c492790aba5ea931525168945e20"
+  },
+  {
+   "path": "course/stages/stage-ouninpohja/rallycross.json",
+   "bytes": 862021,
+   "sha256": "ef20ca8b8c30ff9810cca06c952cd579ca753cbb96c7052281a8c8e2dd041c78"
   }
  ]
 }

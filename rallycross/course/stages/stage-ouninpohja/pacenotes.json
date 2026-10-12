@@ -1,0 +1,891 @@
+{
+  "format": "awd-rallycross-pacenotes/1",
+  "course": 6700,
+  "revision": "5.1-rotation",
+  "speedScale": 1.2935,
+  "recce": false,
+  "brakingGearKmh": [
+    34.7,
+    63.8,
+    86.5,
+    107.1,
+    121.9
+  ],
+  "notes": [
+    {
+      "id": 0,
+      "dir": "left",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 336,
+      "sApex": 362,
+      "s1": 390,
+      "turnDeg": 34,
+      "radiusM": 74.1,
+      "apexKmh": 109.2,
+      "mods": [],
+      "text": "five left minus"
+    },
+    {
+      "id": 1,
+      "dir": "left",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 650,
+      "sApex": 707,
+      "s1": 738,
+      "turnDeg": 60,
+      "radiusM": 66.8,
+      "apexKmh": 103.4,
+      "mods": [
+        "long"
+      ],
+      "text": "compression, four left long"
+    },
+    {
+      "id": 2,
+      "dir": "left",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 779,
+      "sApex": 811,
+      "s1": 860,
+      "turnDeg": 62,
+      "radiusM": 56.2,
+      "apexKmh": 94.3,
+      "mods": [
+        "long"
+      ],
+      "text": "four left long"
+    },
+    {
+      "id": 3,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 921,
+      "sApex": 942,
+      "s1": 955,
+      "turnDeg": 16,
+      "radiusM": 112.8,
+      "apexKmh": 136.3,
+      "mods": [],
+      "text": "six right"
+    },
+    {
+      "id": 4,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 1256,
+      "sApex": 1288,
+      "s1": 1313,
+      "turnDeg": 29,
+      "radiusM": 102.1,
+      "apexKmh": 129.6,
+      "mods": [],
+      "text": "over crest, six right"
+    },
+    {
+      "id": 5,
+      "dir": "right",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "",
+      "s0": 1408,
+      "sApex": 1465,
+      "s1": 1501,
+      "turnDeg": 53,
+      "radiusM": 82.3,
+      "apexKmh": 115.6,
+      "mods": [
+        "long"
+      ],
+      "text": "compression, over crest, five right long"
+    },
+    {
+      "id": 6,
+      "dir": "left",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 2053,
+      "sApex": 2085,
+      "s1": 2126,
+      "turnDeg": 64,
+      "radiusM": 49,
+      "apexKmh": 87.3,
+      "mods": [
+        "long"
+      ],
+      "text": "over crest, four left minus long"
+    },
+    {
+      "id": 7,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2408,
+      "sApex": 2417,
+      "s1": 2437,
+      "turnDeg": 14,
+      "radiusM": 111.6,
+      "apexKmh": 141.7,
+      "mods": [],
+      "text": "jump, over crest, six right"
+    },
+    {
+      "id": 8,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2567,
+      "sApex": 2589,
+      "s1": 2599,
+      "turnDeg": 15,
+      "radiusM": 109.5,
+      "apexKmh": 134.1,
+      "mods": [],
+      "text": "over crest, six right"
+    },
+    {
+      "id": 9,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2684,
+      "sApex": 2694,
+      "s1": 2714,
+      "turnDeg": 15,
+      "radiusM": 102.2,
+      "apexKmh": 190.1,
+      "mods": [],
+      "text": "over crest, six right"
+    },
+    {
+      "id": 10,
+      "dir": "left",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2918,
+      "sApex": 2936,
+      "s1": 2944,
+      "turnDeg": 12,
+      "radiusM": 114.1,
+      "apexKmh": 139.9,
+      "mods": [],
+      "text": "jump, compression, over crest, six left"
+    },
+    {
+      "id": 11,
+      "dir": "left",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "plus",
+      "s0": 2977,
+      "sApex": 3008,
+      "s1": 3036,
+      "turnDeg": 32,
+      "radiusM": 87.7,
+      "apexKmh": 119.2,
+      "mods": [],
+      "text": "five left plus"
+    },
+    {
+      "id": 12,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 3088,
+      "sApex": 3115,
+      "s1": 3137,
+      "turnDeg": 26,
+      "radiusM": 92.7,
+      "apexKmh": 123.5,
+      "mods": [],
+      "text": "six right minus"
+    },
+    {
+      "id": 13,
+      "dir": "right",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 3291,
+      "sApex": 3345,
+      "s1": 3366,
+      "turnDeg": 52,
+      "radiusM": 61.7,
+      "apexKmh": 99.2,
+      "mods": [
+        "long"
+      ],
+      "text": "compression, over crest, four right long"
+    },
+    {
+      "id": 14,
+      "dir": "right",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "plus",
+      "s0": 3438,
+      "sApex": 3447,
+      "s1": 3467,
+      "turnDeg": 18,
+      "radiusM": 82.3,
+      "apexKmh": 119.3,
+      "mods": [],
+      "text": "five right plus"
+    },
+    {
+      "id": 15,
+      "dir": "right",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "",
+      "s0": 4100,
+      "sApex": 4112,
+      "s1": 4131,
+      "turnDeg": 19,
+      "radiusM": 76.7,
+      "apexKmh": 112.9,
+      "mods": [],
+      "text": "jump, five right"
+    },
+    {
+      "id": 16,
+      "dir": "left",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 4196,
+      "sApex": 4223,
+      "s1": 4240,
+      "turnDeg": 21,
+      "radiusM": 109,
+      "apexKmh": 134.2,
+      "mods": [],
+      "text": "over crest, six left"
+    },
+    {
+      "id": 17,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 4326,
+      "sApex": 4338,
+      "s1": 4355,
+      "turnDeg": 13,
+      "radiusM": 113.4,
+      "apexKmh": 137.4,
+      "mods": [],
+      "text": "six right"
+    },
+    {
+      "id": 18,
+      "dir": "left",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 4423,
+      "sApex": 4481,
+      "s1": 4515,
+      "turnDeg": 62,
+      "radiusM": 64.8,
+      "apexKmh": 101.9,
+      "mods": [
+        "long"
+      ],
+      "text": "four left long"
+    },
+    {
+      "id": 19,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 4601,
+      "sApex": 4653,
+      "s1": 4677,
+      "turnDeg": 41,
+      "radiusM": 93.3,
+      "apexKmh": 123.9,
+      "mods": [
+        "long"
+      ],
+      "text": "six right minus long"
+    },
+    {
+      "id": 20,
+      "dir": "right",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 4706,
+      "sApex": 4741,
+      "s1": 4780,
+      "turnDeg": 46,
+      "radiusM": 72.7,
+      "apexKmh": 107.9,
+      "mods": [
+        "long"
+      ],
+      "text": "five right minus long"
+    },
+    {
+      "id": 21,
+      "dir": "left",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 4818,
+      "sApex": 4860,
+      "s1": 4915,
+      "turnDeg": 73,
+      "radiusM": 58.4,
+      "apexKmh": 96,
+      "mods": [
+        "long"
+      ],
+      "text": "four left long"
+    },
+    {
+      "id": 22,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 5178,
+      "sApex": 5194,
+      "s1": 5213,
+      "turnDeg": 16,
+      "radiusM": 121.4,
+      "apexKmh": 141.9,
+      "mods": [],
+      "text": "jump, six right"
+    },
+    {
+      "id": 23,
+      "dir": "left",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 5271,
+      "sApex": 5417,
+      "s1": 5444,
+      "turnDeg": 106,
+      "radiusM": 71.4,
+      "apexKmh": 107.4,
+      "mods": [
+        "long"
+      ],
+      "text": "jump, five left minus long"
+    },
+    {
+      "id": 24,
+      "dir": "right",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "",
+      "s0": 5530,
+      "sApex": 5582,
+      "s1": 5630,
+      "turnDeg": 79,
+      "radiusM": 53.4,
+      "apexKmh": 91.5,
+      "mods": [
+        "long"
+      ],
+      "text": "over crest, four right long"
+    },
+    {
+      "id": 25,
+      "dir": "right",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 5721,
+      "sApex": 5740,
+      "s1": 5800,
+      "turnDeg": 42,
+      "radiusM": 95.5,
+      "apexKmh": 125.4,
+      "mods": [
+        "long"
+      ],
+      "text": "over crest, six right long"
+    }
+  ],
+  "calls": [
+    {
+      "s": 336,
+      "notes": [
+        0
+      ],
+      "text": "five left minus, two fifty",
+      "apexKmh": 109.2
+    },
+    {
+      "s": 650,
+      "notes": [
+        1
+      ],
+      "text": "compression, four left long",
+      "apexKmh": 103.4
+    },
+    {
+      "s": 779,
+      "notes": [
+        2
+      ],
+      "text": "four left long",
+      "apexKmh": 94.3
+    },
+    {
+      "s": 921,
+      "notes": [
+        3
+      ],
+      "text": "six right, three hundred",
+      "apexKmh": 136.3
+    },
+    {
+      "s": 1140,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 1175,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 1256,
+      "notes": [
+        4
+      ],
+      "text": "over crest, six right",
+      "apexKmh": 129.6
+    },
+    {
+      "s": 1317,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 1408,
+      "notes": [
+        5
+      ],
+      "text": "compression, over crest, five right long, five fifty",
+      "apexKmh": 115.6
+    },
+    {
+      "s": 1533,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 1610,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 1779,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 1809,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 1839,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 1907,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 2053,
+      "notes": [
+        6
+      ],
+      "text": "over crest, four left minus long, three hundred",
+      "apexKmh": 87.3
+    },
+    {
+      "s": 2146,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 2176,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 2208,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 2238,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 2303,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 2408,
+      "notes": [
+        7
+      ],
+      "text": "jump, over crest, six right, one fifty",
+      "apexKmh": 141.7
+    },
+    {
+      "s": 2567,
+      "notes": [
+        8
+      ],
+      "text": "over crest, six right",
+      "apexKmh": 134.1
+    },
+    {
+      "s": 2684,
+      "notes": [
+        9
+      ],
+      "text": "over crest, six right, two hundred",
+      "apexKmh": 190.1
+    },
+    {
+      "s": 2726,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 2756,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 2792,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 2822,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 2918,
+      "notes": [
+        10,
+        11
+      ],
+      "text": "jump, compression, over crest, six left, into five left plus",
+      "apexKmh": 139.9
+    },
+    {
+      "s": 3088,
+      "notes": [
+        12
+      ],
+      "text": "six right minus, one fifty",
+      "apexKmh": 123.5
+    },
+    {
+      "s": 3291,
+      "notes": [
+        13
+      ],
+      "text": "compression, over crest, four right long",
+      "apexKmh": 99.2
+    },
+    {
+      "s": 3438,
+      "notes": [
+        14
+      ],
+      "text": "five right plus, five fifty",
+      "apexKmh": 119.3
+    },
+    {
+      "s": 3472,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 3510,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 3625,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 3655,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 3703,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 3809,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 3839,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 3869,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 3900,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 4100,
+      "notes": [
+        15
+      ],
+      "text": "jump, five right",
+      "apexKmh": 112.9
+    },
+    {
+      "s": 4196,
+      "notes": [
+        16
+      ],
+      "text": "over crest, six left",
+      "apexKmh": 134.2
+    },
+    {
+      "s": 4326,
+      "notes": [
+        17
+      ],
+      "text": "six right",
+      "apexKmh": 137.4
+    },
+    {
+      "s": 4338,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 4423,
+      "notes": [
+        18
+      ],
+      "text": "four left long",
+      "apexKmh": 101.9
+    },
+    {
+      "s": 4601,
+      "notes": [
+        19,
+        20
+      ],
+      "text": "six right minus long, into five right minus long",
+      "apexKmh": 123.9
+    },
+    {
+      "s": 4818,
+      "notes": [
+        21
+      ],
+      "text": "four left long, two fifty",
+      "apexKmh": 96
+    },
+    {
+      "s": 5178,
+      "notes": [
+        22
+      ],
+      "text": "jump, six right",
+      "apexKmh": 141.9
+    },
+    {
+      "s": 5271,
+      "notes": [
+        23
+      ],
+      "text": "jump, five left minus long",
+      "apexKmh": 107.4
+    },
+    {
+      "s": 5530,
+      "notes": [
+        24
+      ],
+      "text": "over crest, four right long",
+      "apexKmh": 91.5
+    },
+    {
+      "s": 5620,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 5721,
+      "notes": [
+        25
+      ],
+      "text": "over crest, six right long, five fifty to finish",
+      "apexKmh": 125.4
+    },
+    {
+      "s": 5792,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 5924,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 5962,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 5992,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 6022,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 6052,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 6082,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 6126,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 6156,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 6298,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 6333,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 6401,
+      "notes": [],
+      "text": "jump",
+      "apexKmh": 0
+    },
+    {
+      "s": 6434,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    },
+    {
+      "s": 6570,
+      "notes": [],
+      "text": "crest",
+      "apexKmh": 0
+    },
+    {
+      "s": 6608,
+      "notes": [],
+      "text": "compression",
+      "apexKmh": 0
+    }
+  ],
+  "checkedAgainst": []
+}
