@@ -144,6 +144,81 @@
    "seconds": 2.273,
    "text": "over crest, three left, to finish"
   },
+  "call:three left, into two left minus, don't cut": {
+   "file": "2be1eab58665f052.mp3",
+   "seconds": 2.743,
+   "text": "three left, into two left minus, don't cut"
+  },
+  "call:five left minus, don't cut": {
+   "file": "b2c0e57e918c8755.mp3",
+   "seconds": 1.907,
+   "text": "five left minus, don't cut"
+  },
+  "call:three right, into two right": {
+   "file": "91e6f774d980d101.mp3",
+   "seconds": 1.593,
+   "text": "three right, into two right"
+  },
+  "call:five left": {
+   "file": "e75b46127260da64.mp3",
+   "seconds": 0.888,
+   "text": "five left"
+  },
+  "call:three right, don't cut": {
+   "file": "5d1e7be9e9ca61a9.mp3",
+   "seconds": 1.463,
+   "text": "three right, don't cut"
+  },
+  "call:five left long, don't cut": {
+   "file": "aae5f0736409d144.mp3",
+   "seconds": 1.881,
+   "text": "five left long, don't cut"
+  },
+  "call:three right minus, one fifty": {
+   "file": "9f9a5e37d8f87178.mp3",
+   "seconds": 1.829,
+   "text": "three right minus, one fifty"
+  },
+  "call:four left plus, two hundred": {
+   "file": "22fd77f124744128.mp3",
+   "seconds": 1.907,
+   "text": "four left plus, two hundred"
+  },
+  "call:compression, three left minus, into over crest, one right, don't cut": {
+   "file": "42c0de48e48254cc.mp3",
+   "seconds": 4.31,
+   "text": "compression, three left minus, into over crest, one right, don't cut"
+  },
+  "call:five right minus, don't cut, two hundred": {
+   "file": "d424b1fb92305254.mp3",
+   "seconds": 2.612,
+   "text": "five right minus, don't cut, two hundred"
+  },
+  "call:three right plus, don't cut": {
+   "file": "6a4d1b165976f5cc.mp3",
+   "seconds": 1.75,
+   "text": "three right plus, don't cut"
+  },
+  "call:hairpin right, don't cut": {
+   "file": "4942e0e206695934.mp3",
+   "seconds": 1.593,
+   "text": "hairpin right, don't cut"
+  },
+  "call:six left": {
+   "file": "5ec8cdd45820cd35.mp3",
+   "seconds": 0.914,
+   "text": "six left"
+  },
+  "call:over crest, one left, don't cut, one hundred": {
+   "file": "6e572d81c70f2247.mp3",
+   "seconds": 3.135,
+   "text": "over crest, one left, don't cut, one hundred"
+  },
+  "call:two right, don't cut, to finish": {
+   "file": "98480adebfcff52a.mp3",
+   "seconds": 2.038,
+   "text": "two right, don't cut, to finish"
+  },
   "line:start.1": {
    "file": "ed25c8391283333d.mp3",
    "seconds": 1.411,

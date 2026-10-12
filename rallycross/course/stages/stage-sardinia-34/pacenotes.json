@@ -1,0 +1,529 @@
+{
+  "format": "awd-rallycross-pacenotes/1",
+  "course": 3236,
+  "revision": "5.1-rotation",
+  "speedScale": 1.2935,
+  "recce": false,
+  "brakingGearKmh": [
+    34.7,
+    63.8,
+    86.5,
+    107.1,
+    121.9
+  ],
+  "notes": [
+    {
+      "id": 0,
+      "dir": "left",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 225,
+      "sApex": 241,
+      "s1": 259,
+      "turnDeg": 29,
+      "radiusM": 45.9,
+      "apexKmh": 81.1,
+      "mods": [],
+      "text": "three left"
+    },
+    {
+      "id": 1,
+      "dir": "left",
+      "gear": 2,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 288,
+      "sApex": 297,
+      "s1": 310,
+      "turnDeg": 55,
+      "radiusM": 14,
+      "apexKmh": 35.6,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "two left minus, don\u0027t cut"
+    },
+    {
+      "id": 2,
+      "dir": "left",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 429,
+      "sApex": 441,
+      "s1": 458,
+      "turnDeg": 17,
+      "radiusM": 76.4,
+      "apexKmh": 109.3,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "five left minus, don\u0027t cut"
+    },
+    {
+      "id": 3,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 545,
+      "sApex": 557,
+      "s1": 569,
+      "turnDeg": 22,
+      "radiusM": 46.3,
+      "apexKmh": 81.4,
+      "mods": [],
+      "text": "three right"
+    },
+    {
+      "id": 4,
+      "dir": "right",
+      "gear": 2,
+      "hairpin": false,
+      "grade": "",
+      "s0": 598,
+      "sApex": 611,
+      "s1": 643,
+      "turnDeg": 84,
+      "radiusM": 21.1,
+      "apexKmh": 51.8,
+      "mods": [],
+      "text": "two right"
+    },
+    {
+      "id": 5,
+      "dir": "left",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "",
+      "s0": 751,
+      "sApex": 775,
+      "s1": 798,
+      "turnDeg": 25,
+      "radiusM": 84.7,
+      "apexKmh": 116.3,
+      "mods": [],
+      "text": "five left"
+    },
+    {
+      "id": 6,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 860,
+      "sApex": 878,
+      "s1": 905,
+      "turnDeg": 45,
+      "radiusM": 37.8,
+      "apexKmh": 73.7,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "three right, don\u0027t cut"
+    },
+    {
+      "id": 7,
+      "dir": "left",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "",
+      "s0": 963,
+      "sApex": 995,
+      "s1": 1053,
+      "turnDeg": 58,
+      "radiusM": 77.5,
+      "apexKmh": 112.3,
+      "mods": [
+        "long",
+        "don\u0027t cut"
+      ],
+      "text": "five left long, don\u0027t cut"
+    },
+    {
+      "id": 8,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 1127,
+      "sApex": 1145,
+      "s1": 1169,
+      "turnDeg": 37,
+      "radiusM": 44,
+      "apexKmh": 80,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "three right, don\u0027t cut"
+    },
+    {
+      "id": 9,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 1252,
+      "sApex": 1263,
+      "s1": 1274,
+      "turnDeg": 23,
+      "radiusM": 39,
+      "apexKmh": 71.5,
+      "mods": [],
+      "text": "three right"
+    },
+    {
+      "id": 10,
+      "dir": "right",
+      "gear": 2,
+      "hairpin": false,
+      "grade": "",
+      "s0": 1392,
+      "sApex": 1431,
+      "s1": 1445,
+      "turnDeg": 108,
+      "radiusM": 19.8,
+      "apexKmh": 49.8,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "two right, don\u0027t cut"
+    },
+    {
+      "id": 11,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 1673,
+      "sApex": 1700,
+      "s1": 1724,
+      "turnDeg": 74,
+      "radiusM": 30.2,
+      "apexKmh": 66.1,
+      "mods": [],
+      "text": "three right minus"
+    },
+    {
+      "id": 12,
+      "dir": "left",
+      "gear": 4,
+      "hairpin": false,
+      "grade": "plus",
+      "s0": 1850,
+      "sApex": 1862,
+      "s1": 1874,
+      "turnDeg": 15,
+      "radiusM": 75.6,
+      "apexKmh": 106.7,
+      "mods": [],
+      "text": "four left plus"
+    },
+    {
+      "id": 13,
+      "dir": "left",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2078,
+      "sApex": 2098,
+      "s1": 2119,
+      "turnDeg": 44,
+      "radiusM": 36.9,
+      "apexKmh": 73.3,
+      "mods": [],
+      "text": "three left"
+    },
+    {
+      "id": 14,
+      "dir": "left",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 2215,
+      "sApex": 2231,
+      "s1": 2249,
+      "turnDeg": 46,
+      "radiusM": 27.9,
+      "apexKmh": 66.6,
+      "mods": [],
+      "text": "compression, three left minus"
+    },
+    {
+      "id": 15,
+      "dir": "right",
+      "gear": 1,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2267,
+      "sApex": 2296,
+      "s1": 2308,
+      "turnDeg": 150,
+      "radiusM": 10.6,
+      "apexKmh": 30,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "over crest, one right, don\u0027t cut"
+    },
+    {
+      "id": 16,
+      "dir": "right",
+      "gear": 5,
+      "hairpin": false,
+      "grade": "minus",
+      "s0": 2367,
+      "sApex": 2389,
+      "s1": 2412,
+      "turnDeg": 27,
+      "radiusM": 73.4,
+      "apexKmh": 107.7,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "five right minus, don\u0027t cut"
+    },
+    {
+      "id": 17,
+      "dir": "right",
+      "gear": 3,
+      "hairpin": false,
+      "grade": "plus",
+      "s0": 2588,
+      "sApex": 2606,
+      "s1": 2625,
+      "turnDeg": 31,
+      "radiusM": 49.3,
+      "apexKmh": 85.7,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "three right plus, don\u0027t cut"
+    },
+    {
+      "id": 18,
+      "dir": "right",
+      "gear": 1,
+      "hairpin": true,
+      "grade": "",
+      "s0": 2681,
+      "sApex": 2691,
+      "s1": 2724,
+      "turnDeg": 162,
+      "radiusM": 10.4,
+      "apexKmh": 29.5,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "hairpin right, don\u0027t cut"
+    },
+    {
+      "id": 19,
+      "dir": "left",
+      "gear": 6,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2771,
+      "sApex": 2792,
+      "s1": 2812,
+      "turnDeg": 20,
+      "radiusM": 99.8,
+      "apexKmh": 127.2,
+      "mods": [],
+      "text": "six left"
+    },
+    {
+      "id": 20,
+      "dir": "left",
+      "gear": 1,
+      "hairpin": false,
+      "grade": "",
+      "s0": 2899,
+      "sApex": 2926,
+      "s1": 2938,
+      "turnDeg": 146,
+      "radiusM": 10.3,
+      "apexKmh": 29,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "over crest, one left, don\u0027t cut"
+    },
+    {
+      "id": 21,
+      "dir": "right",
+      "gear": 2,
+      "hairpin": false,
+      "grade": "",
+      "s0": 3061,
+      "sApex": 3073,
+      "s1": 3086,
+      "turnDeg": 61,
+      "radiusM": 15,
+      "apexKmh": 39.8,
+      "mods": [
+        "don\u0027t cut"
+      ],
+      "text": "two right, don\u0027t cut"
+    }
+  ],
+  "calls": [
+    {
+      "s": 225,
+      "notes": [
+        0,
+        1
+      ],
+      "text": "three left, into two left minus, don\u0027t cut",
+      "apexKmh": 81.1
+    },
+    {
+      "s": 429,
+      "notes": [
+        2
+      ],
+      "text": "five left minus, don\u0027t cut",
+      "apexKmh": 109.3
+    },
+    {
+      "s": 545,
+      "notes": [
+        3,
+        4
+      ],
+      "text": "three right, into two right",
+      "apexKmh": 81.4
+    },
+    {
+      "s": 751,
+      "notes": [
+        5
+      ],
+      "text": "five left",
+      "apexKmh": 116.3
+    },
+    {
+      "s": 860,
+      "notes": [
+        6
+      ],
+      "text": "three right, don\u0027t cut",
+      "apexKmh": 73.7
+    },
+    {
+      "s": 963,
+      "notes": [
+        7
+      ],
+      "text": "five left long, don\u0027t cut",
+      "apexKmh": 112.3
+    },
+    {
+      "s": 1127,
+      "notes": [
+        8
+      ],
+      "text": "three right, don\u0027t cut",
+      "apexKmh": 80
+    },
+    {
+      "s": 1252,
+      "notes": [
+        9
+      ],
+      "text": "three right",
+      "apexKmh": 71.5
+    },
+    {
+      "s": 1392,
+      "notes": [
+        10
+      ],
+      "text": "two right, don\u0027t cut, two fifty",
+      "apexKmh": 49.8
+    },
+    {
+      "s": 1673,
+      "notes": [
+        11
+      ],
+      "text": "three right minus, one fifty",
+      "apexKmh": 66.1
+    },
+    {
+      "s": 1850,
+      "notes": [
+        12
+      ],
+      "text": "four left plus, two hundred",
+      "apexKmh": 106.7
+    },
+    {
+      "s": 2078,
+      "notes": [
+        13
+      ],
+      "text": "three left",
+      "apexKmh": 73.3
+    },
+    {
+      "s": 2215,
+      "notes": [
+        14,
+        15
+      ],
+      "text": "compression, three left minus, into over crest, one right, don\u0027t cut",
+      "apexKmh": 66.6
+    },
+    {
+      "s": 2367,
+      "notes": [
+        16
+      ],
+      "text": "five right minus, don\u0027t cut, two hundred",
+      "apexKmh": 107.7
+    },
+    {
+      "s": 2588,
+      "notes": [
+        17
+      ],
+      "text": "three right plus, don\u0027t cut",
+      "apexKmh": 85.7
+    },
+    {
+      "s": 2681,
+      "notes": [
+        18
+      ],
+      "text": "hairpin right, don\u0027t cut",
+      "apexKmh": 29.5
+    },
+    {
+      "s": 2771,
+      "notes": [
+        19
+      ],
+      "text": "six left",
+      "apexKmh": 127.2
+    },
+    {
+      "s": 2899,
+      "notes": [
+        20
+      ],
+      "text": "over crest, one left, don\u0027t cut, one hundred",
+      "apexKmh": 29
+    },
+    {
+      "s": 3061,
+      "notes": [
+        21
+      ],
+      "text": "two right, don\u0027t cut, to finish",
+      "apexKmh": 39.8
+    }
+  ],
+  "checkedAgainst": []
+}
