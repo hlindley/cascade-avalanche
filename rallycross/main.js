@@ -159,12 +159,13 @@ ${Es}
             // Hard braking also corrugates the tracks (washboard ripples across them, about 0.7 m apart, which catch a low
             // sun) and leaves light windrows of loose gravel beside them.
             float brkNear = smoothstep(.08, .75, brakeAt(s, latC, 1.0)), brkFar = smoothstep(.05, .55, brakeAt(s, latC, 24.0));
-            float brk = max(brkNear, .85 * brkFar * (1.0 - mid));
+            float brk = max(brkNear, .6 * brkFar * (1.0 - mid));
             float scrape = .8 + .35 * vnoise(vec2(latC * 22.0, s * .35)), ridge = clamp(brkFar - brkNear, 0.0, 1.0);
             float rip = sin(s * 9.0 + 2.5 * vnoise(vec2(latC * .8, s * .05)));
             float ripple = brkNear * mid * smoothstep(.2, .6, brakeAt(s, latC, 1.0) - .25);
-            c *= mix(1.0, mix(.6, .5 * scrape, fine), brk);
-            c = mix(c, c * vec3(.93, .96, 1.05), brk * .6); // a little cooler: damp, compacted earth under the loose top
+            // (12 October 2026, "too dark now for the streaks on dirt": first version .6 / .5; now about a sixth darker.)
+            c *= mix(1.0, mix(.86, .8 * scrape, fine), brk);
+            c = mix(c, c * vec3(.95, .97, 1.03), brk * .5); // a little cooler: damp, compacted earth under the loose top
             c *= 1.0 + .16 * rip * ripple;
             c = mix(c, c * vec3(1.5, 1.4, 1.22), ridge * mix(.55, .8, mid)); // the loose gravel pushed aside: lighter, greyer stone
             #ifndef ROAD_LOW

@@ -1,10 +1,10 @@
 {
- "commit": "2dd96e2",
- "builtUtc": "2026-10-12T01:39:06",
+ "commit": "49457cf",
+ "builtUtc": "2026-10-12T14:31:47",
  "coreInputsHash": "00772262e6c290c6",
  "assetInputsHash": "138ac610972e778c",
  "physics": "502372413509b15c",
- "totalBytes": 12686757,
+ "totalBytes": 12686880,
  "audioBytes": 4338352,
  "courses": [
   {
@@ -53,8 +53,8 @@
   },
   {
    "path": "main.js",
-   "bytes": 144717,
-   "sha256": "a3f8885cbe951cddfaa925a1457360a53f32dd295be6ac4a342231b94e832a8b"
+   "bytes": 144840,
+   "sha256": "99d6027473023b76a86704b5aaba24959597c728fc977dfe6becf469173b7903"
   },
   {
    "path": "mixer-worklet.js",
