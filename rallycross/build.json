@@ -1,10 +1,10 @@
 {
- "commit": "5c5c9c0+local",
- "builtUtc": "2026-10-12T18:57:51",
+ "commit": "3398d95",
+ "builtUtc": "2026-10-12T22:17:04",
  "coreInputsHash": "00772262e6c290c6",
  "assetInputsHash": "138ac610972e778c",
  "physics": "502372413509b15c",
- "totalBytes": 12718856,
+ "totalBytes": 13085310,
  "audioBytes": 4804794,
  "courses": [
   {
@@ -76,7 +76,8 @@
     "source": "National Land Survey of Finland: Topographic Database 2025 (roads) and 2 m elevation model, CC BY 4.0",
     "crests": 17
    },
-   "landcover": true
+   "landcover": true,
+   "blurb": "the start of Rally Finland's Ouninpohja stage, from the H\u00e4mepohja junction past the yellow house jump"
   }
  ],
  "course": {
@@ -94,13 +95,13 @@
  "files": [
   {
    "path": "index.html",
-   "bytes": 24527,
-   "sha256": "99dc3758daa8f7371dfd8b10fef3eee654f0a9bdfd50ea65390373503c9b95ea"
+   "bytes": 29294,
+   "sha256": "2bf32c24904647e071ba0965fc9868e6db2ba2ef4fab881d9a875f669440585e"
   },
   {
    "path": "main.js",
-   "bytes": 171149,
-   "sha256": "8931990a3077eec54092d7de49189e1753652a965d53971604afd5e81a9a8a00"
+   "bytes": 172712,
+   "sha256": "0ace5f5d45c47d677dd72add68b3859e59e67b52d4f9ce979174ab874121d430"
   },
   {
    "path": "mixer-worklet.js",
@@ -1008,6 +1009,26 @@
    "sha256": "ab356df3aab418a80335e939f96141cf6854f231b123ce9825e6663465e3fea3"
   },
   {
+   "path": "start/rallycross.jpg",
+   "bytes": 74549,
+   "sha256": "530720fe988ee84468d551f4f829bde58daf76c9e63629a073d00e3fe1d12b79"
+  },
+  {
+   "path": "start/stage-ouninpohja.jpg",
+   "bytes": 117040,
+   "sha256": "c634efc99a0195aff7a3299bd9c8c51baaf985b43041be2a6f11587dbb3b73a6"
+  },
+  {
+   "path": "start/stage-sardinia-34.jpg",
+   "bytes": 69915,
+   "sha256": "2278bab270abb9f25f0453f41907c5ee03bea3f43d7d6e9a38fac68e7aabb178"
+  },
+  {
+   "path": "start/stage-wales-1.jpg",
+   "bytes": 98620,
+   "sha256": "95a795939c05875b6c7c7f5398d862d1eb85e6e1cb5dc7a49500b97fef4b6a03"
+  },
+  {
    "path": "codriver/lines.json",
    "bytes": 4235,
    "sha256": "5b1701c45d587efd4aa3334459bbb955d76cb600906ff51de4ee6bf35c42b99a"
@@ -1145,7 +1166,7 @@
   {
    "path": "course/stages/stage-ouninpohja/marks.json",
    "bytes": 15826,
-   "sha256": "e0e1de15c1da7724b791f6136d9a64978ba3dfeda6f6059313a368eb22ecdd9c"
+   "sha256": "8d007d28eb41c3272287112f34dfe01a03ec5981325c35506507ae244a4ca2b5"
   },
   {
    "path": "course/stages/stage-ouninpohja/marks.png",

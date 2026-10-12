@@ -47,25 +47,36 @@
   #last { font-size: 12px; color: var(--ink-dim); min-height: 1.2em; }
   #state { font-size: 12px; min-height: 1.2em; }
 
-  /* Car and options, top right */
-  #top-right { top: calc(10px + env(safe-area-inset-top, 0px)); right: calc(10px + env(safe-area-inset-right, 0px)); display: grid; gap: 6px; justify-items: end; pointer-events: auto; }
+  /* Settings, top right: a gear button and its menu (12 October 2026). */
+  #top-right { top: calc(10px + env(safe-area-inset-top, 0px)); right: calc(10px + env(safe-area-inset-right, 0px)); display: grid; gap: 6px; justify-items: end; pointer-events: auto; z-index: 10; } /* (over the dash and the touch pads) */
+  .iconbtn { width: 42px; height: 42px; display: grid; place-items: center; color: var(--ink); background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 50%; cursor: pointer; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .iconbtn[aria-expanded="true"] { color: #121715; background: var(--ink); border-color: var(--ink); }
+  .iconbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #menu { padding: 10px 12px; display: grid; gap: 10px; width: min(300px, calc(100vw - 20px)); max-height: calc(100vh - 70px); overflow-y: auto; }
+  .menugroup { display: grid; gap: 5px; } #menu .row { justify-content: flex-start; }
+  .menugroup:not(:has(button:not([hidden]))) { display: none; } /* (a group with nothing to show here, e.g. standing start on a stage) */
   .row { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
   button.chip { font: 600 12px/1 var(--body); color: var(--ink); background: var(--panel); border: 1px solid var(--panel-edge); border-radius: 999px; padding: 7px 11px; cursor: pointer; }
   button.chip[aria-pressed="true"] { background: var(--ink); color: #121715; border-color: var(--ink); }
   button.chip:focus-visible, button.big:focus-visible, .pad:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  /* Speed, bottom centre */
-  #dash { bottom: calc(12px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); padding: 8px 14px; display: grid; grid-template-columns: auto auto auto; column-gap: 14px; align-items: end; }
-  #speed { font: 700 40px/0.9 var(--display); text-align: right; min-width: 2.2em; }
-  #speedunit { font: 600 10px/1 var(--body); letter-spacing: .12em; color: var(--ink-dim); }
-  #gear { font: 700 28px/0.9 var(--display); color: var(--accent); padding: 3px 8px 2px; border-radius: 6px; text-align: center; min-width: 1.1em; transition: background-color .12s linear; }
-  /* The next pace note: gear number, direction, distance to turn-in, modifiers. */
-  #notebox { display: grid; grid-template-columns: auto auto; column-gap: 4px; align-items: baseline; border-left: 1px solid var(--panel-edge); padding-left: 12px; }
-  #notenum { font: 700 28px/0.9 var(--display); } #notedir { font: 700 24px/0.9 var(--display); color: var(--accent); }
-  #notedist { grid-column: 1 / -1; } #notemods { grid-column: 1 / -1; font: 600 10px/1.2 var(--body); color: var(--ink-dim); text-transform: uppercase; letter-spacing: .06em; min-height: 1.2em; max-width: 9em; }
-  #rpmbar { grid-column: 1 / -1; height: 4px; background: var(--panel-edge); border-radius: 2px; margin-top: 6px; overflow: hidden; }
+  /* Speed, gear and the next corner, top centre (12 October 2026: moved up from the bottom; three equal columns, values
+     on one row and their labels on the next, so they line up; the gear bigger, in the middle). */
+  #dash { top: calc(10px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); padding: 8px 16px 7px; display: grid;
+    grid-template-columns: minmax(4.6em, 1fr) auto minmax(4.6em, 1fr); grid-template-rows: auto auto auto auto; column-gap: 16px; row-gap: 3px; align-items: center; justify-items: center; }
+  #speed { grid-area: 1 / 1; font: 700 40px/0.9 var(--display); text-align: center; min-width: 2.2em; }
+  #speedunit { grid-area: 2 / 1; font: 600 10px/1 var(--body); letter-spacing: .12em; color: var(--ink-dim); }
+  #gear { grid-area: 1 / 2; font: 700 48px/0.9 var(--display); color: var(--accent); padding: 6px 12px 3px; border: 2px solid rgba(243, 162, 26, .55); border-radius: 8px; text-align: center; min-width: 1.15em; transition: background-color .12s linear; }
+  #gearmode { grid-area: 2 / 2; }
+  /* The next pace note: gear number and direction; below, the distance to turn-in and the modifiers. */
+  #notebox { display: contents; }
+  #notehead { grid-area: 1 / 3; display: flex; align-items: baseline; gap: 4px; }
+  #notenum { font: 700 34px/0.9 var(--display); } #notedir { font: 700 28px/0.9 var(--display); color: var(--accent); }
+  #notesub { grid-area: 2 / 3; display: flex; gap: 6px; align-items: baseline; white-space: nowrap; }
+  #notemods { font: 600 10px/1 var(--body); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+  #rpmbar { grid-area: 3 / 1 / 4 / 4; justify-self: stretch; height: 4px; background: var(--panel-edge); border-radius: 2px; margin-top: 4px; overflow: hidden; }
   #rpmfill { height: 100%; width: 0; background: linear-gradient(90deg, var(--ink) 75%, var(--red)); }
-  #surface { grid-column: 1 / -1; margin-top: 4px; text-align: center; }
+  #surface { grid-area: 4 / 1 / 5 / 4; margin-top: 1px; text-align: center; }
 
   /* Diagnostics, bottom left */
   #diag { left: calc(10px + env(safe-area-inset-left, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px)); padding: 8px 10px; font: 500 11px/1.45 var(--mono); color: var(--ink-dim); max-width: min(360px, calc(100vw - 20px)); pointer-events: auto; }
@@ -74,11 +85,11 @@
   #laps b { color: var(--ink); } #laps .laprow { margin-top: 6px; } #laps .chip { margin-left: 4px; } #lapstatus { margin-top: 6px; color: var(--ink); }
   #diag button { margin-top: 6px; }
   /* Co-driver subtitle, above the speed readout */
-  #codriver { left: 50%; transform: translateX(-50%); bottom: calc(96px + env(safe-area-inset-bottom, 0px)); max-width: min(560px, calc(100vw - 32px)); padding: 5px 12px;
+  #codriver { left: 50%; transform: translateX(-50%); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); max-width: min(560px, calc(100vw - 32px)); padding: 5px 12px;
     font: 500 15px/1.3 var(--body); color: var(--ink); text-align: center; text-wrap: balance; }
   #codriver.call { font: 700 18px/1.2 var(--display); letter-spacing: .03em; color: var(--accent); }
   /* Car setup, right side under the options */
-  #setup { right: calc(10px + env(safe-area-inset-right, 0px)); top: calc(178px + env(safe-area-inset-top, 0px)); padding: 8px 10px; width: min(340px, calc(100vw - 20px)); font: 500 12px/1.4 var(--body); color: var(--ink-dim); pointer-events: auto; display: grid; gap: 6px; }
+  #setup { right: calc(10px + env(safe-area-inset-right, 0px)); top: calc(60px + env(safe-area-inset-top, 0px)); padding: 8px 10px; width: min(340px, calc(100vw - 20px)); font: 500 12px/1.4 var(--body); color: var(--ink-dim); pointer-events: auto; display: grid; gap: 6px; }
   #setup b { color: var(--ink); font: 700 15px/1.1 var(--display); }
   .setuphead { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; } .setuphead b { font-size: 14px; letter-spacing: .04em; }
   .setuprow { display: grid; grid-template-columns: 1fr auto auto; gap: 4px; align-items: center; padding: 4px 6px; border-radius: 4px; border-left: 3px solid transparent; cursor: pointer; }
@@ -89,7 +100,7 @@
   button.chip:disabled { opacity: .45; cursor: default; }
 
   /* Leaderboard, in the setup panel's place */
-  #board { right: calc(10px + env(safe-area-inset-right, 0px)); top: calc(178px + env(safe-area-inset-top, 0px)); padding: 8px 10px; width: min(360px, calc(100vw - 20px)); font: 500 12px/1.4 var(--body); color: var(--ink-dim); pointer-events: auto; display: grid; gap: 6px; max-height: calc(100vh - 200px); overflow-y: auto; }
+  #board { right: calc(10px + env(safe-area-inset-right, 0px)); top: calc(60px + env(safe-area-inset-top, 0px)); padding: 8px 10px; width: min(360px, calc(100vw - 20px)); font: 500 12px/1.4 var(--body); color: var(--ink-dim); pointer-events: auto; display: grid; gap: 6px; max-height: calc(100vh - 80px); overflow-y: auto; }
   #board b { color: var(--ink); } #board .boardtabs { justify-content: flex-start; }
   #boardlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
   #boardlist li { display: grid; grid-template-columns: 1.6em 1fr auto 4.2em auto; gap: 6px; align-items: center; padding: 2px 4px; border-radius: 4px; }
@@ -112,7 +123,23 @@
 
   /* Start screen */
   #start { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: radial-gradient(120% 90% at 30% 20%, rgba(20, 28, 25, .55), rgba(8, 11, 10, .9)); overflow-y: auto; }
-  #card { width: min(560px, 100%); display: grid; gap: 14px; padding: 22px 22px 18px; }
+  #card { width: min(720px, 100%); display: grid; gap: 14px; padding: 22px 22px 18px; }
+  /* The course picker (12 October 2026): a beauty shot per course (start/<id>.jpg, test/beauty.mjs); click to drive it. */
+  #tracks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .track { position: relative; display: block; padding: 0; aspect-ratio: 16 / 9; overflow: hidden; cursor: pointer; text-align: left; color: var(--ink);
+    background: linear-gradient(135deg, #2a3530, #141b18); border: 2px solid var(--panel-edge); border-radius: 8px; }
+  .track img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+  .track:hover img, .track:focus-visible img { transform: scale(1.04); }
+  .track[aria-current="true"] { border-color: var(--accent); }
+  .track:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tlabel { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 10px 8px; display: grid; gap: 3px; background: linear-gradient(rgba(8, 11, 10, 0), rgba(8, 11, 10, .88)); }
+  .tname { font: 700 17px/1.05 var(--display); letter-spacing: .01em; }
+  .tmeta { font: 600 10px/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-dim); }
+  .tgo { position: absolute; top: 8px; right: 8px; font: 700 12px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; color: #121715; background: var(--accent);
+    padding: 6px 9px 5px; border-radius: 4px; opacity: 0; transition: opacity .15s; }
+  .track:hover .tgo, .track:focus-visible .tgo, .track[aria-current="true"] .tgo { opacity: 1; }
+  #credit { font-size: 11px; color: var(--ink-dim); margin-top: -8px; }
+  @media (max-height: 520px) { #tracks { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; } .tname { font-size: 12px; } .tmeta { font-size: 8px; } .tlabel { padding: 14px 6px 5px; } }
   #card h1 { margin: 0; font: 700 clamp(28px, 6vw, 40px)/1 var(--display); letter-spacing: .01em; text-wrap: balance; }
   #card h1 span { color: var(--accent); }
   #card p { margin: 0; color: var(--ink-dim); max-width: 62ch; }
@@ -126,18 +153,20 @@
   #portrait { display: none; color: var(--yellow); font-size: 12px; }
   @media (orientation: portrait) and (pointer: coarse) { #portrait { display: block; } }
   @media (max-width: 640px) { #laptime { font-size: 24px; } #speed { font-size: 32px; } #bests b { font-size: 12px; } }
+  /* Room for the dash between the timing tower and the gear. */
+  @media (max-width: 1120px) { #timing { width: min(270px, 28vw); } #dash { column-gap: 12px; padding: 8px 12px 7px; } }
   /* Phones and short screens: a compact timing tower; on touch screens the speed readout moves to the top so the
      car and the touch pads keep the lower half. */
   @media (pointer: coarse), (max-height: 500px) {
-    #timing { width: min(290px, 44vw); padding: 6px 8px; gap: 3px; }
+    #timing { width: min(270px, 33vw); padding: 6px 8px; gap: 3px; }
     #laptime { font-size: 20px; } #lapno { font-size: 11px; } #delta { font-size: 13px; }
     .sector b { font-size: 13px; } #bests b { font-size: 11px; } .label { font-size: 8.5px; letter-spacing: .1em; }
     #last { display: none; } #state { font-size: 11px; min-height: 0; }
-    #top-right { gap: 4px; } button.chip { font-size: 11px; padding: 5px 9px; }
+    #top-right { gap: 4px; } button.chip { font-size: 11px; padding: 6px 9px; } .iconbtn { width: 38px; height: 38px; } #menu { gap: 7px; padding: 8px 10px; max-height: calc(100vh - 60px); }
   }
   @media (pointer: coarse) {
-    #dash { top: calc(8px + env(safe-area-inset-top, 0px)); bottom: auto; padding: 4px 10px 5px; }
-    #speed { font-size: 24px; } #gear { font-size: 18px; } #surface { font-size: 8.5px; } #notenum, #notedir { font-size: 18px; } #notemods { font-size: 8px; }
+    #dash { top: calc(8px + env(safe-area-inset-top, 0px)); padding: 4px 10px 5px; column-gap: 10px; row-gap: 2px; }
+    #speed { font-size: 26px; } #gear { font-size: 30px; padding: 4px 8px 2px; } #surface { font-size: 8.5px; } #notenum { font-size: 22px; } #notedir { font-size: 18px; } #notemods, #speedunit { font-size: 8px; }
     #diag { bottom: auto; top: calc(130px + env(safe-area-inset-top, 0px)); }
     /* Between the timing tower and the touch pads, clear of both. */
     #laps { bottom: auto; right: auto; left: 50%; transform: translateX(-50%); top: calc(118px + env(safe-area-inset-top, 0px)); max-width: min(360px, 44vw); font-size: 11px; }
@@ -147,7 +176,7 @@
     body.setup-open #timing { visibility: hidden; }
     #board { right: auto; left: 50%; transform: translateX(-50%); top: calc(118px + env(safe-area-inset-top, 0px)); width: min(360px, 48vw); max-height: calc(100vh - 140px - min(30vh, 150px)); font-size: 11px; gap: 3px; padding: 5px 8px; } #board .boardnote:last-child { display: none; }
     #setup b { font-size: 13px; } .setuphead b { font-size: 12px; }
-    #codriver { bottom: auto; top: calc(82px + env(safe-area-inset-top, 0px)); font-size: 12px; max-width: 44vw; } #codriver.call { font-size: 14px; }
+    #codriver { bottom: auto; top: calc(96px + env(safe-area-inset-top, 0px)); font-size: 12px; max-width: 44vw; } #codriver.call { font-size: 14px; }
     .setuprow { padding: 1px 4px; } .setuprow > div { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: baseline; }
     .setuprow .chip { min-width: 38px; padding: 7px 0; } .setupnote, .setuphint { display: none; }
   }
@@ -193,33 +222,44 @@
 </div>
 
 <div id="top-right" class="hud">
-  <div class="row" role="group" aria-label="Car revision">
-    <button class="chip" id="rev51" type="button">v5.1</button><button class="chip" id="rev53" type="button">v5.3 jumps</button>
-    <button class="chip" id="lookbtn" type="button" aria-pressed="true" title="Sunset or the Unity lab's daylight look (L)">Sunset</button>
-    <button class="chip" id="boardbtn" type="button" aria-pressed="false" title="Leaderboard: submit your best lap, watch others' laps replayed">Board</button>
-    <button class="chip" id="coursebtn" type="button" hidden title="Course: the rallycross or a generated stage (click twice: the page reloads with it)">Rallycross</button>
-  </div>
-  <div class="row" role="group" aria-label="Handling preset">
-    <button class="chip" id="pre0" type="button">Baseline</button><button class="chip" id="pre1" type="button">Forgiving</button><button class="chip" id="pre2" type="button">Assisted</button>
-  </div>
-  <div class="row">
-    <button class="chip" id="soundbtn" type="button" aria-pressed="true">Sound</button>
-    <button class="chip" id="beepbtn" type="button" aria-pressed="true">Beeps</button>
-    <button class="chip" id="cdbtn" type="button" aria-pressed="true" title="Co-driver: pace notes and remarks (C)">Co-driver</button>
-    <button class="chip" id="diagbtn" type="button" aria-pressed="false">Diagnostics</button>
-  </div>
-  <div class="row">
-    <button class="chip" id="enginebtn" type="button" aria-pressed="true" title="Engine sound: real-time synth, or the generated loops (N)">Engine synth</button>
-    <button class="chip" id="standbtn" type="button" aria-pressed="true" title="Every lap from a standing start; off track restarts it">Standing start</button>
-    <button class="chip" id="lapsbtn" type="button" aria-pressed="false">Laps</button>
-    <button class="chip" id="setupbtn" type="button" aria-pressed="false" title="Car setup (T, pad View)">Setup</button>
+  <!-- Settings behind a gear (12 October 2026, "put all the buttons at top right into a toggleable menu behind a gear icon"). -->
+  <button class="iconbtn" id="menubtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Settings" title="Settings (Esc closes)">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L14.9 3h-4l-.4 2.9a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.4 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1c.5.4 1.1.7 1.7 1l.4 2.9h4l.4-2.9c.6-.3 1.2-.6 1.7-1l2.5 1 2-3.5ZM12.9 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/></svg>
+  </button>
+  <div id="menu" class="panel" hidden>
+    <div class="menugroup"><span class="label">Car</span>
+      <div class="row" role="group" aria-label="Car revision"><button class="chip" id="rev51" type="button">v5.1</button><button class="chip" id="rev53" type="button">v5.3 jumps</button></div>
+      <div class="row" role="group" aria-label="Handling preset"><button class="chip" id="pre0" type="button">Baseline</button><button class="chip" id="pre1" type="button">Forgiving</button><button class="chip" id="pre2" type="button">Assisted</button></div>
+    </div>
+    <div class="menugroup"><span class="label">View</span>
+      <div class="row"><button class="chip" id="lookbtn" type="button" aria-pressed="true" title="Sunset or the Unity lab's daylight look (L)">Sunset</button>
+        <button class="chip" id="coursebtn" type="button" hidden title="Course: the rallycross or a generated stage (click twice: the page reloads with it)">Rallycross</button></div>
+    </div>
+    <div class="menugroup"><span class="label">Sound</span>
+      <div class="row"><button class="chip" id="soundbtn" type="button" aria-pressed="true">Sound</button>
+        <button class="chip" id="enginebtn" type="button" aria-pressed="true" title="Engine sound: real-time synth, or the generated loops (N)">Engine synth</button>
+        <button class="chip" id="beepbtn" type="button" aria-pressed="true">Beeps</button>
+        <button class="chip" id="cdbtn" type="button" aria-pressed="true" title="Co-driver: pace notes and remarks (C)">Co-driver</button></div>
+    </div>
+    <div class="menugroup"><span class="label">Driving</span>
+      <div class="row"><button class="chip" id="standbtn" type="button" aria-pressed="true" title="Every lap from a standing start; off track restarts it">Standing start</button></div>
+    </div>
+    <div class="menugroup"><span class="label">Panels</span>
+      <div class="row"><button class="chip" id="setupbtn" type="button" aria-pressed="false" title="Car setup (T, pad View)">Setup</button>
+        <button class="chip" id="boardbtn" type="button" aria-pressed="false" title="Leaderboard: submit your best lap, watch others' laps replayed">Board</button>
+        <button class="chip" id="lapsbtn" type="button" aria-pressed="false">Laps</button>
+        <button class="chip" id="diagbtn" type="button" aria-pressed="false">Diagnostics</button></div>
+    </div>
   </div>
 </div>
 
 <div id="dash" class="hud panel">
-  <div><div id="speed">0</div><div id="speedunit">KM/H</div></div>
-  <div><div id="gear">1</div><div class="label" id="gearmode">AUTO</div></div>
-  <div id="notebox" hidden aria-label="Next pace note"><b id="notenum">3</b><span id="notedir">→</span><div class="label" id="notedist"></div><div id="notemods"></div></div>
+  <div id="speed">0</div><div id="speedunit">KM/H</div>
+  <div id="gear">1</div><div class="label" id="gearmode">AUTO</div>
+  <div id="notebox" hidden aria-label="Next pace note">
+    <div id="notehead"><b id="notenum">3</b><span id="notedir">→</span></div>
+    <div id="notesub"><span class="label" id="notedist"></span><span id="notemods"></span></div>
+  </div>
   <div id="rpmbar"><div id="rpmfill"></div></div>
   <div id="surface" class="label">GRAVEL</div>
 </div>
@@ -256,8 +296,9 @@
 <div id="start">
   <div id="card" class="panel">
     <h1>AWD Rallycross <span>Lab</span></h1>
+    <div id="tracks" role="group" aria-label="Choose a course" hidden></div>
     <p id="cardtext">The 955 m mixed asphalt and gravel course with the hero car. The handling physics, lap timer and engine sound model are the same C# code as the Unity lab, compiled to WebAssembly. This page only draws the scene, reads your controls and plays the sounds.</p>
-    <div class="opts" id="courseopts" role="group" aria-label="Course" hidden></div>
+    <div id="credit" hidden></div>
     <div class="opts" role="group" aria-label="Car to start with">
       <span class="label">Car</span>
       <button class="chip" id="srev51" type="button">v5.1</button><button class="chip" id="srev53" type="button">v5.3 jumps</button>
