@@ -1,11 +1,11 @@
 {
- "commit": "3398d95",
- "builtUtc": "2026-10-12T22:17:04",
+ "commit": "598af69",
+ "builtUtc": "2026-10-13T00:25:27",
  "coreInputsHash": "00772262e6c290c6",
  "assetInputsHash": "138ac610972e778c",
  "physics": "502372413509b15c",
  "totalBytes": 13085310,
- "audioBytes": 4804794,
+ "audioBytes": 4819761,
  "courses": [
   {
    "id": "rallycross",
@@ -61,7 +61,7 @@
    "lengthM": 6500.0,
    "gridSha256": "a01af76e3a1aeb2612e004aac8ab39c4ac8375aeda1044354cd65564aca6bd4a",
    "version": "stage-1",
-   "bytes": 10587048,
+   "bytes": 10584544,
    "style": "finland",
    "seed": 1,
    "notes": 26,
@@ -869,6 +869,11 @@
    "sha256": "7cdf28b63924ae99c98e9c49702c9c3864d7e4369ad2b9532da4f30c70606928"
   },
   {
+   "path": "audio/codriver/e19bb07069d760f2.mp3",
+   "bytes": 14803,
+   "sha256": "8c6026376e35911663ffd14fb74bd7f6950cba72177d0d48845db2e8757c8fdc"
+  },
+  {
    "path": "audio/codriver/e2d1d9dd900cc75f.mp3",
    "bytes": 5869,
    "sha256": "b825b614223f2a56b6f1f649dcefe6d76da2e752027d449b8d20278b4585f1ab"
@@ -950,8 +955,8 @@
   },
   {
    "path": "audio/codriver/manifest.json",
-   "bytes": 13717,
-   "sha256": "bf14d986619ff094e7c7049ce0830782235b0939f7f44b2ff267dcf040260f72"
+   "bytes": 13881,
+   "sha256": "cf2880db46f2795953589b8aba83611012104b50b5fb2cce3e427fc0db2325a2"
   },
   {
    "path": "wasm/RallyCore.wasm",
@@ -1061,7 +1066,7 @@
   {
    "path": "course/marks.json",
    "bytes": 15186,
-   "sha256": "a15a295c3c64c108e4b2810e36dfc91ecdce7124826da3c0622f14ecaaf956af"
+   "sha256": "08e886776f9d0c549e7a13dc5c419d4c9549920e8b3cc36e3deaf3f0a3dce431"
   },
   {
    "path": "course/marks.png",
@@ -1096,7 +1101,7 @@
   {
    "path": "course/stages/stage-sardinia-34/marks.json",
    "bytes": 15669,
-   "sha256": "2bf27d75e865fa7a0687153aa19b6af619ad577da9e3091394dfba3b46d93ae8"
+   "sha256": "8d1f503e9d14a2df08011f63a96ba94506f5c47b2a95cc83f258633398a5913b"
   },
   {
    "path": "course/stages/stage-sardinia-34/marks.png",
@@ -1126,7 +1131,7 @@
   {
    "path": "course/stages/stage-wales-1/marks.json",
    "bytes": 15682,
-   "sha256": "11daf2e27e7fc41a5c107dfc9f18daed9d0c4e21ccf24ade7c163609d1580393"
+   "sha256": "15036f40c7889cb9a6a55840441dfd0268fa505dbc635ed8bcdd67f442df6714"
   },
   {
    "path": "course/stages/stage-wales-1/marks.png",
@@ -1166,7 +1171,7 @@
   {
    "path": "course/stages/stage-ouninpohja/marks.json",
    "bytes": 15826,
-   "sha256": "8d007d28eb41c3272287112f34dfe01a03ec5981325c35506507ae244a4ca2b5"
+   "sha256": "71b1e2e16fbf39fc4f78a9417919132b7596259ae9e5c28dc3c13850e3821d7d"
   },
   {
    "path": "course/stages/stage-ouninpohja/marks.png",
@@ -1175,8 +1180,8 @@
   },
   {
    "path": "course/stages/stage-ouninpohja/pacenotes.json",
-   "bytes": 15530,
-   "sha256": "799d37cc30d11cac71f76fd60817a987d670c492790aba5ea931525168945e20"
+   "bytes": 13026,
+   "sha256": "5f760b566c1629d8466c796ae7222164a916c78c1510704e21e3f50ab2979e2f"
   },
   {
    "path": "course/stages/stage-ouninpohja/rallycross.json",
