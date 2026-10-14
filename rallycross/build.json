@@ -1,10 +1,10 @@
 {
- "commit": "9dc9e3a",
- "builtUtc": "2026-10-13T15:00:12",
+ "commit": "1069567",
+ "builtUtc": "2026-10-14T01:07:16",
  "coreInputsHash": "00772262e6c290c6",
  "assetInputsHash": "138ac610972e778c",
  "physics": "502372413509b15c",
- "totalBytes": 13107393,
+ "totalBytes": 13110259,
  "audioBytes": 4674625,
  "courses": [
   {
@@ -100,13 +100,13 @@
   },
   {
    "path": "main.js",
-   "bytes": 194631,
-   "sha256": "b2cd439be00a1d2c3ae31a61f5f843dc46919d954277ab9ff4ab6997cf67a8b4"
+   "bytes": 196152,
+   "sha256": "78d6b976984c61756e4fe1a4586d8cc3da8379e319932600200761d260897d22"
   },
   {
    "path": "mixer-worklet.js",
-   "bytes": 8690,
-   "sha256": "d0b8c015ecb7fc396d80a32cafbb67c31365df6e67d5e82c3d2a70df4d6766e1"
+   "bytes": 10035,
+   "sha256": "c069212cbd9892e5bcac8bb42528329da8fbda4d9512cf67eb2ab93d9f2847b7"
   },
   {
    "path": "car/HeroCar_Body_BaseColor.jpg",
