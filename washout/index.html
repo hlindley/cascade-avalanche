@@ -131,5 +131,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   <p id="loadMsg">Downloading the AWD v5 car and soil model (about 5 MB of WebAssembly).</p>
 </div></div>
 
+<!-- 'three' for the GLTFLoader that loads the truck: the same three.js build the page imports by URL. -->
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.webgpu.min.js" } }
+</script>
 <script type="module" src="./main.js"></script>
 </body></html>
