@@ -1,0 +1,24 @@
+{
+  "mainAssemblyName": "WashoutCore",
+  "resources": {
+    "hash": "sha256-Yjejjrz49QcdQR4lKKAT+j/MAW50BmZV63rxHZ1mfGU=",
+    "jsModuleNative": {
+      "dotnet.native.8.0.33.h76u6zp31b.js": "sha256-my4DP/WaMNMhff4M/wWWjWQS4uIMN4DMpVE4R5I4Mmg="
+    },
+    "jsModuleRuntime": {
+      "dotnet.runtime.8.0.33.q1mn7mvd0d.js": "sha256-aa75BhVU2iAzc0Nj93nvwfQ2raXDjiW4VBNfRLHRJgM="
+    },
+    "wasmNative": {
+      "dotnet.native.wasm": "sha256-afWPSU0fgKShmyi/H6u1zoZzxTLZtVGI/2Y6s8FGwl8="
+    },
+    "assembly": {
+      "System.Private.CoreLib.wasm": "sha256-gm89NJdg9omncrgMNocO394xClNp4LYYYDXMp84+Nyo=",
+      "System.Runtime.InteropServices.JavaScript.wasm": "sha256-l30E62O2WLodOH3grxSD+dQNPPe6nBRfdL0Meznbfpg=",
+      "WashoutCore.wasm": "sha256-9+htM+/8LcQh1n56Av62p0xiR845+IU73IUfMKNwwfc="
+    }
+  },
+  "cacheBootResources": true,
+  "debugLevel": 0,
+  "linkerEnabled": true,
+  "globalizationMode": "invariant"
+}
