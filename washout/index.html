@@ -50,7 +50,7 @@ td.soft { color: var(--signal); }
 .ask { display: flex; gap: 6px; }
 .ask input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 6px 8px; user-select: text; -webkit-user-select: text; }
 .ask input::placeholder { color: var(--dim); }
-.note { margin: 0; color: var(--dim); line-height: 1.45; }
+.note { margin: 0; color: var(--dim); line-height: 1.45; white-space: pre-wrap; }
 input[type=range] { accent-color: var(--signal); width: 100%; }
 select, button { font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 5px 8px; }
 button { cursor: pointer; font-family: var(--display); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
@@ -131,7 +131,7 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   <p id="askNote" class="note" hidden></p>
   <div id="groups"></div>
   <div class="row"><button id="resetMud" type="button">Fresh mud</button><button id="resetCar" type="button">Truck back</button><button id="camBtn" type="button">Camera</button></div>
-  <div class="row"><button id="resetTune" type="button">Defaults</button></div>
+  <div class="row"><button id="resetTune" type="button">Defaults</button><button id="copyTune" type="button">Copy settings</button></div>
 </section>
 
 <section id="minimap" class="panel" hidden aria-label="Trail map">
