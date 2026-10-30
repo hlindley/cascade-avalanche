@@ -90,15 +90,29 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
   #tune { display: none; max-height: calc(100vh - 300px); max-height: calc(100dvh - 300px); }
   #tune.open { display: grid; }
 }
+/* The trail: a minimap bottom-right, and the section's name shown as you enter it. */
+#minimap { right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); padding: 8px 10px; display: grid; gap: 4px; }
+#minimap canvas { width: 300px; height: 110px; display: block; }
+#minimap .where { display: flex; justify-content: space-between; gap: 12px; }
+#minimap .where b { color: var(--ink); font-weight: 600; }
+#jump { gap: 4px; }
+#jump button { flex: 1; padding: 4px 0; font-size: 12px; }
+#banner { position: fixed; left: 50%; top: 22%; transform: translateX(-50%); text-align: center; pointer-events: none; opacity: 0; transition: opacity .6s ease; text-shadow: 0 1px 12px rgba(0, 0, 0, .7); max-width: calc(100vw - 32px); }
+#banner.show { opacity: 1; }
+#banner h2 { font-family: var(--display); font-weight: 700; font-size: 42px; letter-spacing: .05em; text-transform: uppercase; margin: 2px 0 4px; line-height: 1; }
+#banner p { margin: 0; color: var(--ink); font-size: 13px; }
+@media (pointer: coarse) { #minimap { display: none; } }
+@media (max-width: 720px) { #minimap { display: none; } #banner h2 { font-size: 30px; } #jump button { font-size: 11px; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 
 <canvas id="view" aria-label="3D view of the mud pit"></canvas>
 
 <section id="title" class="panel">
-  <span class="eyebrow">The Washout · soft-ground spike</span>
-  <h1>Mud pit, AWD v5</h1>
-  <p class="help"><kbd>W</kbd>/<kbd>↑</kbd> gas · <kbd>S</kbd>/<kbd>↓</kbd> brake, hold at a stop to reverse · <kbd>A</kbd><kbd>D</kbd> steer · <kbd>Space</kbd> handbrake · <kbd>R</kbd> truck back · <kbd>M</kbd> fresh mud · <kbd>C</kbd> camera · drag the view to orbit the truck, wheel to zoom</p>
+  <span class="eyebrow" id="eyebrow">The Washout · soft-ground spike</span>
+  <h1 id="heading">Mud pit, AWD v5</h1>
+  <p class="help"><kbd>W</kbd>/<kbd>↑</kbd> gas · <kbd>S</kbd>/<kbd>↓</kbd> brake, hold at a stop to reverse · <kbd>A</kbd><kbd>D</kbd> steer · <kbd>Space</kbd> handbrake · <kbd>R</kbd> truck back · <kbd>M</kbd> fresh mud · <kbd>C</kbd> camera · drag the view to orbit the truck, wheel to zoom<span id="jumpHelp" hidden> · <kbd>1</kbd>–<kbd>6</kbd> jump to a section</span></p>
+  <div class="row" id="jump" hidden></div>
   <div class="row"><button id="mobileSoil" class="collapse" type="button">Tune</button><button id="mobileTele" class="collapse" type="button">Wheels</button></div>
 </section>
 
@@ -112,13 +126,19 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 </section>
 
 <section id="tune" class="panel" aria-label="Tuning">
-  <span class="eyebrow">Tune · soil 10 × 24 m, 5 cm cells</span>
+  <span class="eyebrow" id="tuneEyebrow">Tune · soil 10 × 24 m, 5 cm cells</span>
   <form id="ask" class="ask" hidden><input id="askText" type="text" autocomplete="off" placeholder="Say it: soupy mud, huge rooster tails…" aria-label="Describe the setup you want"><button id="askGo" type="submit">Set</button></form>
   <p id="askNote" class="note" hidden></p>
   <div id="groups"></div>
   <div class="row"><button id="resetMud" type="button">Fresh mud</button><button id="resetCar" type="button">Truck back</button><button id="camBtn" type="button">Camera</button></div>
   <div class="row"><button id="resetTune" type="button">Defaults</button></div>
 </section>
+
+<section id="minimap" class="panel" hidden aria-label="Trail map">
+  <div class="where eyebrow"><span id="whereName"></span><span><b id="whereM">0</b> / <span id="whereLen"></span> m</span></div>
+  <canvas id="mapCanvas" width="600" height="220"></canvas>
+</section>
+<div id="banner" aria-live="polite"><span class="eyebrow" id="bannerNum"></span><h2 id="bannerName"></h2><p id="bannerAbout"></p></div>
 
 <div id="pedals">
   <div class="pair"><div class="pad" id="padL" role="button" aria-label="Steer left">◀</div><div class="pad" id="padR" role="button" aria-label="Steer right">▶</div></div>
