@@ -90,7 +90,18 @@ body.ctl-slider #padG, body.ctl-slider #padB, body.ctl-tilt #padG, body.ctl-tilt
 body.ctl-slider #padG { width: 76px; height: 156px; } body.ctl-tilt #padG { width: 76px; height: 156px; }
 .pad b { position: absolute; inset: auto 0 0 0; height: calc(var(--v, 0) * 100%); background: var(--signal); opacity: .22; pointer-events: none; }
 #tiltHint { position: fixed; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); padding: 10px 12px; display: none; color: var(--dim); font-family: var(--display); letter-spacing: .08em; text-transform: uppercase; font-size: 11px; touch-action: none; }
-@media (pointer: coarse) { body.ctl-slider #steerZone { display: block; } body.ctl-tilt #tiltHint { display: block; } }
+/* Two sliders: the steering slider under the left thumb, and under the right a vertical one for the pedals: up from
+   where the thumb lands is gas, down is brake, and on past full brake the handbrake. */
+#pedalZone { position: fixed; right: 0; bottom: 0; width: 50vw; height: 75vh; display: none; touch-action: none; }
+#pedalBase { position: absolute; width: 72px; height: 300px; margin: -150px 0 0 -36px; border-radius: 36px; border: 1px solid var(--line); background: var(--panel); opacity: .55; pointer-events: none; }
+#pedalBase span { position: absolute; left: 0; right: 0; text-align: center; color: var(--dim); font-family: var(--display); font-weight: 700; font-size: 11px; letter-spacing: .06em; }
+#pedalBase .g { top: 10px; } #pedalBase .b { bottom: 46px; } #pedalBase .h { bottom: 10px; }
+#pedalBase i { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); }
+#pedalZone.on #pedalBase { opacity: 1; }
+#pedalZone.on #pedalBase i { border-color: var(--signal); }
+#pedalZone.gas #pedalBase .g, #pedalZone.brk #pedalBase .b, #pedalZone.hb #pedalBase .h { color: var(--signal); }
+body.ctl-dual #pedals { display: none !important; }
+@media (pointer: coarse) { body.ctl-slider #steerZone, body.ctl-dual #steerZone, body.ctl-dual #pedalZone { display: block; } body.ctl-tilt #tiltHint { display: block; } }
 @media (pointer: coarse) {
   #pedals { display: flex; }
   .touchonly { display: inline-block; }
@@ -133,6 +144,7 @@ body.ctl-slider #padG { width: 76px; height: 156px; } body.ctl-tilt #padG { widt
 
 <canvas id="view" aria-label="3D view of the mud pit"></canvas>
 <div id="steerZone" aria-label="Steering: touch and slide sideways"><div id="steerBase"><i>STEER</i></div></div>
+<div id="pedalZone" aria-label="Gas and brake: touch and slide up for gas, down for brake, further down for the handbrake"><div id="pedalBase"><span class="g">GAS</span><span class="b">BRK</span><span class="h">HB</span><i></i></div></div>
 
 <section id="title" class="panel">
   <span class="eyebrow" id="eyebrow">The Washout · soft-ground spike</span>
