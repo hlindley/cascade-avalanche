@@ -79,9 +79,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
    tilt   — the same pedals, steering by turning the phone like a wheel;
    buttons — the original digital ◀ ▶ pads and pedals. */
 .touchonly { display: none; }
-#steerZone { position: fixed; left: 0; bottom: 0; width: 46vw; height: 62vh; display: none; touch-action: none; }
-#steerBase { position: absolute; width: 150px; height: 46px; margin: -23px 0 0 -75px; border-radius: 23px; border: 1px solid var(--line); background: var(--panel); opacity: .55; pointer-events: none; }
-#steerBase i { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--dim); display: grid; place-items: center; font-style: normal; font-family: var(--display); font-weight: 700; font-size: 10px; letter-spacing: .06em; }
+#steerZone { position: fixed; left: 0; bottom: 0; width: 50vw; height: 75vh; display: none; touch-action: none; }
+#steerBase { position: absolute; width: 270px; height: 72px; margin: -36px 0 0 -135px; border-radius: 36px; border: 1px solid var(--line); background: var(--panel); opacity: .55; pointer-events: none; }
+#steerBase i { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--dim); display: grid; place-items: center; font-style: normal; font-family: var(--display); font-weight: 700; font-size: 12px; letter-spacing: .06em; }
 #steerZone.on #steerBase { opacity: 1; }
 #steerZone.on #steerBase i { border-color: var(--signal); color: var(--signal); }
 body.ctl-slider #padL, body.ctl-slider #padR, body.ctl-tilt #padL, body.ctl-tilt #padR { display: none; }
