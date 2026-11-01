@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta name="washout-jev" content="/api/washout/jev"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></head><body>
+<!doctype html><html lang="en"><head><meta name="washout-jev" content="/api/washout/jev"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"></head><body>
 <title>Washout Mud Pit</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +50,8 @@ td.soft { color: var(--signal); }
 .ask { display: flex; gap: 6px; }
 .ask input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 6px 8px; user-select: text; -webkit-user-select: text; }
 .ask input::placeholder { color: var(--dim); }
+/* iOS zooms the page in when a text field under 16px gets focus, and the zoom sticks; 16px on touch screens stops it. */
+@media (pointer: coarse) { .ask input { font-size: 16px; } }
 .note { margin: 0; color: var(--dim); line-height: 1.45; white-space: pre-wrap; }
 input[type=range] { accent-color: var(--signal); width: 100%; }
 select, button { font: inherit; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 5px 8px; }
@@ -70,8 +72,28 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 .pad { width: 68px; height: 68px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--ink); display: grid; place-items: center; font-family: var(--display); font-weight: 700; letter-spacing: .06em; font-size: 14px; }
 .pad.on { border-color: var(--signal); color: var(--signal); }
 .collapse { display: none; }
+/* Touch driving. Three schemes (the Controls button cycles them, ?controls=slider|tilt|buttons picks one):
+   slider — a floating steering slider under the left thumb (touch anywhere low on the left, slide sideways) and analog
+            pedals under the right (where the thumb sits on the pedal is how hard it presses: low is a feather, high is
+            the floor);
+   tilt   — the same pedals, steering by turning the phone like a wheel;
+   buttons — the original digital ◀ ▶ pads and pedals. */
+.touchonly { display: none; }
+#steerZone { position: fixed; left: 0; bottom: 0; width: 46vw; height: 62vh; display: none; touch-action: none; }
+#steerBase { position: absolute; width: 150px; height: 46px; margin: -23px 0 0 -75px; border-radius: 23px; border: 1px solid var(--line); background: var(--panel); opacity: .55; pointer-events: none; }
+#steerBase i { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--dim); display: grid; place-items: center; font-style: normal; font-family: var(--display); font-weight: 700; font-size: 10px; letter-spacing: .06em; }
+#steerZone.on #steerBase { opacity: 1; }
+#steerZone.on #steerBase i { border-color: var(--signal); color: var(--signal); }
+body.ctl-slider #padL, body.ctl-slider #padR, body.ctl-tilt #padL, body.ctl-tilt #padR { display: none; }
+body.ctl-slider #pedals .pair, body.ctl-tilt #pedals .pair { align-items: flex-end; }
+body.ctl-slider #padG, body.ctl-slider #padB, body.ctl-tilt #padG, body.ctl-tilt #padB { position: relative; overflow: hidden; width: 66px; height: 132px; border-radius: 14px; align-items: end; padding-bottom: 10px; box-sizing: border-box; }
+body.ctl-slider #padG { width: 76px; height: 156px; } body.ctl-tilt #padG { width: 76px; height: 156px; }
+.pad b { position: absolute; inset: auto 0 0 0; height: calc(var(--v, 0) * 100%); background: var(--signal); opacity: .22; pointer-events: none; }
+#tiltHint { position: fixed; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); padding: 10px 12px; display: none; color: var(--dim); font-family: var(--display); letter-spacing: .08em; text-transform: uppercase; font-size: 11px; touch-action: none; }
+@media (pointer: coarse) { body.ctl-slider #steerZone { display: block; } body.ctl-tilt #tiltHint { display: block; } }
 @media (pointer: coarse) {
   #pedals { display: flex; }
+  .touchonly { display: inline-block; }
   #tune { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
 }
 @media (max-width: 720px), (pointer: coarse) and (max-height: 500px) { /* phones, upright or on their side */
@@ -110,13 +132,14 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 </style>
 
 <canvas id="view" aria-label="3D view of the mud pit"></canvas>
+<div id="steerZone" aria-label="Steering: touch and slide sideways"><div id="steerBase"><i>STEER</i></div></div>
 
 <section id="title" class="panel">
   <span class="eyebrow" id="eyebrow">The Washout · soft-ground spike</span>
   <h1 id="heading">Mud pit, AWD v5</h1>
   <p class="help"><kbd>W</kbd>/<kbd>↑</kbd> gas · <kbd>S</kbd>/<kbd>↓</kbd> brake, hold at a stop to reverse · <kbd>A</kbd><kbd>D</kbd> steer · <kbd>Space</kbd> handbrake · <kbd>R</kbd> truck back · <kbd>M</kbd> fresh mud · <kbd>C</kbd> camera · drag the view to orbit the truck, wheel to zoom<span id="jumpHelp" hidden> · <kbd>1</kbd>–<kbd>6</kbd> jump to a section</span></p>
   <div class="row" id="jump" hidden></div>
-  <div class="row"><button id="mobileSoil" class="collapse" type="button">Tune</button><button id="mobileTele" class="collapse" type="button">Wheels</button></div>
+  <div class="row"><button id="mobileSoil" class="collapse" type="button">Tune</button><button id="mobileTele" class="collapse" type="button">Wheels</button><button id="ctlBtn" class="touchonly" type="button" aria-label="Touch controls">Slider</button></div>
 </section>
 
 <section id="tele" class="panel" aria-live="off">
@@ -145,8 +168,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 
 <div id="pedals">
   <div class="pair"><div class="pad" id="padL" role="button" aria-label="Steer left">◀</div><div class="pad" id="padR" role="button" aria-label="Steer right">▶</div></div>
-  <div class="pair"><div class="pad" id="padHB" role="button" aria-label="Handbrake">HB</div><div class="pad" id="padB" role="button" aria-label="Brake or reverse">BRK</div><div class="pad" id="padG" role="button" aria-label="Gas">GAS</div></div>
+  <div class="pair"><div class="pad" id="padHB" role="button" aria-label="Handbrake">HB</div><div class="pad" id="padB" role="button" aria-label="Brake or reverse">BRK<b></b></div><div class="pad" id="padG" role="button" aria-label="Gas">GAS<b></b></div></div>
 </div>
+<div id="tiltHint" class="panel" role="button">Turn the phone to steer · tap here to level it</div>
 
 <div id="loading"><div>
   <span class="eyebrow">The Washout</span>
