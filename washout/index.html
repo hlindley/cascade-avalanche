@@ -62,6 +62,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 #loading div { max-width: 420px; display: grid; gap: 10px; }
 #loading p { margin: 0; color: var(--dim); line-height: 1.5; }
 #loading .err { color: var(--bad); }
+#loading .bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+#loading .bar i { display: block; height: 100%; width: 0; background: var(--signal); transition: width .2s ease-out; }
+#loading .pct { font-variant-numeric: tabular-nums; color: var(--ink); }
 #pedals { position: fixed; inset: auto 0 0 0; padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(14px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); display: none; justify-content: space-between; pointer-events: none; }
 #pedals .pair { display: flex; gap: 10px; pointer-events: auto; }
 .pad { width: 68px; height: 68px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--ink); display: grid; place-items: center; font-family: var(--display); font-weight: 700; letter-spacing: .06em; font-size: 14px; }
@@ -148,7 +151,9 @@ button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px s
 <div id="loading"><div>
   <span class="eyebrow">The Washout</span>
   <h1>Loading the physics core</h1>
-  <p id="loadMsg">Downloading the AWD v5 car and soil model (about 5 MB of WebAssembly).</p>
+  <div class="bar" role="progressbar" aria-label="Loading" aria-valuemin="0" aria-valuemax="100" id="loadBar"><i id="loadFill"></i></div>
+  <p><span class="pct" id="loadPct">0%</span> · <span id="loadStage">Downloading the page</span></p>
+  <p id="loadMsg">First visit downloads about 5 MB (the physics core and the Bronco); later visits load from your browser's cache.</p>
 </div></div>
 
 <!-- 'three' for the GLTFLoader that loads the truck: the same three.js build the page imports by URL. -->
