@@ -1,20 +1,20 @@
 {
   "mainAssemblyName": "WashoutCore",
   "resources": {
-    "hash": "sha256-IojlT7UySl++Y/1IwmRJc4Exmu/Tlsrtxy3WT4HHQbA=",
+    "hash": "sha256-TbbGqZ8/Ar2Ndcyty7y3VwK5DLqTWIidsErb5fj+sj4=",
     "jsModuleNative": {
       "dotnet.native.8.0.33.kdhqsm7e0t.js": "sha256-my4DP/WaMNMhff4M/wWWjWQS4uIMN4DMpVE4R5I4Mmg="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.8.0.33.q1mn7mvd0d.js": "sha256-aa75BhVU2iAzc0Nj93nvwfQ2raXDjiW4VBNfRLHRJgM="
+      "dotnet.runtime.8.0.33.txynh0ij5s.js": "sha256-aa75BhVU2iAzc0Nj93nvwfQ2raXDjiW4VBNfRLHRJgM="
     },
     "wasmNative": {
-      "dotnet.native.wasm": "sha256-V0vc0Db9hwTTQWnyUrnDP7d9oRWRlB++Cd2AgNHJIKU="
+      "dotnet.native.wasm": "sha256-CKEqHNXosgLY68/0ltGGbYLAcrXz3qf9TgS48Utd3sY="
     },
     "assembly": {
       "System.Private.CoreLib.wasm": "sha256-0+yDOHoE+S8zyJtrPxMSH0qWy6YPE34QzsjpWcruYOc=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-l30E62O2WLodOH3grxSD+dQNPPe6nBRfdL0Meznbfpg=",
-      "WashoutCore.wasm": "sha256-MHAj4G3C7PgAuzCqeKaqaXT1rirQnDL3uGia+ov3QR0="
+      "WashoutCore.wasm": "sha256-dGwiyAzK+EPYt5vuXcQ16ApJ2K1wj0ss3PXLvELnQxg="
     }
   },
   "cacheBootResources": true,
